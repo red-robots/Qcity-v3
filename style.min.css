@@ -2016,7 +2016,7 @@ section.red-band .wrapper{line-height:1.2}
 .home-stories-feed .story{width:100%;padding:10px}
 @media(min-width:600px){.home-stories-feed .story{width:50%}
 }@media(min-width:820px){.home-stories-feed .story{width:25%}
-}.home-stories-feed .story .link{display:block;width:100%;float:left;position:relative;background-size:cover;background-position:center;background-repeat:no-repeat}
+}.home-stories-feed .story .link{display:block;width:100%;float:left;position:relative;background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#383838}
 .home-stories-feed .story .photo{position:relative}
 .home-stories-feed .story .photo img{width:100%;height:auto;float:left}
 .home-stories-feed .story .title,.home-stories-feed .story .desc{display:block}
