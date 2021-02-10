@@ -1,0 +1,36 @@
+.custom-color {
+  color: #444;
+}
+.is-style-qbuttonred .wp-block-button__link, 
+.is-style-qbuttonyellow .wp-block-button__link, 
+.is-style-qbuttonblack .wp-block-button__link {
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0;
+  -webkit-transition: all ease 0.2s;
+  transition: all ease 0.2s; }
+  .is-style-qbuttonred .wp-block-button__link a:hover, 
+  .is-style-qbuttonyellow .wp-block-button__link a:hover, 
+  .is-style-qbuttonblack .wp-block-button__link a:hover {
+    text-decoration: none; }
+
+.is-style-qbuttonred .wp-block-button__link {
+  background-color: #924020;
+  color: #c4a92f; }
+  .is-style-qbuttonred a:hover {
+    background-color: #262425;
+    color: #c4a92f; }
+
+.is-style-qbuttonyellow .wp-block-button__link {
+  background-color: #c4a92f;
+  color: #262425; }
+  .is-style-qbuttonyellow a:hover {
+    background-color: #262425;
+    color: #c4a92f; }
+
+.is-style-qbuttonblack .wp-block-button__link {
+  background-color: #262425;
+  color: #c4a92f; }
+  .is-style-qbuttonblack a:hover {
+    background-color: #c4a92f;
+    color: #262425; }
