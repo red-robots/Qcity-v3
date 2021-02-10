@@ -1,5 +1,5 @@
 @charset "UTF-8";/*!
-Theme Name: Qcity 3.0
+Theme Name: Qcitymetro 3.0
 Theme URI: http://austincrane.me/
 Author: Austin Crane
 Author URI: http://austincrane.me/
@@ -3624,6 +3624,7 @@ body.single-post #sidebar-single-post{margin:22px 0 30px;position:relative !impo
 section.home-bottom .hearken{width:100%;float:left;margin:20px 0}
 .mobile-version .mobile-bottom-ads{width:100%;float:left;top:0}
 .sponsoredEventsDiv .boxLink span.info{min-height:100px}
+div.ad .home-sb-subscribe-form{margin-top:15px}
 }body.archive .widget-area.category-post .form-subscribe-blue,body.scrolled.archive .widget-area.category-post .form-subscribe-blue{opacity:1 !important}
 body.archive #widget-singleSidebar,body.scrolled.archive #widget-singleSidebar{position:relative !important;top:0 !important}
 body.archive #widget-singleSidebar #widget-trending-post,body.scrolled.archive #widget-singleSidebar #widget-trending-post{height:auto !important;overflow:visible}

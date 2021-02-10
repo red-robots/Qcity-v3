@@ -60,11 +60,10 @@
 	    <!-- Business Directory Home -->
 		</div>
 
-    <div class="mobile-version hearken">
+    <div class="mobile-version hearken" style="display:none!important">
     	<?php if( $right_rail = get_ads_script('right-rail') ) {  ?>
 			<div class="mobile-bottom-ads"><?php echo $right_rail['ad_script']; ?></div>
     	<?php } ?>
-        <script async src="https://modules.wearehearken.com/qcitymetro/embed/4551.js"></script>
     </div>
 
     <div class="mobile-version" style="margin-top: 20px; text-align: center"> <!-- Business Directory Home -->
