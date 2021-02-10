@@ -57,7 +57,7 @@ jQuery(document).ready(function($){
 		$("#sponsoredPosts").slick({
 	    dots: true,
 	    infinite: false,
-	    variableWidth: true,
+	    variableWidth: true
 	  });
 	  
 	  function carouselInit() {
@@ -72,25 +72,33 @@ jQuery(document).ready(function($){
 	  }
 	}
 
-	
-	convertStoriesToCarousel();
-	$(window).on('resize', function() {
-    convertStoriesToCarousel();
-	});
-	function convertStoriesToCarousel() {
-		var viewportWidth = $(window).width();
-		if( $("#homeStories").length>0 ) {
-	    if (viewportWidth < 830 ) {
-	      $("#homeStories").slick({
-			    dots: true,
-			    infinite: false,
-			    variableWidth: true,
-			  });
-	    } else {
-	    	$("#homeStories").slick('unslick');
-	    }
-	  }
+	if( $("#homeStoriesMobile").length>0 ) {
+		$("#homeStoriesMobile").slick({
+	    dots: false,
+	    infinite: false,
+	    variableWidth: true
+	  });
 	}
+
+
+	// convertStoriesToCarousel();
+	// $(window).on('resize', function() {
+ //    convertStoriesToCarousel();
+	// });
+	// function convertStoriesToCarousel() {
+	// 	var viewportWidth = $(window).width();
+	// 	if( $("#homeStories").length>0 ) {
+	//     if (viewportWidth < 830 ) {
+	//       $("#homeStories").slick({
+	// 		    dots: true,
+	// 		    infinite: false,
+	// 		    variableWidth: true,
+	// 		  });
+	//     } else {
+	//     	$("#homeStories").slick('unslick');
+	//     }
+	//   }
+	// }
 
 	/* Change the subscribe button name */
   // if( $(".form-subscribe-blue .gform_footer").length>0 ) {

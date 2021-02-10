@@ -57,7 +57,7 @@ if($is_show_stories) { ?>
             $posts = new WP_Query($args);
             if ( $posts->have_posts() ) { ?>
             <div class="story-posts">
-                <div id="homeStories" class="flexwrap">
+                <div id="homeStories" class="flexwrap hideOnMobile">
                     <?php while ( $posts->have_posts() ) : $posts->the_post(); 
                         $thumbnail_photo = get_field("thumbnail_photo");
                         $story_description = get_field("story_description");
@@ -81,6 +81,32 @@ if($is_show_stories) { ?>
 
                     <?php endwhile; wp_reset_postdata(); ?>
                 </div>
+
+                <div id="homeStoriesMobile" class="flexwrap showOnMobile" style="display:none;">
+                    <?php while ( $posts->have_posts() ) : $posts->the_post(); 
+                        $thumbnail_photo = get_field("thumbnail_photo");
+                        $story_description = get_field("story_description");
+                        $title = get_the_title();
+                        $bg = ($thumbnail_photo) ? ' style="background-image:url('.$thumbnail_photo['url'].')"':'';
+                        $pagelink = get_permalink();
+                    ?>
+                        <div class="story">
+                            <div class="photo <?php echo ($thumbnail_photo) ? 'hasphoto':'nophoto'; ?>">
+                                <a href="<?php echo $pagelink ?>" class="link imgdiv"<?php echo $bg ?>>
+                                    <img src="<?php echo $placeholder ?>" alt="" aria-hidden="true">
+                                    <span class="title">
+                                        <span class="name"><?php echo $title ?></span>
+                                        <?php if ($story_description) { ?>
+                                        <span class="desc"><?php echo $story_description ?></span>
+                                        <?php } ?>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+
+                    <?php endwhile; wp_reset_postdata(); ?>
+                </div>
+
 
                 <?php if ($storyPageLink) { ?>
                 <div class="buttondiv">

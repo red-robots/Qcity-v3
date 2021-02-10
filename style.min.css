@@ -1,5 +1,5 @@
 @charset "UTF-8";/*!
-Theme Name: Qcitymetro 3.0
+Theme Name: Qcity 3.0
 Theme URI: http://austincrane.me/
 Author: Austin Crane
 Author URI: http://austincrane.me/
@@ -2026,6 +2026,7 @@ section.red-band .wrapper{line-height:1.2}
 .home-stories-feed .story .name{font-size:16px;line-height:1.2}
 .home-stories-feed .story .desc{font-size:14px}
 .home-stories-feed .story .link:hover .title{background:#c4a92f;color:#000}
+.home-stories-feed .story.slick-slide{width:300px}
 .home-stories-feed .buttondiv{text-align:center;margin-top:30px;margin-bottom:10px}
 @media(min-width:820px){.home-stories-feed .buttondiv{margin-top:40px}
 }.home-stories-feed .moreBtn{background:#924020;color:#FFF;padding:12px 20px 10px}
@@ -2046,6 +2047,7 @@ section.red-band .wrapper{line-height:1.2}
 #homeStories .slick-next:before,#homeStories .slick-next:after{top:0;right:11px}
 #homeStories .slick-next:before{top:17px;-webkit-transform:rotate(-45deg);-ms-transform:rotate(-45deg);transform:rotate(-45deg)}
 #homeStories .slick-next:after{top:11px;-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}
+#homeStoriesMobile .slick-arrow,#homeStoriesMobile ul.slick-dots{display:none !important}
 body.sticky-sponsor.single-story .new-page-fullwrap .sponsor-info img{width:150px}
 body.sticky-sponsor.single-story .new-page-fullwrap .top-page{padding-top:25px;padding-bottom:20px}
 @media(min-width:820px){body.sticky-sponsor.single-story .new-page-fullwrap .top-page{padding-top:18px;padding-bottom:13px}
@@ -3331,7 +3333,7 @@ body.logged-in.admin-bar #wpadminbar{position:fixed !important;top:0;left:0;widt
 body.logged-in.admin-bar .category-elections .page-top-area{padding-top:0}
 body.logged-in.admin-bar.category-election-2020 #content{padding-top:0}
 .member_lists .members ul{-webkit-column-count:1;-moz-column-count:1;column-count:1}
-}@media screen and (max-width:860px){.mobile-carousel-posts,.showOnMobile{display:block}
+}@media screen and (max-width:860px){.mobile-carousel-posts,.showOnMobile{display:block !important}
 .hideOnMobile{display:none !important}
 section.stickies-new.stickyPostsTop .story-block.stickRightBlock .textwrap{border-bottom:0;padding-bottom:0;margin-bottom:0}
 section.home-sponsored.v2{margin-top:15px}

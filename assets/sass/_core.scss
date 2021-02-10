@@ -1527,6 +1527,9 @@ section.red-band {
 				color: #000;
 			}
 		}
+		&.slick-slide {
+			width: 300px;
+		}
 	}
 	.buttondiv {
 		text-align: center;
@@ -1613,6 +1616,10 @@ section.red-band {
     	transform: rotate(45deg);
 		}
 	}
+}
+#homeStoriesMobile {
+	.slick-arrow,
+	ul.slick-dots {display:none!important;}
 }
 
 body.sticky-sponsor.single-story {
@@ -9122,7 +9129,7 @@ body.modal-open {
 
 @media screen and (max-width: 860px) {
 	.mobile-carousel-posts, .showOnMobile {
-		display: block;
+		display: block!important;
 	}
 	.hideOnMobile {
 		display: none!important;
