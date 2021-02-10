@@ -10594,6 +10594,9 @@ body.single-post .entry-footer, .sponsoredDataDiv {
 		float: left;
 		top: 0;
 	}
+	.sponsoredEventsDiv .boxLink span.info {
+		min-height: 100px;
+	}
 }
 body.archive,
 body.scrolled.archive {
