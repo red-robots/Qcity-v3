@@ -92,13 +92,19 @@ if( function_exists('acf_add_options_page') ) {
     acf_add_options_sub_page(array(
         'page_title'     => 'Story Options',
         'menu_title'    => 'Story Options',
-        'parent_slug'    => 'edit.php?post_type=story',
+        'parent_slug'    => 'edit.php?post_type=story'
     ));
 
     acf_add_options_sub_page(array(
         'page_title'     => 'Elections Options',
         'menu_title'    => 'Elections Options',
-        'parent_slug'    => 'edit.php',
+        'parent_slug'    => 'edit.php'
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title'     => 'Ad Display Sections',
+        'menu_title'    => 'Ad Display Sections',
+        'parent_slug'    => 'edit.php?post_type=ad'
     ));
 }
 

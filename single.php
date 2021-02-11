@@ -90,7 +90,28 @@ $content_class = ($is_sponsored_post) ? 'is-sponsored-post':'normal-post';
 
 		<?php if (!$is_sponsored_post) { ?>
 		<div id="singleSidebar" class="singleSidebar stickySidebar">
-		<?php get_template_part( 'template-parts/trending-posts-widget');	?>
+			<?php 
+				$adList = array();
+				$ads = get_field("trending_ads","option");  
+				if($ads) {
+		  		foreach($ads as $ad_id) {
+		  			$adScript = get_field('ad_script',$ad_id);
+		  			if($adScript) {
+		  				$adList[] = $adScript;
+		  			}
+		  		}
+		  	}
+			?>
+
+			<?php if ($adList) { ?>
+	  	<div class="sideBarAds">
+	  		<?php foreach ($adList as $ad) { ?>
+	  			<div class="adBox"><?php echo $ad ?></div>
+	  		<?php } ?>
+	  	</div>
+	  	<?php } ?>
+
+			<?php get_template_part( 'template-parts/trending-posts-widget');	?>
 		</div>
 		<?php } ?>
 

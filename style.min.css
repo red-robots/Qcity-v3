@@ -2048,6 +2048,7 @@ section.red-band .wrapper{line-height:1.2}
 #homeStories .slick-next:before{top:17px;-webkit-transform:rotate(-45deg);-ms-transform:rotate(-45deg);transform:rotate(-45deg)}
 #homeStories .slick-next:after{top:11px;-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}
 #homeStoriesMobile .slick-arrow,#homeStoriesMobile ul.slick-dots{display:none !important}
+#homeStoriesMobile .story.slick-slide{width:300px}
 body.sticky-sponsor.single-story .new-page-fullwrap .sponsor-info img{width:150px}
 body.sticky-sponsor.single-story .new-page-fullwrap .top-page{padding-top:25px;padding-bottom:20px}
 @media(min-width:820px){body.sticky-sponsor.single-story .new-page-fullwrap .top-page{padding-top:18px;padding-bottom:13px}
@@ -3395,7 +3396,10 @@ div.ctct-form-embed div.ctct-form-defaults p.ctct-form-text{font-size:15px !impo
 .sidebar-sponsored-posts.mobile{display:block}
 .sidebar-sponsored-posts .sp-item{display:none}
 .sidebar-sponsored-posts .sp-item.sp1{display:block;margin-bottom:15px;border-bottom:1px solid #dedcdc;padding-bottom:23px}
-}@media screen and (max-width:820px){#sponsoredPostDiv{width:100%;float:left}
+}.sidebar-sponsored-posts .sc_adbox{margin-bottom:10px}
+.sidebar-sponsored-posts .sc_adbox span,.sidebar-sponsored-posts .sc_adbox a{display:block;width:100%}
+.sidebar-sponsored-posts .sc_adbox img{width:100%;height:auto}
+@media screen and (max-width:820px){#sponsoredPostDiv{width:100%;float:left}
 }.content-inner-wrap{margin-bottom:20px}
 body.single-post div.category,body.archive.category div.category{margin-top:0}
 body.single-post #main,body.archive.category #main{max-width:980px;width:100%;margin:0 auto;padding-left:20px;padding-right:20px;position:relative}
@@ -3431,7 +3435,7 @@ body.single-post .ads_home_leaderboard,body.archive.category .ads_home_leaderboa
 .stickySidebar #sidebar-single-post{background-color:#FFF;margin-top:6vh;position:relative}
 .stickySidebar #sidebar-single-post.fixed{margin-top:0;top:15vh}
 .stickySidebar.not-fixed #sidebar-single-post{top:22vh}
-}.sideBarAds{width:100%;float:left;margin-bottom:20px}
+}.sideBarAds{width:100%;float:left;margin-bottom:10px}
 .sideBarAds .adBox{width:100%;float:left;margin-bottom:8px}
 .sideBarAds a,.sideBarAds img{display:block;width:100%;height:auto;float:left}
 .widget-area.category-post #sidebar-single-post{max-width:100% !important}
@@ -3587,7 +3591,7 @@ body.single-post .entry-footer,.sponsoredDataDiv{width:100%;float:left}
 @media screen and (max-width:1025px){.logo,h1.logo{width:90px}
 .main-navigation a{padding:0 12px;top:8px}
 .main-navigation #primary-menu a.redbutton{top:2px}
-}@media screen and (max-width:820px){#footTrending{display:none !important}
+}@media screen and (max-width:820px){.sideBarAds,#footTrending{display:none !important}
 body.single-post #main{width:100%}
 body.single-post #main .content-single-page{padding-left:0;padding-right:0}
 body.single-post #content .story-image.s2{margin-bottom:0}
@@ -3627,6 +3631,9 @@ section.home-bottom .hearken{width:100%;float:left;margin:20px 0}
 .mobile-version .mobile-bottom-ads{width:100%;float:left;top:0}
 .sponsoredEventsDiv .boxLink span.info{min-height:100px}
 div.ad .home-sb-subscribe-form{margin-top:15px}
+body.home .subscribe-wrap .subscribe{padding:25px 20px 20px}
+.home-bottom{width:100%;float:left}
+.home-bottom .jobs,.home-bottom .mobile-version{width:100%;float:left}
 }body.archive .widget-area.category-post .form-subscribe-blue,body.scrolled.archive .widget-area.category-post .form-subscribe-blue{opacity:1 !important}
 body.archive #widget-singleSidebar,body.scrolled.archive #widget-singleSidebar{position:relative !important;top:0 !important}
 body.archive #widget-singleSidebar #widget-trending-post,body.scrolled.archive #widget-singleSidebar #widget-trending-post{height:auto !important;overflow:visible}

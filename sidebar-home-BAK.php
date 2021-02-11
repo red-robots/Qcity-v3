@@ -1,9 +1,26 @@
 <section class="ads-home">
 
-    <?php  
-    /* Ads */
-    //$ad1 = get_field("ad1_sponsored_content_home","option");
-    ?>
+    <?php $right_rail =  get_ads_script('right-rail');   ?>
+    <?php if ( isset($right_rail['ad_script']) && $right_rail['ad_script'] ) { ?>
+    <!-- Right Rail Home -->
+    <div class="desktop-version align-center"> <!-- Right Rail Home -->
+        <?php  echo $right_rail['ad_script']; ?>
+    </div>
+    <?php } ?>
+    
+    <?php /* West Side Connect  or Hearken Subscription Form */ ?>
+    <!-- <script async src="https://modules.wearehearken.com/wndr/embed/868.js"></script> -->
+    <!-- <div class="desktop-version" style="margin-bottom: 20px">
+        <script async src="https://modules.wearehearken.com/qcitymetro/embed/4551.js"></script>
+    </div> -->
+
+    <?php $ad_right = get_ads_script('small-ad-right');  ?>
+    <?php if ( isset($ad_right['ad_script']) && $ad_right['ad_script'] ) { ?>
+    <div class="desktop-version align-center">
+        <?php echo $ad_right['ad_script']; ?>
+    </div>
+    <?php } ?>
+    <!-- Small Optional Ad Right -->
 
     <?php 
     $numdays = 71;
@@ -42,23 +59,7 @@
             $featImage =  ( has_post_thumbnail($sp_id) ) ? wp_get_attachment_image_src( get_post_thumbnail_id($sp_id), 'large') : '';
             $bgImg = ($featImage) ? $featImage[0] : $default;
             $pagelink = get_the_permalink($sp_id); 
-            $postdate = get_the_date('F j,Y',$sp_id); 
-            $ad1 = get_field("ad1_sponsored_content_home","option");
-            $ad2 = get_field("ad2_sponsored_content_home","option");
-            ?>
-            <?php if ($ctr==1) { ?>
-              <?php if ($ad1) { ?>
-                <?php if ($ad_info = get_field("ad_script",$ad1)) { ?>
-                <div class="sc_adbox sponsoredAd1"><?php echo $ad_info ?></div>
-                <?php } ?>
-              <?php } ?>
-            <?php }  else if ($ctr==2) { ?>
-              <?php if ($ad2) { ?>
-              <?php if ($ad_info = get_field("ad_script",$ad2)) { ?>
-                <div class="sc_adbox sponsoredAd2"><?php echo $ad_info ?></div>
-                <?php } ?>
-              <?php } ?>
-            <?php } ?>
+            $postdate = get_the_date('F j,Y',$sp_id); ?>
             <article id="sponsoredPost<?php echo $sp_id?>" class="sp-item sp<?php echo $ctr ?>">
               <div class="inside">
                   <a href="<?php echo $pagelink;?>" class="thumb">

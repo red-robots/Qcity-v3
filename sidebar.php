@@ -95,6 +95,7 @@ if( is_page('events') ) {
 }
 ?>
 
+<!-- ARCHIVE WIDGETS -->
 <div class="widget-area category-post">
 
 <?php 

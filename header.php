@@ -104,8 +104,6 @@ if($articles) {
 <meta property="og:image"              content="<?php echo $mainPic['url'] ?>" />
 <?php } ?>
 <?php } ?>
-
-
 </head>
 <?php
 $dd = date('d') - 1;

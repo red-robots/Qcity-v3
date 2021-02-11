@@ -67,9 +67,8 @@ if($postType=='post') { ?>
   	<div class="helper"></div>
   	<?php 
   	if($ads) {
-  		foreach($ads as $a) {
-  			$id = $a->ID;
-  			$adScript = get_field('ad_script',$id);
+  		foreach($ads as $ad_id) {
+  			$adScript = get_field('ad_script',$ad_id);
   			if($adScript) {
   				$adList[] = $adScript;
   			}

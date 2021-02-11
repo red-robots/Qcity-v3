@@ -1620,6 +1620,9 @@ section.red-band {
 #homeStoriesMobile {
 	.slick-arrow,
 	ul.slick-dots {display:none!important;}
+	.story.slick-slide {
+		width: 300px;
+	}
 }
 
 body.sticky-sponsor.single-story {
@@ -9452,6 +9455,18 @@ div.ctct-form-embed div.ctct-form-defaults p.ctct-form-text {
 			padding-bottom: 23px;
 		}
 	}
+
+	.sc_adbox {
+		margin-bottom: 10px;
+		span, a {
+			display: block;
+			width: 100%;
+		}
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
 }
 #sponsoredPostDiv {
 	@media screen and (max-width:820px) {
@@ -9630,7 +9645,7 @@ body.archive.category {
 .sideBarAds {
 	width: 100%;
 	float: left;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	.adBox {
 		width: 100%;
 		float: left;
@@ -10449,6 +10464,7 @@ body.single-post .entry-footer, .sponsoredDataDiv {
 }
 
 @media screen and (max-width:820px) {
+	.sideBarAds,
 	#footTrending{display:none!important}
 	body.single-post #main {
 		width: 100%;
@@ -10610,6 +10626,18 @@ body.single-post .entry-footer, .sponsoredDataDiv {
 	div.ad .home-sb-subscribe-form {
 		margin-top: 15px;
 	}
+	body.home .subscribe-wrap .subscribe {
+		padding: 25px 20px 20px;
+	}
+	.home-bottom {
+		width: 100%;
+		float: left;
+		.jobs, .mobile-version {
+			width: 100%;
+			float: left;
+		}
+	}
+
 }
 body.archive,
 body.scrolled.archive {
