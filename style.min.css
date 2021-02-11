@@ -3396,9 +3396,9 @@ div.ctct-form-embed div.ctct-form-defaults p.ctct-form-text{font-size:15px !impo
 .sidebar-sponsored-posts.mobile{display:block}
 .sidebar-sponsored-posts .sp-item{display:none}
 .sidebar-sponsored-posts .sp-item.sp1{display:block;margin-bottom:15px;border-bottom:1px solid #dedcdc;padding-bottom:23px}
-}.sidebar-sponsored-posts .sc_adbox{margin-bottom:10px}
-.sidebar-sponsored-posts .sc_adbox span,.sidebar-sponsored-posts .sc_adbox a{display:block;width:100%}
-.sidebar-sponsored-posts .sc_adbox img{width:100%;height:auto}
+}.sidebar-sponsored-posts .sc_adbox{width:100%;float:left;margin-bottom:10px}
+.sidebar-sponsored-posts .sc_adbox span,.sidebar-sponsored-posts .sc_adbox a{display:block;width:100%;float:left}
+.sidebar-sponsored-posts .sc_adbox img{width:100%;height:auto;float:left}
 @media screen and (max-width:820px){#sponsoredPostDiv{width:100%;float:left}
 }.content-inner-wrap{margin-bottom:20px}
 body.single-post div.category,body.archive.category div.category{margin-top:0}

@@ -9457,14 +9457,18 @@ div.ctct-form-embed div.ctct-form-defaults p.ctct-form-text {
 	}
 
 	.sc_adbox {
+		width: 100%;
+		float: left;
 		margin-bottom: 10px;
 		span, a {
 			display: block;
 			width: 100%;
+			float: left;
 		}
 		img {
 			width: 100%;
 			height: auto;
+			float: left;
 		}
 	}
 }
