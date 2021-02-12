@@ -1217,7 +1217,7 @@ foreach($gravityFormsSelections as $fieldname) {
 }
 
 
-function get_sponsored_posts($terms,$numdays=61,$perpage=3) {
+function get_sponsored_posts($terms,$numdays=61,$perpage=3,$randomize=false) {
     global $wpdb;
     $prefix = $wpdb->prefix;
     $slugs = explode("+",$terms);
@@ -1225,10 +1225,14 @@ function get_sponsored_posts($terms,$numdays=61,$perpage=3) {
     $entries = array();
     $items = array();
     $final_output = array();
+    $extra_condition = '';
+    if($numdays>0) {
+        $extra_condition = ' AND  DATE(p.post_date) >= DATE(NOW()) - INTERVAL '.$numdays.' DAY ';
+    }
     foreach($slugs as $slug) {
         $query = "SELECT p.ID,p.post_title,p.post_date, terms.term_id, terms.name AS catname, terms.slug AS catslug FROM ".$prefix."posts p, ".$prefix."term_relationships rel, ".$prefix."terms terms,".$prefix."term_taxonomy tax
                   WHERE rel.term_taxonomy_id=terms.term_id AND rel.term_taxonomy_id=tax.term_taxonomy_id AND tax.taxonomy='category' AND terms.slug='".$slug."'
-                  AND p.ID=rel.object_id AND p.post_type='post' AND p.post_status='publish' AND  DATE(p.post_date) >= DATE(NOW()) - INTERVAL ".$numdays." DAY ORDER BY p.post_date DESC";
+                  AND p.ID=rel.object_id AND p.post_type='post' AND p.post_status='publish' ".$extra_condition." ORDER BY p.post_date DESC";
         $result = $wpdb->get_results($query);
         if($result) {
             foreach($result as $row) {
@@ -1247,33 +1251,45 @@ function get_sponsored_posts($terms,$numdays=61,$perpage=3) {
         if($group1 && $group2) {
             foreach($group2 as $pid) {
                 if(in_array($pid,$group1) ) {
-                    if( $data = get_post($pid) ) {
-                      $items[] = $data;
-                    }
+                    // if( $data = get_post($pid) ) {
+                    //   $items[] = $data;
+                    // }
+                    $items[] = $pid;
                 }
             }
         }
       } else {
         $k = $slugs[0];
         foreach($entries[$k] as $pid) {
-          if( $data = get_post($pid) ) {
-            $items[] = $data;
-          }
+            $items[] = $pid;
+            // if( $data = get_post($pid) ) {
+            //     $obj = new stdClass();
+            //     $obj->ID = $pid;
+            //     $obj->post_date = $data->post_date;
+            //     $items[] = $obj;
+            // }
         }
       }
     }
     
+    
+
     if($items) {
+        if($randomize) {
+            shuffle($items);
+        }
+        // echo "<pre>";
+        // print_r($items);
+        // echo "</pre>";
         $total = count($items);
         $range = range(0,($total-1));
-        shuffle($range);
-        $ctr=1; foreach($range as $i) {
-            if($ctr<=$perpage) {
-                $data = $items[$i];
-                $final_output[] = $data;
+        $end = ($perpage>0) ? $perpage : $total;
+        for($i=0; $i<$end; $i++) {
+            if( isset($items[$i]) && $items[$i] ) {
+                $final_output[] = $items[$i];
             }
-            $ctr++;
         }
+        
     }
 
     return $final_output;
