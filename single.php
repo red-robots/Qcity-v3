@@ -111,7 +111,7 @@ $content_class = ($is_sponsored_post) ? 'is-sponsored-post':'normal-post';
 	  	</div>
 	  	<?php } ?>
 
-			<?php get_template_part( 'template-parts/trending-posts-widget');	?>
+			<?php //get_template_part( 'template-parts/trending-posts-widget');	?>
 		</div>
 		<?php } ?>
 
