@@ -9819,6 +9819,7 @@ body.scrolled {
 		// top: 25vh;
 		@include tab {
 			position: fixed;
+			top: 125px;
 		}
 	}
 	&.sidebar-nofixed {
@@ -9837,7 +9838,7 @@ body.scrolled {
 			position: fixed;
 			height: 100%!important;
 			overflow: hidden;
-			padding-bottom: 160px;
+			padding-bottom: 140px;
 			.trending-sidebar-wrap {
 				height: 100%;
 				overflow: auto;
