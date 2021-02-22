@@ -1343,3 +1343,5 @@ function get_trending_articles($perpage=5) {
     return $entries;
 }
 
+
+

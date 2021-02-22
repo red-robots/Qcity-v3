@@ -9530,10 +9530,14 @@ body.archive.category {
 			margin: 0 0 10px;
 		}
 		.trending-sidebar-wrap {
+			max-width: 100%;
 			width: 100%;
 			float: left;
 			border: 1px solid #dedede;
 			padding: 15px;
+			@include tab {
+				max-width: 265px;
+			}
 		}
 		#sbContent, .sbWrap {
 			width: 100%;
@@ -9702,6 +9706,7 @@ body.archive.category {
 		}
 	}
 	.trending-sidebar-wrap {
+		max-width: 265px;
 		width: 100%;
 		float: left;
 		background: #FFF;
@@ -9711,19 +9716,21 @@ body.archive.category {
 	.sbTitle {
 		margin: 0 0 10px;
 	}
+	ul.wpp-list,
 	.trending-entries {
 		width: 100%;
 		float: left;
 		margin: 0 0;
 		padding: 0 0;
 		list-style: none;
-		li.entry {
+		counter-reset: listCounter;
+		li {
 			width: 100%;
 			float: left;
 			border-top: 1px solid #dedede;
 			position: relative;
 		}
-		li.entry:first-child {
+		li:first-child {
 			border-top: none;
 		}
 		.trendImg {
@@ -9734,6 +9741,27 @@ body.archive.category {
 				width: 100%;
 				height: auto;
 				float: left;
+			}
+		}
+		a.wpp-post-title {
+			margin-top: 15px;
+			counter-increment: listCounter;
+			position: relative;
+			padding-left: 16px;
+			&:before {
+				content: counter(listCounter);
+				display: inline-block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				font-size: 14px;
+				font-weight: 600;
+			}
+			&:hover {
+				color: $color-yellow;
+				&:before {
+					color: $color-red;
+				}
 			}
 		}
 	}
@@ -9760,6 +9788,22 @@ body.archive.category {
 			color: $color__text-main;
     }
 	}
+	ul.wpp-list li a {
+		display: block;
+		width: 100%;
+		float: left;
+		img {
+			display: none;
+		}
+	}
+	ul.wpp-list li:nth-child(1) a img {
+		display: block;
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+
 	@media screen and (max-width: 480px) {
 		margin-bottom: 30px;
 		#widget-trending-post {
@@ -9768,6 +9812,7 @@ body.archive.category {
 		}
 	}
 }
+
 
 body.scrolled {
 	#widget-singleSidebar {
@@ -9785,6 +9830,26 @@ body.scrolled {
 	.widget-area.category-post .form-subscribe-blue {
 		@include tab {
 			opacity: 0;
+		}
+	}
+	#widget-singleSidebar #widget-trending-post {
+		@include tab {
+			position: fixed;
+			height: 100%!important;
+			overflow: hidden;
+			padding-bottom: 160px;
+			.trending-sidebar-wrap {
+				height: 100%;
+				overflow: auto;
+				border: none;
+				padding: 0 0;
+			}
+			#sbContent {
+				width: 100%;
+				float: left;
+				padding: 15px;
+				border: 1px solid #dedede;
+			}
 		}
 	}
 }

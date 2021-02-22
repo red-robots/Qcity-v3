@@ -983,92 +983,6 @@ jQuery(document).ready(function ($) {
         $(this).find("input").focus();
     });
 
-    var stickySidebarEl = $(".stickySidebar");
-    var offset = stickySidebarEl.offset();
-
-    var sidebarFloat = document.querySelector('#sidebar-single-post');
-    var footer = document.querySelector('#beforeFooter');
-
-    function checkOffset() {
-      function getRectTop(el){
-        var rect = el.getBoundingClientRect();
-        return rect.top;
-      }
-      
-
-      if((getRectTop(sidebarFloat) + document.body.scrollTop) + sidebarFloat.offsetHeight >= (getRectTop(footer) + document.body.scrollTop) - 10)
-        sidebarFloat.style.position = 'absolute';
-      if(document.body.scrollTop + window.innerHeight < (getRectTop(footer) + document.body.scrollTop))
-        sidebarFloat.style.position = 'fixed'; // restore when you scroll up      
-      //sidebarFloat.innerHTML = document.body.scrollTop + window.innerHeight;
-      //var offset = document.body.scrollTop + window.innerHeight;
-      getSidebarHelperSize();    
-    }
-
-    getSidebarHelperSize();  
-
-    if( $('#sidebar-single-post').length>0 ) {
-
-        document.addEventListener("scroll", function(){
-            checkOffset();
-            if ($(window).scrollTop() > offset.top) {
-                $('#sidebar-single-post').addClass('fixed');
-            } else {
-                $('#sidebar-single-post').removeClass('fixed');
-            }
-        });
-
-        if ($(window).scrollTop() > offset.top) {
-            checkOffset();
-            $('#sidebar-single-post').addClass('fixed');
-        } else {
-            $('#sidebar-single-post').removeClass('fixed');
-        }
-
-    }
-
-    if( $("#sidebar-single-post").length>0 ) {
-        var helperWidth = $(".stickySidebar .helper").width();
-        $("#sidebar-single-post").attr('data-width',helperWidth+"px");
-    }
-
-    $(window).resize(function() {  
-        getSidebarHelperSize();    
-    });
-
-    function getSidebarHelperSize() {
-        if( $("#sidebar-single-post").length>0 ) {
-            var helperWidth = $(".stickySidebar .helper").width();
-            $("#sidebar-single-post").css('width',helperWidth+"px");
-            var sbHeight = $("#sidebar-single-post").height();
-            var windowHeight = $(window).height();
-            if(sbHeight>windowHeight) {
-                $("#singleSidebar").addClass("not-fixed");
-            } 
-        }
-    }
-
-
-    stickySidebar(stickySidebarEl);
-    $(window).on("resize",function() {  
-        stickySidebar(stickySidebarEl);
-     });
-
-
-    function stickySidebar(elem) {
-        var screenHeight = $(window).height();
-        var height = elem.height();
-        var half = Math.round(height/3);
-        var sidebarHeight = height + half;
-        var width = elem.width();
-        if(sidebarHeight>screenHeight) {
-            $(".stickySidebar").addClass('overflow');
-        } else {
-            $(".stickySidebar").removeClass('overflow');
-        }
-    }
-
-
     $(window).on("scroll resize",function(){
         if( $("#shareThisPost").length>0 ) {
             inViewport(".entry-footer");
@@ -1208,18 +1122,19 @@ jQuery(document).ready(function ($) {
     //     sidebarTopMargin: 20,
     //     footerThreshold: 100
     // });
-    sticky_trending_posts_static();
-    sticky_trending_posts();
-    $(window).on('scroll resize', function () {
-        sticky_trending_posts();
-    });
+
+    //sticky_trending_posts_static();
+    // sticky_trending_posts();
+    // $(window).on('scroll resize', function () {
+    //     sticky_trending_posts();
+    // });
 
     
     function sticky_trending_posts() {
         var ts = $("#widget-trending-post").width();
         var logoHeight = $("div.logo img").height();
         var adminbar = ( $("#wpadminbar").length>0 ) ? $("#wpadminbar").height() : 0;
-        var offset = logoHeight+adminbar+30;
+        var offset = logoHeight+adminbar+20;
         var divHeight = $("#widget-singleSidebar").height() + offset;
         var windowHeight = $(window).height();
 
@@ -1239,6 +1154,7 @@ jQuery(document).ready(function ($) {
         var windowHeight = $(window).height();
         if(divHeight>windowHeight) {
             var wh = Math.round(windowHeight/1.5);
+                wh = wh + 70;
             $("body.single #widget-trending-post").css("height",wh+"px");
             $("body.single #widget-trending-post").addClass('overflow');
         } else {

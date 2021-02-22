@@ -69,14 +69,8 @@ var eventsCount = '<?php echo get_total_events_by_date(); ?>';
 <!--
 <script type="text/javascript"async src="https://launch.newsinc.com/js/embed.js" id="_nw2e-js"></script>
 -->
-
-
 <?php wp_head(); ?>
-<style>
-.gform_wrapper ul li.gfield{clear: none !important;}
-</style>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
 <?php 
 $ob = get_queried_object();
 $current_term_id = ( isset($ob->term_id) && $ob->term_id ) ? $ob->term_id : '';
@@ -84,7 +78,6 @@ $current_term_name = ( isset($ob->name) && $ob->name ) ? $ob->name : '';
 $current_term_slug = ( isset($ob->slug) && $ob->slug ) ? $ob->slug : '';
 $electionCatId = get_field("elect_which_category","option");
 $electionCatId = ($electionCatId) ? $electionCatId : '-1';
-
 if ( get_post_type()=='story')  { 
 $articles = get_field("story_article"); 
 if($articles) {
@@ -104,6 +97,11 @@ if($articles) {
 <meta property="og:image"              content="<?php echo $mainPic['url'] ?>" />
 <?php } ?>
 <?php } ?>
+<style type="text/css">
+html body.single-post .oakland-background.oakland-optin-visible.oakland-lightbox,
+body.single-post .oakland-background.oakland-optin-visible.oakland-lightbox{display:none!important;}
+.gform_wrapper ul li.gfield{clear: none !important;}
+</style>
 </head>
 <?php
 $dd = date('d') - 1;
