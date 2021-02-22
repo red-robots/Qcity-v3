@@ -9853,6 +9853,13 @@ body.scrolled {
 			}
 		}
 	}
+	&.social-media-sticky {
+		#widget-singleSidebar #widget-trending-post {
+			@include tab {
+				padding-bottom: 185px;
+			}
+		}
+	}
 }
 
 .new-share-buttons {
