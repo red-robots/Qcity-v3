@@ -1275,9 +1275,7 @@ function get_sponsored_posts($terms,$numdays=61,$perpage=3,$randomize=false) {
     
 
     if($items) {
-        if($randomize) {
-            shuffle($items);
-        }
+        
         // echo "<pre>";
         // print_r($items);
         // echo "</pre>";
@@ -1288,6 +1286,10 @@ function get_sponsored_posts($terms,$numdays=61,$perpage=3,$randomize=false) {
             if( isset($items[$i]) && $items[$i] ) {
                 $final_output[] = $items[$i];
             }
+        }
+
+        if($randomize) {
+            shuffle($final_output);
         }
         
     }

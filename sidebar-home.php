@@ -16,7 +16,6 @@
     <div id="sponsoredPostDivider"></div>
     <div id="sponsoredPostDiv">
       <div class="sidebar-sponsored-posts">
-          <div class="sbTitle"><?php echo $sponsor_section_title ?></div>
           <?php $ctr=1; foreach($sponsors as $sp_id) {
             //$sp_id = $row->ID;
             $row = get_post($sp_id);
@@ -55,6 +54,9 @@
                   <div class="sc_adbox sponsoredAd1"><?php echo $ad_info ?></div>
                   <?php } ?>
                 <?php } ?>
+                
+                <div class="sbTitle"><?php echo $sponsor_section_title ?></div>
+
               <?php }  else if ($ctr==2) { ?>
                 <?php if ($ad2) { ?>
                 <?php if ($ad_info = get_field("ad_script",$ad2)) { ?>
@@ -62,6 +64,7 @@
                   <?php } ?>
                 <?php } ?>
               <?php } ?>
+
               <article id="sponsoredPost<?php echo $sp_id?>" class="sp-item sp<?php echo $ctr ?>">
                 <div class="inside">
                     <a href="<?php echo $pagelink;?>" class="thumb">
