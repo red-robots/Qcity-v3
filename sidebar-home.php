@@ -6,7 +6,7 @@
     ?>
 
     <?php 
-    $numdays = 11; /* days past plus today */
+    $numdays = 31; /* days past plus today */
     $perpage = 10;
     //$sponsors = get_sponsored_posts('offers-invites+sponsored-post',$numdays,$perpage);
     $sponsors = get_sponsored_posts('sponsored-post',$numdays,$perpage,1);
