@@ -9378,8 +9378,11 @@ div.ctct-form-embed div.ctct-form-defaults p.ctct-form-text {
 		font-size: .85rem;
 		font-weight: 700;
 		text-transform: uppercase;
-		margin-top: 15px;
+		margin-top: 30px;
 		margin-bottom: 7px;
+		@include tab {
+			margin-top: 15px;
+		}
 	}
 	.sp-item.hide{display:none;}
 	.sp-item:nth-child(1) {display:block!important;}
