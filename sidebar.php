@@ -122,6 +122,28 @@ if( is_page('events') ) {
 
 
 	<?php  if( ( (get_post_type() != 'post') ||  is_category() )  ): ?>
+
+		<?php 
+			$adList = array();
+			$ads = get_field("trending_ads","option");  
+			if($ads) {
+	  		foreach($ads as $ad_id) {
+	  			$adScript = get_field('ad_script',$ad_id);
+	  			if($adScript) {
+	  				$adList[] = $adScript;
+	  			}
+	  		}
+	  	}
+		?>
+
+		<?php if ($adList) { ?>
+  	<div class="sideBarAds">
+  		<?php foreach ($adList as $ad) { ?>
+  			<div class="adBox"><?php echo $ad ?></div>
+  		<?php } ?>
+  	</div>
+  	<?php } ?>
+
 	
 		<?php
 		/* SUBSCRIPTION FORM */

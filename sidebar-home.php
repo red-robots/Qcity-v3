@@ -10,7 +10,7 @@
     $perpage = 15;
     //$sponsors = get_sponsored_posts('offers-invites+sponsored-post',$numdays,$perpage);
     $sponsors = get_sponsored_posts('offers-invites+sponsored-post',$numdays,$perpage,1);
-    $sponsor_section_title = 'Sponsored Content';
+    $sponsor_section_title = 'Sponsored';
     $maxDisplay = 3;
     if( $sponsors ) { ?>
     <div id="sponsoredPostDivider"></div>

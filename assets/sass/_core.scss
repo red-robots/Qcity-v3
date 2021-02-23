@@ -9714,12 +9714,15 @@ body.archive.category {
 		}
 	}
 	.trending-sidebar-wrap {
-		max-width: 265px;
+		max-width: 100%;
 		width: 100%;
 		float: left;
 		background: #FFF;
 		border: 1px solid #dedede;
 		padding: 15px;
+		@include tab {
+			max-width: 265px;
+		}
 	}
 	.sbTitle {
 		margin: 0 0 10px;
@@ -9820,9 +9823,10 @@ body.archive.category {
 		}
 	}
 }
+.widget-area.category-post broadstreet-zone-container {display:none!important;}
+.widget-area.category-post .sideBarAds broadstreet-zone {display:block!important;}
 
-
-body.scrolled {
+body.scrolled.single {
 	#widget-singleSidebar {
 		// top: 25vh;
 		@include tab {
