@@ -512,7 +512,7 @@ if($terms) {
 
 if($is_post) { ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
+    <script type="text/javascript">
     jQuery.noConflict();
     jQuery(document).ready(function($){
         var is_sponsored_post = '<?php echo $post_is_sponsored;?>';
@@ -533,21 +533,28 @@ if($is_post) { ?>
             }
 
             newInputField += '</div>';
+            //var aboveStickToTop = $('input#inspector-checkbox-control-0').parents(".components-panel__row");
+            //$(newInputField).insertBefore(aboveStickToTop);
       
         add_stick_to_right();
 
-        // $(document).on("click",'button.components-button',function(){
-        //   var label = $(this).attr('data-label');
-        //   if(label=='Document') {
-        //     add_stick_to_right();
-        //   } 
+        $(window).on("load",function(){
+            add_stick_to_right();
+        });
+
+        $(document).on("click",'button.components-button',function(){
+          var label = $(this).attr('data-label');
+          if(label=='Document') {
+            add_stick_to_right();
+          } 
+        });
+
+
+
+        // $(document).on(" click",function(){
+        //   add_stick_to_right();
         // });
 
-
-
-        $(document).on("click",function(){
-          add_stick_to_right();
-        });
 
         $(document).on("click",'button.components-button.components-panel__body-toggle',function(){
           var label = $(this).text().replace(/\s+/g,"").trim().toLowerCase();
@@ -663,14 +670,14 @@ add_action( 'admin_print_scripts', 'jupload_scripts' );
   
 add_action( 'admin_head', 'post_visibility_head_scripts' );
 function post_visibility_head_scripts(){ ?>
-    <style>
+    <style type="text/css">
     .stickyOptionsDiv {
         position: relative;
         top: -57px;
     }
     .edit-post-sidebar .editor-post-format {
         position: relative;
-        top: 80px;
+        top: 60px;
     }
     .edit-post-sidebar .editor-post-format.moved {
       top: 110px;
@@ -722,6 +729,9 @@ function post_visibility_head_scripts(){ ?>
         color: #FFF;
         font-size: 12px;
         line-height: 1;
+    }
+    #stickToRightInputDiv {
+        
     }
     #stickToRightInputDiv .components-checkbox-control__input-container {
        /* position: absolute;
@@ -821,8 +831,21 @@ function post_visibility_head_scripts(){ ?>
         font-size: 11px;
         line-height: 1;
     }
-    .edit-post-sidebar.hasPendingOpt #sponsoredContentInfo {
+    /*.edit-post-sidebar.hasPendingOpt #sponsoredContentInfo {
         top: 75px;
+    }
+    .css-wdf2ti-Wrapper.e1puf3u0 {
+        position: relative;
+        top: -9px;
+    }*/
+    /*.css-wdf2ti-Wrapper.e1puf3u0 #inspector-checkbox-control-0,
+    .css-wdf2ti-Wrapper.e1puf3u0 label[for="inspector-checkbox-control-0"] {
+        position: relative;
+        top: -10px;
+    }*/
+    .components-checkbox-control__input[type=checkbox] {
+        width: 16px;
+        height: 16px;
     }
     </style>
 <?php
@@ -1251,17 +1274,20 @@ function get_sponsored_posts($terms,$numdays=61,$perpage=3,$randomize=false) {
         if($group1 && $group2) {
             foreach($group2 as $pid) {
                 if(in_array($pid,$group1) ) {
-                    // if( $data = get_post($pid) ) {
-                    //   $items[] = $data;
-                    // }
-                    $items[] = $pid;
+                    $is_sponsored = get_post_meta($pid,'sponsored_content_post');
+                    if(isset($is_sponsored) && $is_sponsored[0] ) {
+                        $items[] = $pid;
+                    }
                 }
             }
         }
       } else {
         $k = $slugs[0];
         foreach($entries[$k] as $pid) {
-            $items[] = $pid;
+            $is_sponsored = get_post_meta($pid,'sponsored_content_post');
+            if(isset($is_sponsored) && $is_sponsored[0] ) {
+                $items[] = $pid;
+            }
             // if( $data = get_post($pid) ) {
             //     $obj = new stdClass();
             //     $obj->ID = $pid;
@@ -1275,10 +1301,6 @@ function get_sponsored_posts($terms,$numdays=61,$perpage=3,$randomize=false) {
     
 
     if($items) {
-        
-        // echo "<pre>";
-        // print_r($items);
-        // echo "</pre>";
         $total = count($items);
         $range = range(0,($total-1));
         $end = ($perpage>0) ? $perpage : $total;
