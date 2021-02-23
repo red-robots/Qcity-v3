@@ -3380,8 +3380,8 @@ div.ctct-form-embed div.ctct-form-defaults p.ctct-form-text{font-size:15px !impo
 .sidebar-sponsored-posts.mobile{width:100%;float:left}
 .sidebar-sponsored-posts article,.sidebar-sponsored-posts .inside{width:100%;float:left}
 .sidebar-sponsored-posts article{margin-bottom:30px}
-.sidebar-sponsored-posts .sbTitle{color:#36c;font-family:"Roboto",sans-serif;font-size:.85rem;font-weight:700;text-transform:uppercase;margin-top:30px;margin-bottom:7px}
-@media(min-width:820px){.sidebar-sponsored-posts .sbTitle{margin-top:15px}
+.sidebar-sponsored-posts .sbTitle{color:#36c;font-family:"Roboto",sans-serif;font-size:.85rem;font-weight:700;text-transform:uppercase;margin-top:15px;margin-bottom:7px;width:100%;float:left}
+@media(min-width:820px){.sidebar-sponsored-posts .sbTitle{margin-top:10px}
 }.sidebar-sponsored-posts .sp-item.hide{display:none}
 .sidebar-sponsored-posts .sp-item:nth-child(1){display:block !important}
 .sidebar-sponsored-posts .thumb{display:block;width:100%;float:left;position:relative;background-color:#CCC;margin-bottom:10px}
