@@ -9824,7 +9824,8 @@ body.archive.category {
 	}
 }
 .widget-area.category-post broadstreet-zone-container {display:none!important;}
-.widget-area.category-post .sideBarAds broadstreet-zone {display:block!important;}
+.widget-area.category-post .sideBarAds broadstreet-zone-container {display:block!important;}
+.widget-area.category-post .form-subscribe-blue {width:100%;float:left;}
 
 body.scrolled.single {
 	#widget-singleSidebar {

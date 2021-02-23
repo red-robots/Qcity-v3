@@ -3472,7 +3472,8 @@ body.single-post .ads_home_leaderboard,body.archive.category .ads_home_leaderboa
 @media screen and (max-width:480px){#widget-singleSidebar{margin-bottom:30px}
 #widget-singleSidebar #widget-trending-post{max-width:100% !important;width:100% !important}
 }.widget-area.category-post broadstreet-zone-container{display:none !important}
-.widget-area.category-post .sideBarAds broadstreet-zone{display:block !important}
+.widget-area.category-post .sideBarAds broadstreet-zone-container{display:block !important}
+.widget-area.category-post .form-subscribe-blue{width:100%;float:left}
 @media(min-width:820px){body.scrolled.single #widget-singleSidebar{position:fixed;top:125px}
 }body.scrolled.single.sidebar-nofixed #widget-singleSidebar{position:relative !important;top:0 !important}
 @media(min-width:820px){body.scrolled.single .widget-area.category-post .form-subscribe-blue{opacity:0}
