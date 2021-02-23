@@ -1162,6 +1162,52 @@ jQuery(document).ready(function ($) {
             $("body.single #widget-trending-post").removeClass('overflow');
         }
     }
+
+
+    function shuffle(array) {
+      var currentIndex = array.length, temporaryValue, randomIndex;
+
+      // While there remain elements to shuffle...
+      while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+
+      return array;
+    }
+
+    if( $('.sp-item').length>0 ) {
+        var random = Math.floor(Math.random() * $('.sp-item').length);
+        var sp_count = $('.sp-item').length;
+        var sp_arrs = [];
+        for(i=1; i<=sp_count; i++) {
+            sp_arrs.push(i);
+        }
+        
+        shuffle(sp_arrs);
+
+        var x=1;
+        $(sp_arrs).each(function(k,v){
+            if(x==1) {
+                $('.sp-item.sp'+v).addClass("first");
+            }
+            if(x>3) {
+                $('.sp-item.sp'+v).addClass("hide");
+            } else {
+                $('.sp-item.sp'+v).removeClass("hide");
+            }
+            $('.sp-item.sp'+v).appendTo(".sidebar-sponsored-posts");
+            x++;
+        });
+    }
+
     
     /* Header RED BUTTON */
     // if( $(".headRedButton").length>0 ) {

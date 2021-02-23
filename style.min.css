@@ -3381,6 +3381,8 @@ div.ctct-form-embed div.ctct-form-defaults p.ctct-form-text{font-size:15px !impo
 .sidebar-sponsored-posts article,.sidebar-sponsored-posts .inside{width:100%;float:left}
 .sidebar-sponsored-posts article{margin-bottom:30px}
 .sidebar-sponsored-posts .sbTitle{color:#36c;font-family:"Roboto",sans-serif;font-size:.85rem;font-weight:700;text-transform:uppercase;margin-bottom:8px}
+.sidebar-sponsored-posts .sp-item.hide{display:none}
+.sidebar-sponsored-posts .sp-item:nth-child(1){display:block !important}
 .sidebar-sponsored-posts .thumb{display:block;width:100%;float:left;position:relative;background-color:#CCC;margin-bottom:10px}
 .sidebar-sponsored-posts .thumb img{width:100%;height:auto;float:left}
 .sidebar-sponsored-posts .thumb .featImage{width:100%;height:100%;position:absolute;top:0;left:0;background-size:cover;background-position:center;background-repeat:no-repeat}
@@ -3395,7 +3397,7 @@ div.ctct-form-embed div.ctct-form-defaults p.ctct-form-text{font-size:15px !impo
 .sidebar-sponsored-posts.desktop{display:none}
 .sidebar-sponsored-posts.mobile{display:block}
 .sidebar-sponsored-posts .sp-item{display:none}
-.sidebar-sponsored-posts .sp-item.sp1{display:block;margin-bottom:15px;border-bottom:1px solid #dedcdc;padding-bottom:23px}
+.sidebar-sponsored-posts .sp-item.first{display:block;margin-bottom:15px;border-bottom:1px solid #dedcdc;padding-bottom:23px}
 }.sidebar-sponsored-posts .sc_adbox{width:100%;float:left;margin-bottom:10px}
 .sidebar-sponsored-posts .sc_adbox span,.sidebar-sponsored-posts .sc_adbox a{display:block;width:100%;float:left}
 .sidebar-sponsored-posts .sc_adbox img{width:100%;height:auto;float:left}

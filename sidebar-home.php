@@ -8,10 +8,11 @@
     <?php 
     $numdays = 183; /* days past plus today */
     //$numdays = -1;
-    $perpage = 3;
+    $perpage = 10;
     //$sponsors = get_sponsored_posts('offers-invites+sponsored-post',$numdays,$perpage);
     $sponsors = get_sponsored_posts('sponsored-post',$numdays,$perpage,1);
     $sponsor_section_title = 'Sponsored Content';
+    $maxDisplay = 3;
     if( $sponsors ) { ?>
     <div id="sponsoredPostDivider"></div>
     <div id="sponsoredPostDiv">
@@ -47,6 +48,7 @@
               $postdate = get_the_date('F j,Y',$sp_id); 
               $ad1 = get_field("ad1_sponsored_content_home","option");
               $ad2 = get_field("ad2_sponsored_content_home","option");
+              $is_show = ($ctr>$maxDisplay) ? ' hide':'';
               ?>
               <?php if ($ctr==1) { ?>
                 <?php if ($ad1) { ?>
@@ -65,7 +67,7 @@
                 <?php } ?>
               <?php } ?>
 
-              <article id="sponsoredPost<?php echo $sp_id?>" class="sp-item sp<?php echo $ctr ?>">
+              <article id="sponsoredPost<?php echo $sp_id?>" class="sp-item sp<?php echo $ctr.$is_show ?>">
                 <div class="inside">
                     <a href="<?php echo $pagelink;?>" class="thumb">
                         <img src="<?php echo get_template_directory_uri() . '/images/right-image-placeholder.png'; ?>" alt="" aria-hidden="true">

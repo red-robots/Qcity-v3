@@ -9380,6 +9380,8 @@ div.ctct-form-embed div.ctct-form-defaults p.ctct-form-text {
 		text-transform: uppercase;
 		margin-bottom: 8px;
 	}
+	.sp-item.hide{display:none;}
+	.sp-item:nth-child(1) {display:block!important;}
 	.thumb {
 		display: block;
 		width: 100%;
@@ -9448,7 +9450,7 @@ div.ctct-form-embed div.ctct-form-defaults p.ctct-form-text {
 		&.desktop { display: none; }
 		&.mobile { display: block; }
 		.sp-item {display:none;}
-		.sp-item.sp1 {
+		.sp-item.first {
 			display: block;
 			margin-bottom: 15px;
 			border-bottom: 1px solid #dedcdc;
