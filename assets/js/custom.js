@@ -1197,13 +1197,34 @@ jQuery(document).ready(function ($) {
         $(sp_arrs).each(function(k,v){
             if(x==1) {
                 $('.sp-item.sp'+v).addClass("first");
-            }
-            if(x>3) {
-                $('.sp-item.sp'+v).addClass("hide");
+            } else if(x>3) {
+                $('.sp-item.sp'+v).addClass("hide").removeClass("first");
             } else {
-                $('.sp-item.sp'+v).removeClass("hide");
+                $('.sp-item.sp'+v).removeClass("hide").removeClass("first");
             }
             $('.sp-item.sp'+v).appendTo(".sidebar-sponsored-posts");
+            x++;
+        });
+    }
+
+    if( $('.paid-sponsor-info').length>0 ) {
+        var random = Math.floor(Math.random() * $('.paid-sponsor-info').length);
+        var sp_count = $('.paid-sponsor-info').length;
+        var sp_arrs = [];
+        for(i=1; i<=sp_count; i++) {
+            sp_arrs.push(i);
+        }
+        
+        shuffle(sp_arrs);
+        var x=1;
+        $(sp_arrs).each(function(k,v){
+
+            if(x==1) {
+                $('.paid-sponsor-info.v'+v).addClass("first").removeClass("hide");
+            } else {
+                $('.paid-sponsor-info.v'+v).addClass("hide").removeClass("first");
+            } 
+            $('.paid-sponsor-info.v'+v).appendTo(".sponsor-posts-container");
             x++;
         });
     }

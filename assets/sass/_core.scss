@@ -4660,7 +4660,80 @@ body.home .subscribe-wrap .subscribe {
 .t-uppercase {
     text-transform: uppercase;
 }
-
+.sponsor-col-paid-fullwidth {
+	width: 100%;
+	float: left;
+}
+.sponsor-paid-wrapper {
+	.c-sponsor-block-mainwrap {
+		display: none;
+		&.hide {
+			display: none!important;
+		}
+		&.first {
+			@include flexgroup();
+		}
+		&.has-image {
+			.c-sponsor-block__main {
+				width: 100%;
+				float: left;
+				@include tab {
+					width: 48%;
+				}
+			}
+		}
+		.sponsor-col-image {
+			width: 100%;
+			float: left;
+			@include tab {
+				width: 32%;
+				float: right;
+			}
+		}
+		.c-sponsor-image-link.bglink {
+			display: block;
+			position: relative;
+			&:after {
+				content:"";
+				display: block;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 2;
+				background-image: url('images/bw.png');
+				background-size: 30%;
+				background-color: #e2e2e2;
+				background-position: center;
+				background-repeat: no-repeat;
+				opacity: 0.5;
+			}
+			span.bg {
+				display: block;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 5;
+				background-size: cover;
+				background-position: top center;
+				background-repeat: no-repeat;
+			}
+		}
+	}
+	
+	.c-sponsor-block__sponsor {
+		margin-top: 0;
+	}
+	.c-sponsor-block__label {
+		width: 100%;
+		float: left;
+		margin-top: 0;
+		margin-bottom: 45px;
+	}
+}
 @media (min-width: 52.8125em){
 	.c-sponsor-block__main {
 	    padding: 0 .92rem 0 1.5rem;
@@ -7565,7 +7638,7 @@ body.single-post .oakland-lightbox.show {display:block !important;}
 }
 
 section.c-sponsor-block.sponsor-paid-wrapper {
-	padding-top: 30px;
+	padding-top: 20px;
 	padding-bottom: 30px;
 	@include flexgroup();
 	.sponsor-col-paid {
