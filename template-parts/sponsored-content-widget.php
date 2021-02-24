@@ -23,7 +23,7 @@ if($sponsors) { shuffle($sponsors); ?>
       }
       $post = get_post($id);
       if($post) { 
-        $first = ($i==1) ? ' first':''; 
+        $first = ($i==1) ? ' show':''; 
         $featImage =  ( has_post_thumbnail($id) ) ? wp_get_attachment_image_src( get_post_thumbnail_id($id), 'large') : '';
         $bgImg = ($featImage) ? $featImage[0] : $default;
         $hasImage  = ( has_post_thumbnail($id) ) ? ' has-image':' no-image';

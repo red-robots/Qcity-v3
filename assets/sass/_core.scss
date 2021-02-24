@@ -4670,7 +4670,7 @@ body.home .subscribe-wrap .subscribe {
 		&.hide {
 			display: none!important;
 		}
-		&.first {
+		&.show {
 			@include flexgroup();
 		}
 		&.has-image {
@@ -9460,7 +9460,19 @@ div.ctct-form-embed div.ctct-form-defaults p.ctct-form-text {
 		}
 	}
 	.sp-item.hide{display:none;}
-	.sp-item:nth-child(1) {display:block!important;}
+	.sp-item.first{display:block;}
+	//.sp-item:nth-child(1) {display:block!important;}
+	.sp-item {
+		&.hide-mobile {
+			display: none;
+		}
+		@include tab {
+			&.hide-mobile {
+				display: block;
+			}
+		}
+	}
+	
 	.thumb {
 		display: block;
 		width: 100%;

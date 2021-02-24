@@ -1184,47 +1184,55 @@ jQuery(document).ready(function ($) {
     }
 
     if( $('.sp-item').length>0 ) {
-        var random = Math.floor(Math.random() * $('.sp-item').length);
-        var sp_count = $('.sp-item').length;
+        // var random = Math.floor(Math.random() * $('.sp-item').length);
+        // var sp_count = $('.sp-item').length;
         var sp_arrs = [];
-        for(i=1; i<=sp_count; i++) {
-            sp_arrs.push(i);
-        }
+        // for(i=1; i<=sp_count; i++) {
+        //     sp_arrs.push(i);
+        // }
+        var ctr = 1;
+        $('.sp-item').each(function(k,v){
+            if( $('.sp-item.sp'+ctr).length>0 ) {
+                if( $('.sp-item.sp'+ctr).length>0 ) {
+                    sp_arrs.push(ctr);
+                }
+            }
+            ctr++;
+        });
         
         shuffle(sp_arrs);
-
+        //console.log(sp_arrs);
         var x=1;
+
         $(sp_arrs).each(function(k,v){
             if(x==1) {
-                $('.sp-item.sp'+v).addClass("first");
-            } else if(x>3) {
-                $('.sp-item.sp'+v).addClass("hide").removeClass("first");
+                $('.sp-item.sp'+v).addClass("first").removeClass('hide-mobile');
             } else {
-                $('.sp-item.sp'+v).removeClass("hide").removeClass("first");
-            }
-            $('.sp-item.sp'+v).appendTo(".sidebar-sponsored-posts");
+                $('.sp-item.sp'+v).addClass("hide-mobile").removeClass("first");
+            } 
             x++;
         });
     }
 
     if( $('.paid-sponsor-info').length>0 ) {
-        var random = Math.floor(Math.random() * $('.paid-sponsor-info').length);
-        var sp_count = $('.paid-sponsor-info').length;
         var sp_arrs = [];
-        for(i=1; i<=sp_count; i++) {
-            sp_arrs.push(i);
-        }
+        var ctr = 1;
+        $('.paid-sponsor-info').each(function(k,v){
+            if( $('.sponsor-posts-container .paid-sponsor-info.v'+ctr).length>0 ) {
+                sp_arrs.push(ctr);
+            }
+            ctr++;
+        });
+        
         
         shuffle(sp_arrs);
         var x=1;
         $(sp_arrs).each(function(k,v){
-
             if(x==1) {
-                $('.paid-sponsor-info.v'+v).addClass("first").removeClass("hide");
+                $('.sponsor-posts-container .paid-sponsor-info.v'+v).addClass("show").removeClass("hide");
             } else {
-                $('.paid-sponsor-info.v'+v).addClass("hide").removeClass("first");
-            } 
-            $('.paid-sponsor-info.v'+v).appendTo(".sponsor-posts-container");
+                $('.sponsor-posts-container .paid-sponsor-info.v'+v).addClass("hide").removeClass("show");
+            }
             x++;
         });
     }
