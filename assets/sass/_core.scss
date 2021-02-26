@@ -3607,6 +3607,11 @@ section.home-bottom {
 		padding: 8px;
 		border-left: 6px solid $color-light-gray;
 		@include shadow();
+		@media screen and (max-width:560px) {
+			width: 100%;
+			position: relative;
+			top: 15px;
+		}
 	}
 }
 body.archive {

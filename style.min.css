@@ -2394,7 +2394,8 @@ section.home-bottom .ad{width:100%;float:left}
 .data{background-color:#eee;padding:20px 20px 40px 20px;float:left;width:100%;margin-bottom:30px}
 .data h2{border-bottom:2px solid #c4a92f;display:inline-block;float:left}
 .data .extras{display:inline-block;float:right;background-color:#fff;padding:8px;border-left:6px solid #cecece;box-shadow:5px 8px 16px -7px rgba(0,0,0,0.43)}
-body.archive .biz-wrap{width:100%;float:left;margin:30px 0}
+@media screen and (max-width:560px){.data .extras{width:100%;position:relative;top:15px}
+}body.archive .biz-wrap{width:100%;float:left;margin:30px 0}
 @media screen and (min-width:768px){body.archive .biz-dir{width:100%}
 }.biz-dir .listing{width:100%;float:left;font-size:13px;font-weight:bold}
 .biz-dir .listing.odd{background-color:#eee}
