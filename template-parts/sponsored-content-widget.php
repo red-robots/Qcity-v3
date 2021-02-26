@@ -1,7 +1,4 @@
 <?php
-// $numdays = 61;
-// $perpage = 1;
-// $sponsors = get_sponsored_posts('offers-invites+sponsored-post',$numdays,$perpage);
 global $post;
 $currentId = $post->ID;
 $numdays = -1; /* days past plus today */
@@ -27,11 +24,35 @@ if($sponsors) { shuffle($sponsors); ?>
         $featImage =  ( has_post_thumbnail($id) ) ? wp_get_attachment_image_src( get_post_thumbnail_id($id), 'large') : '';
         $bgImg = ($featImage) ? $featImage[0] : $default;
         $hasImage  = ( has_post_thumbnail($id) ) ? ' has-image':' no-image';
+        $sponsorCompanies = get_field('sponsors',$id);
+        $info = get_field("spcontentInfo","option");
+        if($info) {
+            $i_title = $info['title'];
+            $i_text = $info['text'];
+            $i_display = ($info['display'] && $info['display']=='on') ?  true : false;
+        } else {
+            $i_title = '';
+            $i_text = '';
+            $i_display = '';
+        }
+        $sponsorsList = '';
+        if($sponsorCompanies) {
+            $n=1; foreach($sponsorCompanies as $s) {
+                $comma = ($n>1) ? ', ':'';
+                $sponsorsList .= $comma . $s->post_title;
+                $n++;
+            }
+        }
+
       ?>
       <div id="post-<?php echo $id?>" class="c-sponsor-block-mainwrap paid-sponsor-info v<?php echo $i ?> <?php echo $first.$hasImage ?>">
         <div class="c-sponsor-block__main">
+          <?php if ($sponsorsList) { ?>
+          <div class="sponsored-name"><?php echo $sponsorsList ?></div>
+          <?php } ?>
+          
           <h3 class="c-sponsor-block__headline c-sponsor-block__static-text t-lh-s has-xxxs-btm-marg"><a target="_parent" href="<?php echo get_the_permalink($id);  ?>" class="has-text-black-off has-text-hover-black"><?php echo $post->post_title ?></a></h3>
-          <p class="c-sponsor-block__desc c-sponsor-block__static-text t-lh-m"><?php echo shortenText(strip_tags($post->post_content),120," ","...") ?></p>
+          <p class="c-sponsor-block__desc c-sponsor-block__static-text t-lh-m"><?php echo shortenText(strip_tags($post->post_content),140," ","...") ?></p>
         </div>
         
         <?php if ($featImage) { ?>

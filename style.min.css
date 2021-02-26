@@ -2572,6 +2572,7 @@ article.big-post h3{font-size:20px;z-index:1;line-height:1.1;margin-bottom:10px}
 }.sponsor-paid-wrapper .c-sponsor-block-mainwrap .c-sponsor-image-link.bglink{display:block;position:relative}
 .sponsor-paid-wrapper .c-sponsor-block-mainwrap .c-sponsor-image-link.bglink:after{content:"";display:block;width:100%;height:100%;position:absolute;top:0;left:0;z-index:2;background-image:url("images/bw.png");background-size:30%;background-color:#e2e2e2;background-position:center;background-repeat:no-repeat;opacity:.5}
 .sponsor-paid-wrapper .c-sponsor-block-mainwrap .c-sponsor-image-link.bglink span.bg{display:block;width:100%;height:100%;position:absolute;top:0;left:0;z-index:5;background-size:cover;background-position:top center;background-repeat:no-repeat}
+.sponsor-paid-wrapper .sponsored-name{color:#36c;font-size:13px;line-height:1.2;font-weight:500;margin-bottom:8px}
 .sponsor-paid-wrapper .c-sponsor-block__sponsor{margin-top:0}
 .sponsor-paid-wrapper .c-sponsor-block__label{width:100%;float:left;margin-top:0;margin-bottom:45px}
 @media(min-width:52.8125em){.c-sponsor-block__main{padding:0 .92rem 0 1.5rem}
