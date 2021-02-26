@@ -40,10 +40,11 @@ get_header(); ?>
 					<a href="<?php echo get_site_url() ?>/category/stories/" class="back"><i class="fas fa-share"></i> Back to <?php echo $story_main_title ?></a>
 				</span>
 				<?php } ?>
-				<?php if ( do_shortcode('[social_warfare]') ) { ?>
+
+				<?php if ( do_shortcode('[sharethis-inline-buttons]') ) { ?>
 				<a href="#" id="sharerLink"><i class="fas fa-share"></i> <span>Share</span></a>
 				<div class="share">
-					<?php echo do_shortcode('[social_warfare]'); ?>
+					<div class="shareInner"><?php echo do_shortcode('[sharethis-inline-buttons]');?></div>
 				</div>
 				<?php } ?>
 			</div>

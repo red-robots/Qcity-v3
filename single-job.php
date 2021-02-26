@@ -11,18 +11,6 @@ get_header();
 
 ?>
 
-<!-- <div class="wrapper">
-	<div class="content-area">
-		<header class="section-title ">
-			<h1 class="dark-gray">
-				<?php $job_title = get_field("job_title");
-					if($job_title):
-						echo $job_title;
-					endif; ?>
-			</h1>
-		</header>
-	</div>
-</div> -->
 <div class="wrapper">
 	<div id="primary" class="content-area job-details-page">
 		<main id="main" class="site-main" role="main">
@@ -129,11 +117,8 @@ get_header();
 					<?php endif;?>
 				<?php endwhile; // end of the loop.?>
 
-					<div >
-						<div class="share" style="padding-top: 20px">
-							<?php echo do_shortcode('[social_warfare]'); ?>
-						</div>
-					</div>
+
+				<?php get_template_part('template-parts/sharethis-socialmedia'); ?>
 					
 				</article><!-- #post-## -->
 
@@ -147,14 +132,15 @@ get_header();
 
 	<div class="widget-area job-post" style="padding-top: 22px;">
     	<?php
-    		$title = 'Black Business';
+			$post_id = get_the_ID();
+			$title = 'Black Business';
 			$qp = 'black-business';
 			$args = array(     
-				        'category_name'     => 'black-business',        
-				        'post_type'         => 'post',        
-				        'post__not_in'      => array( $post_id ),
-				        'post_status'       => 'publish',
-				        'posts_per_page'    => 5,		       
+			      'category_name'     => 'black-business',        
+			      'post_type'         => 'post',        
+			      'post__not_in'      => array( $post_id ),
+			      'post_status'       => 'publish',
+			      'posts_per_page'    => 5,		       
 			);
     	
 		$wp_query = new WP_Query( $args );	

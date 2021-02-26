@@ -70,7 +70,7 @@
 								</div><!-- .entry-content -->
 
 								<div class="share">
-									<?php echo do_shortcode('[social_warfare]'); ?>
+									<?php get_template_part('template-parts/sharethis-socialmedia'); ?>
 								</div>
 								
 							</article><!-- #post-## -->		

@@ -1,5 +1,4 @@
 <?php 
-$i++;
 $img 		= get_field('event_image');
 $category 	= get_field('choose_categories');
 $venue 		= get_field('name_of_venue');

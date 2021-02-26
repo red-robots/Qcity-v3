@@ -170,7 +170,7 @@ if( $img ){
 
 
 							<div class="share desktop-version">
-								<?php echo do_shortcode('[social_warfare]'); ?>
+								<?php get_template_part('template-parts/sharethis-socialmedia'); ?>
 							</div>
 
 							
@@ -247,8 +247,8 @@ if( $img ){
 			        <?php }   ?>
 
 			        	<div class="share mobile-version" style="margin-top:30px">
-								<?php echo do_shortcode('[social_warfare]'); ?>
-						</div>
+								<?php get_template_part('template-parts/sharethis-socialmedia'); ?>
+								</div>
 
 							
 						<footer class="entry-footer mobile-version">
