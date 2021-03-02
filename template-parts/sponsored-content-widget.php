@@ -43,7 +43,8 @@ if($sponsors) { shuffle($sponsors); ?>
                 $n++;
             }
         }
-
+        $excerpt = ($post->post_content) ? shortenText(strip_tags($post->post_content),140," ","...") : '';
+        $excerpt = ($excerpt) ? trim( str_replace('Sponsored by:','',$excerpt) ) : '';
       ?>
       <div id="post-<?php echo $id?>" class="c-sponsor-block-mainwrap paid-sponsor-info v<?php echo $i ?> <?php echo $first.$hasImage ?>">
         <div class="c-sponsor-block__main">
@@ -52,7 +53,7 @@ if($sponsors) { shuffle($sponsors); ?>
           <?php } ?>
           
           <h3 class="c-sponsor-block__headline c-sponsor-block__static-text t-lh-s has-xxxs-btm-marg"><a target="_parent" href="<?php echo get_the_permalink($id);  ?>" class="has-text-black-off has-text-hover-black"><?php echo $post->post_title ?></a></h3>
-          <p class="c-sponsor-block__desc c-sponsor-block__static-text t-lh-m"><?php echo shortenText(strip_tags($post->post_content),140," ","...") ?></p>
+          <p class="c-sponsor-block-excerpt"><?php echo $excerpt; ?></p>
         </div>
         
         <?php if ($featImage) { ?>

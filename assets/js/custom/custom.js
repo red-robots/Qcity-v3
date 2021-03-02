@@ -1065,7 +1065,11 @@ jQuery(document).ready(function ($) {
             // }
 
             if( $("#sponsoredPostDiv").length>0 ) {
-                $("#sponsoredPostDiv").insertAfter('.home-instagram-feeds');
+                if( $(".home-instagram-feeds").length>0 ) {
+                    $("#sponsoredPostDiv").insertAfter('.home-instagram-feeds');
+                } else {
+                    $("#sponsoredPostDiv").insertAfter('.subscribe-wrap');
+                }
             }
 
 
