@@ -2929,6 +2929,7 @@ ul.rp4wp-posts-list .rp4wp-col-last{width:99% !important;padding-right:0 !import
 .member_lists{width:100%;position:relative;display:block;padding:30px 0}
 .member_lists h2{text-align:center;margin:20px 0}
 .member_lists .members ul{list-style-type:none;-webkit-column-count:3;-moz-column-count:3;column-count:3}
+.comments-section{width:100%;float:left}
 @media screen and (min-width:768px){.comments-section{display:block;position:relative;margin:10px 0 0;padding-bottom:20px;border-bottom:3px solid rgba(0,0,0,0.2)}
 .comments-section .comments-block{display:none}
 .comments-section .comments-trigger{display:block;padding-bottom:13px}
