@@ -43,7 +43,7 @@ if ( $query->have_posts() ) :
 				</div><!--.row-2-->
 				<div class="bottom">
 					<div class="btn">
-						<a class="pop" href="<?php bloginfo('url'); ?>/post-a-job">Post an Job</a>
+						<a class="pop" href="<?php bloginfo('url'); ?>/post-a-job">Post a Job</a>
 					</div>
 					<div class="btn">
 						<div class="banner-button find">Find a Job
