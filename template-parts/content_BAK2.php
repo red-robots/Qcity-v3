@@ -126,11 +126,11 @@ if( !defined('HIDE_ADS') ){
 							$aName 			= get_the_author_meta('display_name');
 							$aDesc 			= get_the_author_meta('description');
 							$size         	= 'thumbnail';
-							$authorPhoto  	= null;				
-							$photoHelper = get_bloginfo('template_url') . '/images/square.png';			
+							$authorPhoto  	= null;							
 						?>
-						<div class="authorData">
-							<a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">
+						<a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">
+							<div class="left">						
+								<div class="photo">
 									<?php 
 									if ( $chooseAuthor != '' ):
 										$authorID   = $chooseAuthor['ID'];
@@ -138,28 +138,16 @@ if( !defined('HIDE_ADS') ){
 									else:
 										$authorPhoto = get_field('custom_picture','user_'.get_the_author_meta('ID'));
 									endif;
-
-									$imgObj = ($authorPhoto) ? wp_get_attachment_image_src($authorPhoto, $size):'';
-									$imgSrc = ($imgObj) ? $imgObj[0] : '';
-									?>
-									<span class="authorPhoto <?php echo ($imgSrc) ? 'haspic':'nopic'; ?>">
-									<?php if ($imgSrc) { ?>
-									<span class="pic" style="background-image:url('<?php echo $imgSrc ?>')"></span>
-									<?php } else { ?>
-										<i class="fas fa-user nopicIcon"></i>
-									<?php } ?>
-									<img src="<?php echo $photoHelper ?>" alt="" class="helper">
-								</span>
-								<span class="authorName">
-									<?php echo $aName; ?>
-								</span>
-							</a>
-							<?php if ($aDesc) { ?>
-							<div class="authorBio">
+									if ( $authorPhoto ):
+										echo wp_get_attachment_image( $authorPhoto, $size );
+									endif; //  if photo  ?>
+								</div>
+							</div>
+							<div class="info">
+								<h3><?php echo $aName; ?></h3>
 								<?php echo $aDesc; ?>
 							</div>
-							<?php } ?>
-						</div>
+						</a>
 					</div>
 				<?php endif; ?>
 			<?php } ?>

@@ -9,7 +9,8 @@
     $numdays = -1; /* days past plus today */
     $perpage = 15;
     //$sponsors = get_sponsored_posts('offers-invites+sponsored-post',$numdays,$perpage);
-    $sponsors = get_sponsored_posts('offers-invites+sponsored-post',$numdays,$perpage,1);
+    //$sponsors = get_sponsored_posts('offers-invites+sponsored-post',$numdays,$perpage,1);
+    $sponsors = get_sponsored_posts('sponsored-post',$numdays,$perpage,1);
     $sponsor_section_title = 'Sponsored';
     $maxDisplay = 3;
     if( $sponsors ) { ?>
