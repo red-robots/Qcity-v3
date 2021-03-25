@@ -38,7 +38,7 @@ if(!$guest_author) {
 
 	$imgObj = ($authorPhoto) ? wp_get_attachment_image_src($authorPhoto, $size):'';
 	$imgSrc = ($imgObj) ? $imgObj[0] : '';
-	if($authorID) {
+	if($authorID && $aDesc) {
 		$authorLinkOpen = '<a href="'.get_author_posts_url($authorID).'">';
 		$authorLinkClose = '</a>';
 	}
