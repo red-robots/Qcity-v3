@@ -16,20 +16,33 @@ $hide_ads 		= get_field('hide_ads');
 /* Author Photo */
 $authorPhoto  	= null;		
 $size         	= 'thumbnail';
-$aName = get_the_author_meta('display_name');
-$aDesc = get_the_author_meta('description');
 $imgObj = '';
-$chooseAuthor 	= get_field( 'choose_author');
-$photoHelper = get_bloginfo('template_url') . '/images/square.png';			
-if($chooseAuthor) {
-	$authorID   = $chooseAuthor['ID'];
-	$authorPhoto = get_field( 'custom_picture', 'user_' . $authorID );
-} else {
-	$authorPhoto = get_field('custom_picture','user_'.get_the_author_meta('ID'));
-}
+$imgSrc = '';
+$authorLinkOpen = '';
+$authorLinkClose = '';
 
-$imgObj = ($authorPhoto) ? wp_get_attachment_image_src($authorPhoto, $size):'';
-$imgSrc = ($imgObj) ? $imgObj[0] : '';
+if(!$guest_author) {
+	$aName = get_the_author_meta('display_name');
+	$aDesc = get_the_author_meta('description');
+	$imgObj = '';
+	$chooseAuthor 	= get_field( 'choose_author');
+	$photoHelper = get_bloginfo('template_url') . '/images/square.png';
+	$authorID = '';			
+	if($chooseAuthor) {
+		$authorID   = $chooseAuthor['ID'];
+		$authorPhoto = get_field( 'custom_picture', 'user_' . $authorID );
+	} else {
+		$authorID = get_the_author_meta('ID');
+		$authorPhoto = get_field('custom_picture','user_'.get_the_author_meta('ID'));
+	}
+
+	$imgObj = ($authorPhoto) ? wp_get_attachment_image_src($authorPhoto, $size):'';
+	$imgSrc = ($imgObj) ? $imgObj[0] : '';
+	if($authorID) {
+		$authorLinkOpen = '<a href="'.get_author_posts_url($authorID).'">';
+		$authorLinkClose = '</a>';
+	}
+}
 
 $single_post_comment_text = get_field('single_post_comment_text', 'option');
 $show_comment = ( isset($_GET['unapproved']) && isset($_GET['moderation-hash']) ) ? true : false;
@@ -62,18 +75,18 @@ if( !defined('HIDE_ADS') ){
 				<div class="entry-meta metacol <?php echo ($imgObj) ? 'has-custom-author':'author-default'?>">	
 					<?php if( $imgObj ) { ?>
 					<div class="authorPicMeta">
-						<a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">
+						<?php echo $authorLinkOpen ?>
 							<?php if ($imgSrc) { ?>
 							<span class="pic" style="background-image:url('<?php echo $imgSrc ?>')"></span>
 							<?php } else { ?>
 								<span class="nopic"><i class="fas fa-user nopicIcon"></i></span>
 							<?php } ?>
 							<img src="<?php echo $photoHelper ?>" alt="" class="helper">
-						</a>
+						<?php echo $authorLinkClose ?>
 					</div>
 					<?php } ?>
 					<div class="nameAndDate">
-						<div class="authorName">By <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>"><?php echo ( $guest_author ) ? $guest_author : get_the_author(); ?></a> </div>
+						<div class="authorName">By <?php echo $authorLinkOpen ?><?php echo ( $guest_author ) ? $guest_author : get_the_author(); ?><?php echo $authorLinkClose ?></div>
 						<div class="postDate"><?php echo get_the_date(); ?></div>
 					</div>
 				</div><!-- .entry-meta -->
