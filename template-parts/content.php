@@ -165,7 +165,7 @@ if( !defined('HIDE_ADS') ){
 				
 			<?php } else { ?>
 
-				<?php if( $chooseAuthor ) { ?>
+				<?php if( $aDesc ) { ?>
 					<div class="author-block">
 						<div class="authorData">
 						
