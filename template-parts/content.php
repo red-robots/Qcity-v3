@@ -13,8 +13,27 @@ $the_post_id = get_the_ID();
 $guest_author 	= get_field('author_name') ;
 $hide_ads 		= get_field('hide_ads');
 $chooseAuthor 	= get_field( 'choose_author' );
-$single_post_comment_text = get_field('single_post_comment_text', 'option');
 
+/* Author Photo */
+$photoHelper = get_bloginfo('template_url') . '/images/square.png';			
+if($chooseAuthor) {
+	$aName = get_the_author_meta('display_name');
+	$aDesc 			= get_the_author_meta('description');
+	$size         	= 'thumbnail';
+	$authorPhoto  	= null;				
+	if ( $chooseAuthor != '' ) {
+		$authorID   = $chooseAuthor['ID'];
+		$authorPhoto = get_field( 'custom_picture', 'user_' . $authorID );
+	} else {
+		$authorPhoto = get_field('custom_picture','user_'.get_the_author_meta('ID'));
+	}
+}
+
+$imgObj = ($authorPhoto) ? wp_get_attachment_image_src($authorPhoto, $size):'';
+$imgSrc = ($imgObj) ? $imgObj[0] : '';
+
+
+$single_post_comment_text = get_field('single_post_comment_text', 'option');
 $show_comment = ( isset($_GET['unapproved']) && isset($_GET['moderation-hash']) ) ? true : false;
 
 $categories = get_the_category($the_post_id);
@@ -42,9 +61,23 @@ if( !defined('HIDE_ADS') ){
 		<div class="content-single-page">		
 			<?php
 			if ( 'post' === get_post_type() ) : ?>
-				<div class="entry-meta">				
-					<div class="authorName">By <?php echo ( $guest_author ) ? $guest_author : get_the_author(); ?> </div>
-					<div class="postDate"><?php echo get_the_date(); ?></div>
+				<div class="entry-meta metacol <?php echo ($chooseAuthor) ? 'has-custom-author':'author-default'?>">	
+					<?php if( $chooseAuthor ) { ?>
+					<div class="authorPicMeta">
+						<a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">
+							<?php if ($imgSrc) { ?>
+							<span class="pic" style="background-image:url('<?php echo $imgSrc ?>')"></span>
+							<?php } else { ?>
+								<i class="fas fa-user nopicIcon"></i>
+							<?php } ?>
+							<img src="<?php echo $photoHelper ?>" alt="" class="helper">
+						</a>
+					</div>
+					<?php } ?>
+					<div class="nameAndDate">
+						<div class="authorName">By <?php echo ( $guest_author ) ? $guest_author : get_the_author(); ?> </div>
+						<div class="postDate"><?php echo get_the_date(); ?></div>
+					</div>
 				</div><!-- .entry-meta -->
 			<?php endif; ?>
 		</div>
@@ -120,48 +153,42 @@ if( !defined('HIDE_ADS') ){
 				<?php get_template_part( 'template-parts/sponsored-by-info'); ?>
 				
 			<?php } else { ?>
-				<?php if( $chooseAuthor ): ?>
-					<div class="author-block">
-						<?php 
-							$aName 			= get_the_author_meta('display_name');
-							$aDesc 			= get_the_author_meta('description');
-							$size         	= 'thumbnail';
-							$authorPhoto  	= null;				
-							$photoHelper = get_bloginfo('template_url') . '/images/square.png';			
-						?>
-						<div class="authorData">
-							<a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">
-									<?php 
-									if ( $chooseAuthor != '' ):
-										$authorID   = $chooseAuthor['ID'];
-										$authorPhoto = get_field( 'custom_picture', 'user_' . $authorID );
-									else:
-										$authorPhoto = get_field('custom_picture','user_'.get_the_author_meta('ID'));
-									endif;
 
-									$imgObj = ($authorPhoto) ? wp_get_attachment_image_src($authorPhoto, $size):'';
-									$imgSrc = ($imgObj) ? $imgObj[0] : '';
-									?>
-									<span class="authorPhoto <?php echo ($imgSrc) ? 'haspic':'nopic'; ?>">
-									<?php if ($imgSrc) { ?>
-									<span class="pic" style="background-image:url('<?php echo $imgSrc ?>')"></span>
-									<?php } else { ?>
-										<i class="fas fa-user nopicIcon"></i>
+				<?php if( $chooseAuthor ) { ?>
+					<div class="author-block">
+						<div class="authorData">
+						
+							<div class="pic-and-bio hidepic">
+								<div class="authorPhoto <?php echo ($imgSrc) ? 'haspic':'nopic'; ?>">
+									<a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">
+										<?php if ($imgSrc) { ?>
+										<span class="pic" style="background-image:url('<?php echo $imgSrc ?>')"></span>
+										<?php } else { ?>
+											<i class="fas fa-user nopicIcon"></i>
+										<?php } ?>
+										<img src="<?php echo $photoHelper ?>" alt="" class="helper">
+									</a>
+								</div>
+
+								<div class="authorNameBio">
+									<a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" class="name">
+										<span class="authorName">
+											<?php echo $aName; ?>
+										</span>
+									</a>
+
+									<?php if ($aDesc) { ?>
+									<div class="authorBio">
+										<?php echo $aDesc; ?>
+									</div>
 									<?php } ?>
-									<img src="<?php echo $photoHelper ?>" alt="" class="helper">
-								</span>
-								<span class="authorName">
-									<?php echo $aName; ?>
-								</span>
-							</a>
-							<?php if ($aDesc) { ?>
-							<div class="authorBio">
-								<?php echo $aDesc; ?>
+								</div>
 							</div>
-							<?php } ?>
+							
 						</div>
 					</div>
-				<?php endif; ?>
+				<?php } ?>
+
 			<?php } ?>
 
 			<?php 
