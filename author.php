@@ -13,32 +13,35 @@
  */
 
 get_header(); 
+$id = get_the_ID();
 $name ='';
 $last ='';
 $name = get_the_author_meta('first_name');
 $last = get_the_author_meta('last_name');
 $desc = get_the_author_meta('description');
+
+$photoHelper = get_bloginfo('template_url') . '/images/square.png';		
+$authorPhoto = get_field('custom_picture','user_'.get_the_author_meta('ID'));
+$size = 'full';
+$imgObj = ($authorPhoto) ? wp_get_attachment_image_src($authorPhoto, $size):'';
 ?>
 <div class="author-profile">
-	<!-- <div class="wrapper"> -->
-		<div class="photo">
-			<?php 
-			if ( $chooseAuthor != '' ):
-				$authorID   = $chooseAuthor['ID'];
-				$authorPhoto = get_field( 'custom_picture', 'user_' . $authorID );
-			else:
-				$authorPhoto = get_field('custom_picture','user_'.get_the_author_meta('ID'));
-			endif;
-			if ( $authorPhoto ):
-				echo wp_get_attachment_image( $authorPhoto, $size );
-			endif; //  if photo  ?>
+	<div class="wrapper">
+		<div class="flexwrap">
+			<div class="photo">
+			<?php if ( $imgObj ) { //echo wp_get_attachment_image( $authorPhoto, $size ); ?>
+				<span class="authorpic" style="background-image:url('<?php echo $imgObj[0] ?>')"></span>
+			<?php } else { ?>
+				<span class="nophoto"><i class="fas fa-user nopicIcon"></i></span>
+			<?php } ?>
+				<img src="<?php echo $photoHelper ?>" alt="" class="helper">
+			</div>
+			<div class="authorBio">
+				<h1><?php echo $name.' '.$last; ?></h1>
+				<?php echo $desc; ?>
+			</div>
 		</div>
-		<div class="info">
-			<h1><?php echo $name.' '.$last; ?></h1>
-			<?php echo $desc; ?>
-		</div>
-		
-	<!-- </div> -->
+	</div>
 </div>
 <div class="wrapper">
 	<div id="primary" class="content-area" >
