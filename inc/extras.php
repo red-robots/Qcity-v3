@@ -671,6 +671,13 @@ add_action( 'admin_print_scripts', 'jupload_scripts' );
 add_action( 'admin_head', 'post_visibility_head_scripts' );
 function post_visibility_head_scripts(){ ?>
     <style type="text/css">
+    #side-sortables [data-name="hide_author_photo"] .acf-label {
+        display: none!important;
+    }
+    #side-sortables [data-name="hide_author_photo"] .acf-input {
+        position: relative;
+        top: -15px;
+    }
     .stickyOptionsDiv {
         position: relative;
         top: -57px;

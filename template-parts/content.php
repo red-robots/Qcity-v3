@@ -18,8 +18,11 @@ $authorPhoto  	= null;
 $size         	= 'thumbnail';
 $imgObj = '';
 $imgSrc = '';
+$aDesc = '';
 $authorLinkOpen = '';
 $authorLinkClose = '';
+$hideAuthorPic = get_field("hide_author_photo");
+$hidePic = ( isset($hideAuthorPic[0]) && $hideAuthorPic[0]=='yes' ) ? true : false;
 
 if(!$guest_author) {
 	$aName = get_the_author_meta('display_name');
@@ -35,14 +38,19 @@ if(!$guest_author) {
 		$authorID = get_the_author_meta('ID');
 		$authorPhoto = get_field('custom_picture','user_'.get_the_author_meta('ID'));
 	}
-
-	$imgObj = ($authorPhoto) ? wp_get_attachment_image_src($authorPhoto, $size):'';
-	$imgSrc = ($imgObj) ? $imgObj[0] : '';
-	if($authorID && $aDesc) {
+	
+	if($authorID) {
 		$authorLinkOpen = '<a href="'.get_author_posts_url($authorID).'">';
 		$authorLinkClose = '</a>';
 	}
+
+	$imgObj = ($authorPhoto) ? wp_get_attachment_image_src($authorPhoto, $size):'';
+	$imgSrc = ($imgObj) ? $imgObj[0] : '';
 }
+if($hidePic) {
+	$imgObj = '';
+	$imgSrc = '';
+} 
 
 $single_post_comment_text = get_field('single_post_comment_text', 'option');
 $show_comment = ( isset($_GET['unapproved']) && isset($_GET['moderation-hash']) ) ? true : false;

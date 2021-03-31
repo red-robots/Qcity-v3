@@ -4284,9 +4284,12 @@ section.events {
 	}
 	.entry-meta.has-custom-author {
 		@include flexgroup();
+		.nameAndDate {
+			padding-left: 12px;
+		}
 		.authorPicMeta {
 			width: 11%;
-			padding-right: 12px;
+			position: relative;
 			a {
 				display: block;
 				width: 100%;
@@ -4297,40 +4300,40 @@ section.events {
 				background-position: center;
 				background-color: #C5C5C5;
 				position: relative;
-				span.pic, span.nopic {
+			}
+			span.pic, span.nopic {
+				display: block;
+				width: 100%;
+				height: 100%;
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+				border: 1px solid #efefef;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 3;
+			}
+			span.nopic {
+				border: none;
+				background-color: #efefef;
+				.nopicIcon {
 					display: block;
 					width: 100%;
-					height: 100%;
-					background-size: cover;
-					background-position: center;
-					background-repeat: no-repeat;
-					border: 1px solid #efefef;
+					text-align: center;
 					position: absolute;
-					top: 0;
+					top: 50%;
 					left: 0;
-					z-index: 3;
+					transform: translateY(-50%);
+					font-size: 25px;
+					line-height: 1;
+					color: #cacaca;
 				}
-				span.nopic {
-					border: none;
-					background-color: #efefef;
-					.nopicIcon {
-						display: block;
-						width: 100%;
-						text-align: center;
-						position: absolute;
-						top: 50%;
-						left: 0;
-						transform: translateY(-50%);
-						font-size: 25px;
-						line-height: 1;
-						color: #cacaca;
-					}
-				}
-				img {
-					width: 100%;
-					height: auto;
-					float: left;
-				}
+			}
+			img {
+				width: 100%;
+				height: auto;
+				float: left;
 			}
 		}
 		.nameAndDate {
