@@ -12,6 +12,7 @@ $mod = the_modified_date('M j, Y', '', '', false);
 $the_post_id = get_the_ID();
 $guest_author 	= get_field('author_name') ;
 $hide_ads 		= get_field('hide_ads');
+$chooseAuthor 	= get_field( 'choose_author');
 
 /* Author Photo */
 $authorPhoto  	= null;		
@@ -28,7 +29,6 @@ if(!$guest_author) {
 	$aName = get_the_author_meta('display_name');
 	$aDesc = get_the_author_meta('description');
 	$imgObj = '';
-	$chooseAuthor 	= get_field( 'choose_author');
 	$photoHelper = get_bloginfo('template_url') . '/images/square.png';
 	$authorID = '';			
 	if($chooseAuthor) {
@@ -47,7 +47,7 @@ if(!$guest_author) {
 	$imgObj = ($authorPhoto) ? wp_get_attachment_image_src($authorPhoto, $size):'';
 	$imgSrc = ($imgObj) ? $imgObj[0] : '';
 }
-if($hidePic) {
+if(empty($chooseAuthor)) {
 	$imgObj = '';
 	$imgSrc = '';
 } 
