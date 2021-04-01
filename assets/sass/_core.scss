@@ -10526,6 +10526,24 @@ body.social-media-sticky {
 	.form-subscribe-blue {
 		padding: 0 0;
 	}
+	.gform_title {
+		text-align: center;
+		color: #36c;
+		font-size: 15px!important;
+		font-weight: 700;
+		text-transform: uppercase;
+		margin: 0 0 12px;
+	}
+	.gfield_html_formatted {
+		max-width: 90%!important;
+    width: 100%;
+    margin: 0 auto!important;
+    display: block;
+	}
+	.gfield_html_formatted,
+	.gfield_html_formatted small {
+		font-size: 14px;
+	}
 }
 .newHomeLayout {
 	margin-top: 20px;

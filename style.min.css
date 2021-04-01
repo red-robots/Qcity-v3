@@ -3595,6 +3595,9 @@ body.social-media-sticky .grecaptcha-badge{bottom:60px !important}
 .form-subscribe-blue.sidebar-SF .gform_wrapper .gform_footer{width:26%}
 .form-subscribe-blue.sidebar-SF .gform_wrapper .gform_footer input.gform_button{font-size:13px}
 }.subscribe-form-single .form-subscribe-blue{padding:0}
+.subscribe-form-single .gform_title{text-align:center;color:#36c;font-size:15px !important;font-weight:700;text-transform:uppercase;margin:0 0 12px}
+.subscribe-form-single .gfield_html_formatted{max-width:90% !important;width:100%;margin:0 auto !important;display:block}
+.subscribe-form-single .gfield_html_formatted,.subscribe-form-single .gfield_html_formatted small{font-size:14px}
 .newHomeLayout{margin-top:20px}
 .newHomeLayout section.stickies-new.stickyPostsTop{display:block}
 .newHomeLayout section.stickies-new.stickyPostsTop .stickLeft{width:100%;float:left;padding-top:0}

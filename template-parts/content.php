@@ -114,10 +114,37 @@ if( !defined('HIDE_ADS') ){
 		</div>
 	</div><!-- .entry-content -->
 
-	<?php /* SUBSCRIPTION FORM */ ?>
-	<div class="subscribe-form-single">
-	<?php get_template_part( 'home-parts/subscribe-form'); ?>
-	</div>
+	<?php /* SUBSCRIPTION FORM */ 
+	$formPostId = get_field("embedForms");
+	$formVisibility = get_field("show_hide_form");
+	$showForm = ($formVisibility=='hide') ? false : true;
+	?>
+
+	<?php if ($showForm) { ?>
+		<div class="subscribe-form-single">
+			<?php if ($formPostId) { 
+				$gfshortcode = '[gravityform id="'.$formPostId.'" title="1" description="false" ajax="true"]'; ?>
+				
+				<?php if ($formPostId==111) { ?>
+					<div class="formDiv default"><?php get_template_part( 'home-parts/subscribe-form'); ?></div>
+				<?php } else { ?>
+
+					<?php if( do_shortcode($gfshortcode) ) { ?>	
+						<div class="formDiv custom">
+							<div class="home-sb-subscribe-form">
+		        		<div class="form-inside"><?php echo do_shortcode($gfshortcode); ?></div>
+		        	</div>
+						</div>
+					<?php } ?>
+
+				<?php } ?>
+				
+			<?php } else { ?>
+				<div class="formDiv default"><?php get_template_part( 'home-parts/subscribe-form'); ?></div>
+			<?php } ?>
+		</div>
+	<?php } ?>
+	
   
 
 	<div class="content-single-page">

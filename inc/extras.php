@@ -1226,7 +1226,7 @@ jQuery(document).ready(function($){
 </script>
 <?php } 
 
-$gravityFormsSelections = array('homeFormShortcode','homeSBFormShortcode');
+$gravityFormsSelections = array('homeFormShortcode','homeSBFormShortcode','embedForms');
 function acf_load_gravity_form_choices( $field ) {
     // reset choices
     $field['choices'] = array();
@@ -1235,10 +1235,8 @@ function acf_load_gravity_form_choices( $field ) {
         foreach( $choices as $choice ) {
             $post_id = $choice->id;
             $post_title = $choice->title;
-            
             $field['choices'][ $post_id ] = $post_title;
-            
-        }   
+        }
     }
     return $field;
 }
