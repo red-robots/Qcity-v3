@@ -118,8 +118,9 @@ if( !defined('HIDE_ADS') ){
 	$formPostId = get_field("embedForms");
 	$formVisibility = get_field("show_hide_form");
 	$showForm = ($formVisibility=='hide') ? false : true;
+	$genericForm = get_field("show_generic_newsletter");
+	$showGenericForm = ($genericForm=='off') ? false : true;
 	?>
-
 	<?php if ($showForm) { ?>
 		<div class="subscribe-form-single">
 			<?php if ($formPostId) { 
@@ -139,13 +140,15 @@ if( !defined('HIDE_ADS') ){
 
 				<?php } ?>
 				
-			<?php } else { ?>
-				<div class="formDiv default"><?php get_template_part( 'home-parts/subscribe-form'); ?></div>
 			<?php } ?>
 		</div>
 	<?php } ?>
 	
-  
+	<?php if ($showGenericForm) { ?>
+	<div class="subscribe-form-single" style="margin-top: 20px;">
+		<div class="formDiv default"><?php get_template_part( 'home-parts/subscribe-form'); ?></div>
+	</div>
+	<?php } ?>
 
 	<div class="content-single-page">
 

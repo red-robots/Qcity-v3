@@ -671,6 +671,14 @@ add_action( 'admin_print_scripts', 'jupload_scripts' );
 add_action( 'admin_head', 'post_visibility_head_scripts' );
 function post_visibility_head_scripts(){ ?>
     <style type="text/css">
+    body.post-type-post .acf-field[data-name="show_hide_form"] .acf-label {
+        display: none!important;
+    }
+    body.post-type-post .acf-field[data-name="show_hide_form"] {
+        border-top: none;
+        position: relative;
+        top: -20px;
+    }
     #side-sortables [data-name="hide_author_photo"] .acf-label {
         display: none!important;
     }
