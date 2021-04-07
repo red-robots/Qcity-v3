@@ -120,6 +120,9 @@ if( !defined('HIDE_ADS') ){
 	$showForm = ($formVisibility=='hide') ? false : true;
 	$genericForm = get_field("show_generic_newsletter");
 	$showGenericForm = ($genericForm=='off') ? false : true;
+	if($formPostId==111) {
+		$showGenericForm = false;
+	}
 	?>
 	<?php if ($showForm) { ?>
 		<div class="subscribe-form-single">
