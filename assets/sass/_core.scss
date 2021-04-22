@@ -10324,6 +10324,11 @@ body.single-post {
 		}
 	}
 	.sharethis-inline-share-buttons .st-btn[data-network="email"]{display:none!important;}
+	#main .entry-content .wp-block-image {
+		figure.aligncenter {
+			text-align: center;
+		}
+	}
 }
 
 .entry-footer.desktop-version {
