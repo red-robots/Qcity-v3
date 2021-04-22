@@ -4,7 +4,8 @@
 */
 $i = 0;
 $day = date('d');
-$day2 = $day - 1;
+// $day2 = $day + 1;
+$day2 = $day;
 $day_plus = sprintf('%02s', $day2);
 $today = date('Ym') . $day_plus;
 
