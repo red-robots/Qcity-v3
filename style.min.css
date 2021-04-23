@@ -3737,3 +3737,39 @@ body.home .subscribe-wrap .subscribe{padding:25px 20px 20px}
 }body.archive .widget-area.category-post .form-subscribe-blue,body.scrolled.archive .widget-area.category-post .form-subscribe-blue{opacity:1 !important}
 body.archive #widget-singleSidebar,body.scrolled.archive #widget-singleSidebar{position:relative !important;top:0 !important}
 body.archive #widget-singleSidebar #widget-trending-post,body.scrolled.archive #widget-singleSidebar #widget-trending-post{height:auto !important;overflow:visible}
+.content-area-full.map-page{width:100%;float:left}
+.content-area-full.map-page .wrapper{max-width:1200px;width:100%;margin:0 auto;padding-left:20px;padding-right:20px}
+.content-area-full.map-page .mapwrapper{position:relative}
+.content-area-full.map-page .top-logo{width:100%;float:left;margin:20px 0}
+.content-area-full.map-page .top-logo .logo-img{display:inline-block;width:150px}
+.content-area-full.map-page .top-logo a,.content-area-full.map-page .top-logo img{display:block;width:100%;height:auto;text-decoration:none}
+.content-area-full.map-page .map-div{width:100%;float:left;background:#e2e2e2;padding-top:80px;padding-bottom:80px}
+.content-area-full.map-page .titlediv{text-align:center;position:relative}
+.content-area-full.map-page .titlediv h1.t1{font-size:30px;font-weight:600;text-transform:uppercase;line-height:1.2;margin:0;color:#924020}
+.content-area-full.map-page .titlediv h2.t2{margin:5px 0 0;font-weight:500;font-size:22px}
+.content-area-full.map-page .titlediv h2.t2 u{display:inline-block;text-decoration:none;font-style:normal;border-bottom:2px solid #924020;padding-bottom:2px}
+.content-area-full.map-page .titlediv .postViews{display:inline-block;position:absolute;top:-30px;right:0;width:80px;height:80px;border-radius:100%;background:#924020;color:#FFF}
+.content-area-full.map-page .titlediv .postViews span{display:block;position:relative;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
+.content-area-full.map-page .titlediv .postViews em{display:block;width:100%;text-align:center;font-style:normal;line-height:1}
+.content-area-full.map-page .titlediv .postViews em.e1{font-size:11px}
+.content-area-full.map-page .titlediv .postViews em.e2{font-size:20px;font-weight:500;position:relative;top:4px}
+.content-area-full.map-page .map-embed{width:100%;float:left;background:#FFF;position:relative;margin-top:40px}
+.content-area-full.map-page .map-embed iframe{width:100% !important;height:100% !important;border:0;position:absolute;top:0;left:0;z-index:20}
+.content-area-full.map-page .map-embed img.resizer{width:100%;height:auto;float:left;visibility:hidden}
+.content-area-full.map-page .entry-content{width:100%;float:left;padding:40px 20px}
+@media(min-width:820px){.content-area-full.map-page .entry-content{padding:40px 0}
+}.content-area-full.map-page .entry-content .leftcol,.content-area-full.map-page .entry-content .rightcol{width:100%;float:left}
+.content-area-full.map-page .entry-content .rightcol{margin-top:30px}
+@media(min-width:820px){.content-area-full.map-page .entry-content .leftcol{width:65%;padding-right:10px}
+.content-area-full.map-page .entry-content .rightcol{margin-top:20px;width:35%;padding-left:30px}
+}@media(min-width:960px){.content-area-full.map-page .entry-content .leftcol{width:70%}
+.content-area-full.map-page .entry-content .rightcol{width:30%}
+}.content-area-full.map-page .sbbuttons div.button{margin-bottom:10px}
+.content-area-full.map-page .sbbuttons div.button a{display:block;text-decoration:none;background:#c4a92f;color:#FFF;padding:6px 15px;text-align:center}
+.content-area-full.map-page .sbbuttons div.button a:hover{background:#924020}
+.content-area-full.map-page .subscription{background:#18798d;color:#FFF;padding:20px}
+@media(min-width:820px){.content-area-full.map-page .subscription{padding:30px 2vw}
+}.content-area-full.map-page .subscription .text{font-size:16px;line-height:1.3}
+.content-area-full.map-page .subscription .sub-button{margin-top:20px}
+.content-area-full.map-page .subscription .sub-button a{display:block;text-decoration:none;background:#FFF !important;color:#924020;padding:6px 15px;text-align:center}
+.content-area-full.map-page .subscription .sub-button a:hover{background:#924020 !important;color:#FFF !important}
