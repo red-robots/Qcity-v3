@@ -217,11 +217,21 @@ $start_end = $dateToday . ',' . date('Ym') . $nexday;
 
 	<div id="content" class="site-content mobile-body">
 
-  <?php if($electionCatId!=$current_term_id) { ?>
-    <?php if ( $ads_header = get_ads_script('leaderboard-ad-home') ) { ?>
-    <div class="ads_home_leaderboard">
-      <?php echo $ads_header['ad_script'] ?>
-    </div>
+  <?php 
+  /* Black on the map page id = 181208 */
+  $current_page_id = (is_page()) ? get_the_ID() : 0;
+  $template_slug = get_page_template_slug($current_page_id);
+  $show_ads = true;
+  if($template_slug=='page-black-map.php') {
+    $show_ads = false;
+  }
+  if( $show_ads ) {
+    if($electionCatId!=$current_term_id) { ?>
+      <?php if ( $ads_header = get_ads_script('leaderboard-ad-home') ) { ?>
+      <div class="ads_home_leaderboard">
+        <?php echo $ads_header['ad_script'] ?>
+      </div>
+      <?php } ?>
     <?php } ?>
   <?php } ?>
    
