@@ -3779,5 +3779,5 @@ body.logged-in.admin-bar.page-template-page-black-map #content{padding-top:5px}
 .content-area-full.map-page .top-logo{padding-left:30px;padding-right:30px}
 .content-area-full.map-page .map-div{padding-top:60px !important;padding-bottom:60px !important}
 .content-area-full.map-page .map-div .wrapper{padding-left:20px !important;padding-right:20px !important}
-}@media screen and (max-width:480px){.content-area-full.map-page .map-embed{height:300px}
+}@media screen and (max-width:480px){.content-area-full.map-page .map-embed{height:65vh}
 }
