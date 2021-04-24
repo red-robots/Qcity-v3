@@ -3767,6 +3767,7 @@ body.archive #widget-singleSidebar #widget-trending-post,body.scrolled.archive #
 .content-area-full.map-page #main .subscription .sub-button{margin-top:20px}
 .content-area-full.map-page #main .subscription .sub-button a{display:block;text-decoration:none;background:#FFF !important;color:#924020;padding:6px 15px;text-align:center}
 .content-area-full.map-page #main .subscription .sub-button a:hover{background:#924020 !important;color:#FFF !important}
+body.logged-in.admin-bar.page-template-page-black-map #content{padding-top:5px}
 .business-map-counter.postViews{display:inline-block;position:absolute;top:-30px;right:0;width:80px;height:80px;border-radius:100%;background:#924020;color:#FFF}
 .business-map-counter.postViews span{display:block;position:relative;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
 .business-map-counter.postViews em{display:block;width:100%;text-align:center;font-style:normal;line-height:1}
