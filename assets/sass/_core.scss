@@ -11225,6 +11225,7 @@ body.scrolled.archive {
 		width: 100%;
 		float: left;
 		margin: 20px 0;
+		position: relative;
 		.logo-img {
 			display: inline-block;
 			width: 150px;
@@ -11264,39 +11265,6 @@ body.scrolled.archive {
 				font-style:normal;
 				border-bottom: 2px solid $color-red;
     		padding-bottom: 2px;
-			}
-		}
-		.postViews {
-			display: inline-block;
-			position: absolute;
-			top: -30px;
-			right: 0;
-			width: 80px;
-			height: 80px;
-			border-radius: 100%;
-			background: $color-red;
-			color: #FFF;
-			span {
-				display: block;
-				position: relative;
-				top: 50%;
-				transform: translateY(-50%);
-			}
-			em {
-				display: block;
-				width: 100%;
-				text-align: center;
-				font-style: normal;
-				line-height: 1;
-				&.e1 {
-					font-size: 11px;
-				}
-				&.e2 {
-					font-size: 20px;
-					font-weight: 500;
-					position: relative;
-					top: 4px;
-				}
 			}
 		}
 	}
@@ -11401,5 +11369,60 @@ body.scrolled.archive {
 	}
 }
 
-
+.business-map-counter.postViews {
+	display: inline-block;
+	position: absolute;
+	top: -30px;
+	right: 0;
+	width: 80px;
+	height: 80px;
+	border-radius: 100%;
+	background: $color-red;
+	color: #FFF;
+	span {
+		display: block;
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	em {
+		display: block;
+		width: 100%;
+		text-align: center;
+		font-style: normal;
+		line-height: 1;
+		&.e1 {
+			font-size: 11px;
+		}
+		&.e2 {
+			font-size: 20px;
+			font-weight: 500;
+			position: relative;
+			top: 4px;
+		}
+	}
+}
+.top-logo .business-map-counter{display:none;}
+@media screen and (max-width: $tab - 1px) {
+	.titlediv .business-map-counter{display:none;}
+	.top-logo .business-map-counter.postViews{
+		display:inline-block!important;
+		top: -12px;
+	}
+	.content-area-full.map-page {
+		.top-logo {
+			padding-left: 30px;
+	    padding-right: 30px;
+		}
+		.map-div {
+			padding-top: 60px!important;
+	    padding-bottom: 60px!important;
+		}
+		.map-div .wrapper {
+			padding-left: 20px!important;
+	    padding-right: 20px!important;
+		}
+	}
+	
+}
 
