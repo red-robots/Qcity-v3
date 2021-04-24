@@ -16143,7 +16143,7 @@ body.scrolled.archive #widget-singleSidebar #widget-trending-post {
       margin: 0 0;
       color: #924020; }
     .content-area-full.map-page #main .titlediv h2.t2 {
-      margin: 5px 0 0;
+      margin: 6px 0 0;
       font-weight: 500;
       font-size: 22px; }
       .content-area-full.map-page #main .titlediv h2.t2 u {
@@ -16151,7 +16151,7 @@ body.scrolled.archive #widget-singleSidebar #widget-trending-post {
         text-decoration: none;
         font-style: normal;
         border-bottom: 2px solid #924020;
-        padding-bottom: 2px; }
+        padding-bottom: 5px; }
   .content-area-full.map-page #main .map-embed {
     width: 100%;
     float: left;
