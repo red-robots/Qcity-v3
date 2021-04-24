@@ -26,7 +26,7 @@ $currentURL = get_permalink();
 		$i = 0;
 		$day = date('d');
 		$day2 = $day - 1;
-		$day_plus = sprintf('%02s', $day2);
+		$day_plus = sprintf('%02s', $day);
 		$today = date('Ym') . $day_plus;
 		
 		$args = array(
