@@ -11208,7 +11208,7 @@ body.scrolled.archive {
 }
 
 /* MAP PAGE */
-.content-area-full.map-page {
+.content-area-full.map-page #main{
 	width: 100%;
 	float: left;
 	.wrapper {
@@ -11293,10 +11293,7 @@ body.scrolled.archive {
 	.entry-content {
 		width: 100%;
 		float: left;
-		padding: 40px 20px;
-		@include tab {
-			padding: 40px 0;
-		}
+		padding: 40px 0;
 		.leftcol, .rightcol {
 			width: 100%;
 			float: left;
@@ -11423,6 +11420,11 @@ body.scrolled.archive {
 	    padding-right: 20px!important;
 		}
 	}
-	
+}
+
+@media screen and (max-width: 480px) {
+	.content-area-full.map-page .map-embed{
+		height: 300px;
+	}
 }
 
