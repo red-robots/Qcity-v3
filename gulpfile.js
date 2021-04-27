@@ -82,10 +82,10 @@ const touch = () => through2.obj( function( file, enc, cb ) {
   cb( null, file );
 });
 
-function reload(done) {
-	browserSync.reload();
-	done();
-}
+// function reload(done) {
+// 	browserSync.reload();
+// 	done();
+// }
 
 
 /**

@@ -1380,5 +1380,35 @@ function get_trending_articles($perpage=5) {
     return $entries;
 }
 
+function get_page_id_by_template($fileName) {
+    $page_id = 0;
+    if($fileName) {
+        $pages = get_pages(array(
+            'post_type' => 'page',
+            'meta_key' => '_wp_page_template',
+            'meta_value' => $fileName.'.php'
+        ));
 
+        if($pages) {
+            $row = $pages[0];
+            $page_id = $row->ID;
+        }
+    }
+    return $page_id;
+}
+
+function mobile_faq_sidebar_func( $atts ) {
+    // $a = shortcode_atts( array(
+    //     'foo' => 'something',
+    //     'bar' => 'something else',
+    // ), $atts );
+    $output = '';
+    ob_start();
+    $mobile_class = 'mobile-only';
+    include( locate_template('sidebar-map-page.php') );
+    $output = ob_get_contents();
+    ob_end_clean();
+    return $output;
+}
+add_shortcode( 'mobile_faq_sidebar', 'mobile_faq_sidebar_func' );
 
