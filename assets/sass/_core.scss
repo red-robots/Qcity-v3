@@ -8575,17 +8575,17 @@ body.logged-in.admin-bar {
 	#content {
 		padding-top: 97px;
 	}
-	&.page-template-page-black-map {
+	&.page-template-page-business-directory #content,
+	&.page-template-page-black-map #content {
+		padding-top: 5px!important;
 		@include tab {
-			#content {
-				padding-top: 77px!important;
-			}
+			padding-top: 77px!important;
 		}
 	}
 	.content-area-full.top-logo-page #main .top-logo {
 		padding: 8px 0 7px;
 		@include tab {
-			padding: 22px 0 7px;
+			padding: 12px 0 7px;
 		}
 		.business-map-counter.postViews {
 			right: 15px;
@@ -11283,11 +11283,15 @@ body.scrolled.archive {
 			transition: all ease .3s;
 		}
 		@include tab {
-			padding: 13px 0 10px;
+			padding: 2px 0 10px;
+			text-align: center;
 		}
 		.logo-img {
 			display: inline-block;
 			width: 150px;
+			@include tab {
+				width: auto;
+			}
 		}
 		a {
 			display: block;
@@ -11486,7 +11490,7 @@ body.logged-in.admin-bar.page-template-page-black-map #content {
 body.logged-in.admin-bar.page-template-page-business-directory #content {
 	@include tab {
 		#main .top-logo {
-			padding: 5px 0 7px;
+			padding: 14px 0 7px;
 		}
 	}
 }
@@ -11505,12 +11509,15 @@ body.page-template-page-business-directory {
 	display: inline-block;
 	position: absolute;
 	top: -30px;
-	right: 0;
+	right: 20px;
 	width: 80px;
 	height: 80px;
 	border-radius: 100%;
 	background: $color-red;
 	color: #FFF;
+	@include tab {
+		right: 10px;
+	}
 	span {
 		display: block;
 		position: relative;
