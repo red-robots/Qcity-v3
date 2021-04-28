@@ -1,8 +1,9 @@
 <?php
 /**
- * Template Name: Map Page
+ * Template Name: Business Directory
  */
-get_header(); ?>
+get_header(); 
+?>
 <div id="primary" class="content-area-full map-page top-logo-page">
 	<main id="main" class="site-main" role="main">
 
@@ -59,9 +60,9 @@ get_header(); ?>
 			</div>
 		</div>	
 		<?php } ?>
-		<div class="map-div">
-			<div class="wrapper mapwrapper">
 
+		<div class="map-div title-gray-bg">
+			<div class="wrapper mapwrapper">
 			
 				<?php 
 				$subtitle = get_field("subtitle"); 
@@ -77,14 +78,6 @@ get_header(); ?>
 					<h2 class="t2"><?php echo $subtitle ?></h2>	
 					<?php } ?>
 				</div>
-
-				<?php if ( $map = get_field("map_iframe_code") ) { ?>
-				<div class="map-embed">
-					<?php echo $map ?>
-					<img src="<?php echo $placeholder ?>" alt="" aria-hidden="true" class="resizer">
-				</div>
-				<?php } ?>
-	
 				
 			</div>
 		</div>
@@ -96,10 +89,45 @@ get_header(); ?>
 		$content_class = ( $sidebar_buttons && ($subscription_text || $subscription_button) ) ? 'half':'full';
 		?>
 
-		<div class="entry-content <?php echo $content_class ?>">
+		<div class="entry-content biz-directory <?php echo $content_class ?>">
 			<div class="wrapper">
 				<div class="leftcol">
+					
 					<?php the_content(); ?>
+					
+					<div class="listing-header">
+						<div class="content-area-title">
+							<header class="section-title ">
+								<h2 class="dark-gray">Find a Business by Category</h2>
+							</header>
+						</div>
+					</div>
+
+					<?php 
+					$business_category = array();
+					$terms = get_terms('business_category');
+					if ($terms) { ?>
+						<div class="listing_initial">
+							<section class="biz-cats">
+						    <?php foreach ($terms as $category) {
+						    	if( $category->count > 0 ):
+
+						    		$icon = get_field('icon', $category);
+
+							    	$business_category[] = array(
+							    				'name' 	=> $category->name,
+							    				'url' 	=> get_term_link($category->term_id),
+							    				'icon'	=> $icon['url']
+							    	);
+						    	endif;
+						    }
+
+						  	array_multisort($business_category, SORT_ASC, $terms);					
+								include( locate_template('template-parts/business-categories.php')); ?>
+							</section>
+						</div>
+					<?php } ?>
+
 				</div>
 
 				<?php if ( $sidebar_buttons || ($subscription_text || $subscription_button) ) { ?>
@@ -115,4 +143,5 @@ get_header(); ?>
 		<?php endwhile; ?>
 	</main><!-- #main -->
 </div><!-- #primary -->
-<?php get_footer();
+<?php 
+get_footer();

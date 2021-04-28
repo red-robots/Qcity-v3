@@ -220,9 +220,13 @@ $start_end = $dateToday . ',' . date('Ym') . $nexday;
   <?php 
   /* Black on the map page id = 181208 */
   $current_page_id = (is_page()) ? get_the_ID() : 0;
-  $template_slug = get_page_template_slug($current_page_id);
+  $template = no_top_ads($current_page_id);
   $show_ads = true;
-  if($template_slug=='page-black-map.php') {
+  //$template_slug = get_page_template_slug($current_page_id);
+  // if($template_slug=='page-black-map.php') {
+  //   $show_ads = false;
+  // }
+  if($template) {
     $show_ads = false;
   }
   if( $show_ads ) {

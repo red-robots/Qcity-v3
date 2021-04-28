@@ -1412,3 +1412,17 @@ function mobile_faq_sidebar_func( $atts ) {
 }
 add_shortcode( 'mobile_faq_sidebar', 'mobile_faq_sidebar_func' );
 
+function no_top_ads($postid) {
+    $templates = array('page-black-map.php','page-business-directory.php');
+    $template_slug = get_page_template_slug($postid);
+    $no_ads = array();
+    foreach($templates as $temp) {
+        if($template_slug==$temp) {
+            $no_ads[] = $postid;
+        }      
+    }
+    return $no_ads;
+}
+
+
+

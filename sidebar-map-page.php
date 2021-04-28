@@ -1,5 +1,4 @@
 <?php
-
 $page_id = get_page_id_by_template('page-black-map');
 if($page_id) {
 	$sidebar_buttons = get_field("sidebar_buttons",$page_id); 
