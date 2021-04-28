@@ -3752,7 +3752,7 @@ body.archive #widget-singleSidebar #widget-trending-post,body.scrolled.archive #
 .content-area-full.top-logo-page #main{width:100%;float:left}
 .content-area-full.top-logo-page #main .wrapper{max-width:1200px;width:100%;margin:0 auto;padding-left:20px;padding-right:20px}
 .content-area-full.top-logo-page #main .mapwrapper{position:relative}
-.content-area-full.top-logo-page #main .top-logo{width:100%;float:left;padding:20px 0;background-color:#FFF;position:relative}
+.content-area-full.top-logo-page #main .top-logo{width:100%;float:left;padding:0 0 8px;background-color:#FFF;position:relative}
 .content-area-full.top-logo-page #main .top-logo *{-webkit-transition:all ease .3s;transition:all ease .3s}
 @media(min-width:820px){.content-area-full.top-logo-page #main .top-logo{padding:2px 0 10px;text-align:center}
 }.content-area-full.top-logo-page #main .top-logo .logo-img{display:inline-block;width:150px}
