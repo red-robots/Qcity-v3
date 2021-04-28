@@ -104,7 +104,11 @@ get_header(); ?>
 
 				<?php if ( $sidebar_buttons || ($subscription_text || $subscription_button) ) { ?>
 				<div class="rightcol">
-					<?php get_template_part('sidebar-map-page'); ?>
+					<?php 
+					$template = basename(__FILE__, '.php'); 
+					include( locate_template('sidebar-map-page.php'));
+						//get_template_part('sidebar-map-page');
+					?>
 				</div>
 				<?php } ?>
 				

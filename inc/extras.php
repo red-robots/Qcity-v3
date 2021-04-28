@@ -1402,10 +1402,16 @@ function mobile_faq_sidebar_func( $atts ) {
     //     'foo' => 'something',
     //     'bar' => 'something else',
     // ), $atts );
+    global $post;
+    $post_id = $post->ID;
+    $template_slug = get_page_template_slug($post_id);
     $output = '';
     ob_start();
     $mobile_class = 'mobile-only';
-    include( locate_template('sidebar-map-page.php') );
+    $template = str_replace(".php","",$template_slug); 
+    if($template) {
+        include( locate_template('sidebar-map-page.php') );
+    }
     $output = ob_get_contents();
     ob_end_clean();
     return $output;

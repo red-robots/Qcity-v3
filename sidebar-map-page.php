@@ -1,11 +1,14 @@
 <?php
-$page_id = get_page_id_by_template('page-black-map');
+// $current_id = get_the_ID();
+// $templates = array('page-black-map.php','page-business-directory.php');
+// $template_slug = get_page_template_slug($current_id);
+$page_id = ( isset($template) && $template ) ? get_page_id_by_template($template) : '';
 if($page_id) {
 	$sidebar_buttons = get_field("sidebar_buttons",$page_id); 
 	$subscription_text = get_field("subscription_text",$page_id); 
 	$subscription_button = get_field("subscription_button",$page_id);
 	$mobile_view = ( isset($mobile_class) && $mobile_class ) ? $mobile_class : 'desktop';
-	if ( $sidebar_buttons && ($subscription_text || $subscription_button) ) { ?>
+	if ( $sidebar_buttons || ($subscription_text || $subscription_button) ) { ?>
 	<div class="faq-sb-boxes <?php echo $mobile_view ?>">
 
 		<?php if ($sidebar_buttons) { ?>
@@ -45,3 +48,4 @@ if($page_id) {
 	<?php } ?> 
 
 <?php } ?>
+
