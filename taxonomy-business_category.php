@@ -61,7 +61,7 @@ $page_title = $ob->name;
 			<div class="wrapper mapwrapper">
 			
 				<?php 
-				$subtitle = get_field("subtitle"); 
+				$subtitle = get_field("bd_subtitle"); 
 				if($subtitle) {
 					$subtitle = str_replace("{{","<u>",$subtitle);
 					$subtitle = str_replace("}}","</u>",$subtitle);
