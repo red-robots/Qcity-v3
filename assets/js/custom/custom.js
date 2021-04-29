@@ -1115,12 +1115,18 @@ jQuery(document).ready(function ($) {
     }
 
     body_scrolled();
-    if ($(window).scrollTop() >= 70) {
+
+    if( $("body.page-template-page-business-directory").length>0 ) {
+        if( $("#bizCatLists").length>0 ) {
+            $(window).on('scroll', function () {
+                body_scrolled();
+            });
+        }
+    } else {
         $(window).on('scroll', function () {
             body_scrolled();
         });
     }
-    
 
     function body_scrolled() {
         if ($(window).scrollTop() >= 70) {
