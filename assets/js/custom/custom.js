@@ -1120,7 +1120,7 @@ jQuery(document).ready(function ($) {
     });
 
     function body_scrolled() {
-        if ($(window).scrollTop() > 50) {
+        if ($(window).scrollTop() >= 70) {
             $('body').addClass('scrolled');
         } else {
             $('body').removeClass('scrolled');

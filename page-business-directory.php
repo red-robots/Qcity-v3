@@ -9,9 +9,9 @@ get_header();
 
 		<?php while ( have_posts() ) : the_post(); ?>
 		<?php 
-			$poweredby = get_field("poweredby");
-			$logo = get_field("top_logo");
-			$logo_website = get_field("top_logo_website"); 
+			$poweredby = get_field("bd_poweredby","option");
+			$logo = get_field("bd_top_logo","option");
+			$logo_website = get_field("bd_top_logo_website","option"); 
 			$link_open = '';
 			$link_close = '';
 			if($logo_website) {
@@ -83,9 +83,9 @@ get_header();
 		</div>
 
 		<?php 
-		$sidebar_buttons = get_field("sidebar_buttons"); 
-		$subscription_text = get_field("subscription_text"); 
-		$subscription_button = get_field("subscription_button"); 
+		$sidebar_buttons = get_field("bd_sidebar_buttons","option"); 
+		$subscription_text = get_field("bd_subscription_text","option"); 
+		$subscription_button = get_field("bd_subscription_button","option"); 
 		$content_class = ( $sidebar_buttons && ($subscription_text || $subscription_button) ) ? 'half':'full';
 		?>
 
@@ -93,16 +93,10 @@ get_header();
 			<div class="wrapper">
 				<div class="leftcol">
 					
-					<?php the_content(); ?>
+					<?php if (get_the_content()) { ?>
+					<div class="main-text-wrap"><?php the_content(); ?></div>	
+					<?php } ?>
 					
-					<div class="listing-header">
-						<div class="content-area-title">
-							<header class="section-title ">
-								<h2 class="dark-gray">Find a Business by Category</h2>
-							</header>
-						</div>
-					</div>
-
 					<?php 
 					$business_category = array();
 					$terms = get_terms('business_category');
@@ -132,11 +126,7 @@ get_header();
 
 				<?php if ( $sidebar_buttons || ($subscription_text || $subscription_button) ) { ?>
 				<div class="rightcol">
-					<?php 
-					$template = basename(__FILE__, '.php'); 
-					include( locate_template('sidebar-map-page.php'));
-						//get_template_part('sidebar-map-page');
-					?>
+					<?php include( locate_template('sidebar-business-directory.php')); ?>
 				</div>
 				<?php } ?>
 				

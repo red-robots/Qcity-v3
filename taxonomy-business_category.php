@@ -1,215 +1,156 @@
-<?php
-/**
- * The template for displaying archive pages.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package ACStarter
- */
-
+<?php 
 get_header(); 
-get_template_part('template-parts/banner-biz');
-$placeholder = get_template_directory_uri() . '/images/right-image-placeholder.png';
-
-
-//$add_business = get_field('add_your_business');
-//$add_business_link = get_field('add_business_link');
-
-//var_dump($ob);
+$ob = get_queried_object();
+$page_title = $ob->name;
 ?>
+<div id="primary" class="content-area-full map-page top-logo-page taxonomy-business-directory">
+	<main id="main" class="site-main" role="main">
 
-<div class="wrapper" >
-	<?php $ob = get_queried_object(); ?>
-	<div class="business-category-header">
-		<header class="page-header biz">		
-			<h1><?php echo $ob->name; ?></h1>
-			<?php
-				//the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="taxonomy-description">', '</div>' );
-			//echo '<!-- <pre>';
-			//print_r($ob);
-			//echo '</pre> -->';
-			?>
-		</header><!-- .page-header -->
-	</div>
-	<div class="featured_business">
-		<header class="section-title ">
-			<h2 class="dark-gray">Paid Posts</h2>
-			<!--
-			<div class="biz-submit">
-				<a href="<?php //echo bloginfo( 'url' ); ?>/business-directory/business-directory-sign-up/">Submit your business</a>
+		<?php 
+			$poweredby = get_field("bd_poweredby","option");
+			$logo = get_field("bd_top_logo","option");
+			$logo_website = get_field("bd_top_logo_website","option"); 
+			$link_open = '';
+			$link_close = '';
+			if($logo_website) {
+				$link_open = '<a href="'.$logo_website.'" target="_blank">';
+				$link_close = '</a>';
+			}
+
+			$views = '';
+			$views_display = '';
+			if(function_exists('the_views')) {
+				ob_start();
+				the_views(); 
+				$views = ob_get_contents();
+				ob_clean();
+				if($views) {
+					$views = preg_replace('/[^0-9.]+/', '', $views);
+				}
+			}
+			if($views) { 
+				ob_start(); ?>
+				<span class="postViews business-map-counter">
+					<span>
+						<em class="e1">Visitor Count</em>
+						<em class="e2"><?php echo $views ?></em>
+					</span>
+				</span>
+			<?php 
+				$views_display = ob_get_contents();
+				ob_end_clean(); 
+			}  
+		?>
+		<?php if ($logo) { ?>
+		<div class="top-logo">
+			<div class="wrapper">
+				<span class="logo-img">
+					<?php if ($poweredby) { ?>
+					<span class="poweredby"><?php echo $poweredby ?></span>	
+					<?php } ?>
+					<?php echo $link_open ?>
+					<img src="<?php echo $logo['url'] ?>" alt="<?php echo $logo['title'] ?>">
+					<?php echo $link_close ?>
+				</span>
+				<?php echo $views_display; ?>
 			</div>
-			-->
-		</header>
-	</div>
-	<div class="clear"></div>
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+		</div>	
+		<?php } ?>
 
-			<div class="listing_initial">
+		<div class="map-div title-gray-bg">
+			<div class="wrapper mapwrapper">
+			
+				<?php 
+				$subtitle = get_field("subtitle"); 
+				if($subtitle) {
+					$subtitle = str_replace("{{","<u>",$subtitle);
+					$subtitle = str_replace("}}","</u>",$subtitle);
+				} ?>
 
-				<div class="business-category-page">
-					<?php
-//echo '<!-- <pre>';
-//print_r($ob);
-//echo '</pre> -->';
-						$args = array(
-								'post_type' 	=> 'business_listing',
-								'post_status'	=> 'publish',
-								//'category_name' => $ob->slug,
-								'tax_query' => array( 
-												'relation' => 'AND',
-												array(
-											        'taxonomy' 			=> 'business_classification',
-											        'field' 			=> 'slug',
-											        'terms' 			=> array( 'featured' ),
-											        'include_children' 	=> true,
-											        'operator' 			=> 'IN'
-											      ),
-												array(
-											        'taxonomy' 			=> $ob->taxonomy,
-											        //'field' 			=> 'id',
-													'field' 			=> 'term_id',
-											        'terms' 			=> array( $ob->term_id ),
-											        'include_children' 	=> true,
-											        'operator' 			=> 'IN'
-											      )
-								)
-						);
-
-						$query = new WP_Query( $args );
-
-						if ( $query->have_posts() ) : ?>
-							<div class="qcity-news-container">
-								<section class="sponsored">
-									<?php
-									/* Start the Loop */
-									while ( $query->have_posts() ) : $query->the_post();
-
-										get_template_part( 'template-parts/business-block' );
-
-									endwhile;
-
-									wp_reset_postdata(); ?>
-								
-								</section>
-
-							</div>
-							
-							<!--
-							<div class="more ">	
-								 	<a class="red qcity-load-more" data-page="1" data-action="qcity_business_load_more" >		
-								 		<span class="load-text">Load More</span>
-										<span class="load-icon"><i class="fas fa-sync-alt spin"></i></span>
-								 	</a>
-							</div>
-							-->
-
-						<?php else: ?>
-							<div class="qcity-news-container" style="padding-bottom: 20px;">
-								<section class="sponsored">
-									<a href="<?php echo bloginfo( 'url' ); ?>/business-directory/business-directory-sign-up/">
-										<h5 class="sponsored-empty">Be the first.</h5>
-									</a>								
-								</section>
-							</div>
-						<?php endif; ?>
-
-						<div class="mt-5" style="">
-							<?php //get_template_part('template-parts/business-directory'); ?>
-							<div class="biz-dir" style="margin-top: 20px;">
-								<header class="section-title ">
-									<h2 class="dark-gray">Free Listings</h2>
-								</header>
-								<?php
-								/*
-									Biz Directory.
-								*/
-								$business_listing_arr = array();
-								$i = 0;
-								$wp_query = new WP_Query();
-								$wp_query->query(array(
-									'post_type'			=>'business_listing',
-									'posts_per_page' 	=> -1,
-									'post_status'   	=> 'publish',
-									//'paged' => $paged,
-									'tax_query' => array(
-											array(
-											    'taxonomy' 			=> $ob->taxonomy,
-												'field' 			=> 'term_id',
-												'terms' 			=> array( $ob->term_id ),
-											),
-									    ),
-								));
-								if ($wp_query->have_posts()) : ?>
-								
-								    <?php while ($wp_query->have_posts()) : $wp_query->the_post(); $i++; 
-									    	
-									    	$phone 		= get_field('phone');
-									    	$website 	= get_field('website');
-									    	$title 		= get_the_title();
-									    	$bob 		= get_field('black_owned_business');
-
-									    	$business_listing_arr[] = array(
-									    			'title' 	=> $title,
-									    			'phone'		=> $phone,
-									    			'website'	=> $website,
-									    			'bob'		=> $bob
-									    	);
-								    ?>
-										    
-										    
-								    <?php endwhile; ?>	
-								       
-								<?php endif; wp_reset_postdata(); ?>
-
-								<?php 
-									$title = array_column($business_listing_arr, 'title');
-									array_multisort($title, SORT_ASC, $business_listing_arr);
-								 ?>
-
-								 <div class="">
-									<table class="business-directory-table">
-										<?php 
-										$i = 0;	
-										foreach( $business_listing_arr as $key => $biz_list): 
-												if( ($i % 2) == 0 ) {
-										    		$cl = 'even';
-										    		//$i = 0;
-										    	} else {
-										    		$cl = 'odd';
-										    	}
-											?>
-
-											<tr class="row <?php echo $cl; ?>">
-										    	<td><?php echo $biz_list['title']; ?></td>
-										    	<td class="table-desktop"><?php echo $biz_list['phone']; ?></td>
-										    	<td>
-										    		<a href="<?php echo $biz_list['website'] ?>" target="_blank">View Website</a>
-										    	</td>
-										    	<td><?php echo ($biz_list['bob']) ? 'BOB' : ''; ?></td>
-										    </tr>
-
-										<?php  $i++; endforeach; ?>
-									</table>
-								</div> 
-
-							</div>
-						</div>	
-					<!-- close biz directory mt-5 -->
+				<div class="titlediv">
+					<?php echo $views_display; ?>
+					<h1 class="t1"><?php echo $page_title; ?></h1>
+					<?php if ($subtitle) { ?>
+					<h2 class="t2"><?php echo $subtitle ?></h2>	
+					<?php } ?>
+				</div>
 				
+			</div>
+		</div>
+
+		<?php 
+		$sidebar_buttons = get_field("bd_sidebar_buttons","option"); 
+		$subscription_text = get_field("bd_subscription_text","option"); 
+		$subscription_button = get_field("bd_subscription_button","option"); 
+		$content_class = ( $sidebar_buttons && ($subscription_text || $subscription_button) ) ? 'half':'full';
+
+		$args = array(
+			'post_type' 			=> 'business_listing',
+			'posts_per_page' 	=> -1,
+			'post_status'			=> 'publish',
+			'tax_query' 			=> array( 
+				array(
+					'taxonomy' 		=> $ob->taxonomy,
+					'field' 			=> 'term_id',
+					'terms' 			=> array( $ob->term_id ),
+				)
+			)
+		);
+
+		$query = new WP_Query( $args );
+		?>
+
+		<div class="entry-content biz-directory <?php echo $content_class ?>">
+			<div class="wrapper">
+				<div class="leftcol">
+					
+					<?php if ($query->have_posts()) : ?>
+					<div class="business-listings-wrapper">
+						<div class="table">
+				    <?php $i=1; while ($query->have_posts()) : $query->the_post();  
+				    	$phone 			= get_field('phone');
+				    	$website 		= get_field('website');
+				    	$title 			= get_the_title();
+				    	$bob 				= get_field('black_owned_business');
+				    	$row_class 	=  ($i%2==0) ? 'even':'odd';
+			    		?>
+						  <div class="tbl-row <?php echo $row_class ?>">
+						  	<div class="company dd">
+						  		<div class="cname"><?php echo $title ?></div>
+						  		<?php if ($phone) { ?>
+						  		<div class="hide-desktop mphone"><span class="phone-icon"><i class="fa fa-phone" aria-hidden="true"></i></span> <?php echo $phone ?></div>
+						  		<?php } ?>
+						  		<?php if ($website) { ?>
+						  		<div class="hide-desktop mwebsite"><span class="site-icon"><i class="fa fa-globe" aria-hidden="true"></i></span> <a href="<?php echo $website ?>" target="_blank">View Website</a></div>
+						  		<?php } ?>
+						  	</div>
+						  	<div class="phone dd"><?php echo $phone ?></div>
+						  	<div class="website dd">
+						  		<?php if ($website) { ?>
+						  		<a href="<?php echo $website ?>" target="_blank">View Website</a>
+						  		<?php } ?>
+						  	</div>
+						  	<div class="bob dd"><?php echo ($bob) ? 'BOB':'' ?></div>
+						  </div>
+				    <?php $i++; endwhile; ?>
+				    </div>	
+				  </div>
+					<?php endif; wp_reset_postdata(); ?>
+
 				</div>
 
+				<?php if ( $sidebar_buttons || ($subscription_text || $subscription_button) ) { ?>
+				<div class="rightcol">
+					<?php include( locate_template('sidebar-business-directory.php')); ?>
+				</div>
+				<?php } ?>
+				
 			</div>
+			
+		</div>
 
-			<div class="listing_search">
-				<div class="listing_search_result">				
-				</div>				
-			</div>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
-<?php get_sidebar(); ?>
-</div>
-<?php get_footer();
+	</main><!-- #main -->
+</div><!-- #primary -->
+<?php 
+get_footer();

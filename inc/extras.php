@@ -106,6 +106,13 @@ if( function_exists('acf_add_options_page') ) {
         'menu_title'    => 'Ad Display Sections',
         'parent_slug'    => 'edit.php?post_type=ad'
     ));
+
+    acf_add_options_sub_page(array(
+        'page_title'     => 'Business Directory Options',
+        'menu_title'     => 'Generic Options',
+        'parent_slug'    => 'edit.php?post_type=business_listing'
+    ));
+
 }
 
 /*
