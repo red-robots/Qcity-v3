@@ -1115,7 +1115,7 @@ jQuery(document).ready(function ($) {
     }
 
     body_scrolled();
-    if ($(window).scrollTop() >= 50) {
+    if ($(window).scrollTop() >= 70) {
         $(window).on('scroll', function () {
             body_scrolled();
         });
