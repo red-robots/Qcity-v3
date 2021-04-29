@@ -1114,10 +1114,13 @@ jQuery(document).ready(function ($) {
         }
     }
 
-     body_scrolled();
-    $(window).on('scroll', function () {
-        body_scrolled();
-    });
+    body_scrolled();
+    if ($(window).scrollTop() >= 50) {
+        $(window).on('scroll', function () {
+            body_scrolled();
+        });
+    }
+    
 
     function body_scrolled() {
         if ($(window).scrollTop() >= 70) {

@@ -100,8 +100,9 @@ get_header();
 					<?php 
 					$business_category = array();
 					$terms = get_terms('business_category');
+					$terms = false;
 					if ($terms) { ?>
-						<div class="listing_initial">
+						<div id="bizCatLists" class="listing_initial">
 							<section class="biz-cats">
 						    <?php foreach ($terms as $category) {
 						    	if( $category->count > 0 ):
