@@ -2075,13 +2075,16 @@ body.single-post {
 		}	
 	}
 }
-body.page-template-page-business-directory,
-body.tax-business_category {
-	.faq-sb-boxes.desktop {
-		display: block!important;
-		margin-bottom: 50px;
-	}
-}
+// body.page-template-page-business-directory,
+// body.tax-business_category {
+// 	.faq-sb-boxes.desktop {
+// 		display: block!important;
+// 		margin-bottom: 50px;
+// 	}
+// 	.entry-content.biz-directory {
+// 		padding-bottom: 100px!important;
+// 	}
+// }
 .site-footer {
 	width: 100%;
 	clear: both;
@@ -11593,8 +11596,15 @@ body.scrolled.archive {
 
 body.tax-business_category,
 body.page-template-page-business-directory {
+	// .entry-content.biz-directory {
+	// 	padding-bottom: 0!important;
+	// }
+	.faq-sb-boxes.desktop {
+		display: block!important;
+		margin-bottom: 50px;
+	}
 	.entry-content.biz-directory {
-		padding-bottom: 0!important;
+		padding-bottom: 30px!important;
 	}
 	.content-area-full.top-logo-page #main .entry-content {
 		padding-top: 0;
