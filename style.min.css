@@ -3837,9 +3837,8 @@ body.tax-business_category .entry-content.biz-directory,body.page-template-page-
 body.tax-business_category .content-area-full.top-logo-page #main .entry-content,body.page-template-page-business-directory .content-area-full.top-logo-page #main .entry-content{padding-top:0}
 @media(min-width:820px){body.tax-business_category .content-area-full.top-logo-page #main .entry-content .rightcol,body.page-template-page-business-directory .content-area-full.top-logo-page #main .entry-content .rightcol{margin-top:30px}
 }body.page-template-page-business-directory #content.mobile-body{margin-top:0}
-body.logged-in.admin-bar.page-template-page-business-directory #content.site-content.mobile-body{padding-top:0 !important}
-@media screen and (min-width:783px){body.logged-in.admin-bar.page-template-page-business-directory #content.site-content.mobile-body{padding-top:0 !important}
-}body.logged-in.admin-bar.page-template-page-black-map #content{padding-top:5px}
+body.page-template-page-business-directory #content.site-content.mobile-body,body.logged-in.admin-bar.page-template-page-business-directory #content.site-content.mobile-body{padding-top:0 !important}
+body.logged-in.admin-bar.page-template-page-black-map #content{padding-top:5px}
 @media(min-width:820px){body.logged-in.admin-bar.tax-business_category #content #main .top-logo,body.logged-in.admin-bar.page-template-page-business-directory #content #main .top-logo{padding:14px 0 7px}
 }.business-map-counter.postViews{display:inline-block;position:absolute;top:-30px;right:20px;width:80px;height:80px;border-radius:100%;background:#924020;color:#FFF}
 @media(min-width:820px){.business-map-counter.postViews{right:10px}

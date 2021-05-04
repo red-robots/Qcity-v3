@@ -11682,12 +11682,9 @@ body.page-template-page-business-directory {
 		margin-top: 0;
 	}
 }
-
+body.page-template-page-business-directory #content.site-content.mobile-body,
 body.logged-in.admin-bar.page-template-page-business-directory #content.site-content.mobile-body {
 	padding-top: 0!important;
-	@media screen and (min-width: 783px) {
-		padding-top: 0px!important;
-	}
 }
 body.logged-in.admin-bar.page-template-page-black-map #content {
 	padding-top: 5px;
