@@ -99,7 +99,12 @@ get_header();
 					
 					<?php 
 					$business_category = array();
-					$terms = get_terms('business_category');
+					$args = array(
+						'hide_empty' => true, 
+						'orderby' => 'title',
+						'order' => 'DESC' 
+					);
+					$terms = get_terms('business_category',$args);
 					if ($terms) { ?>
 						<div id="bizCatLists" class="listing_initial">
 							<section class="biz-cats">

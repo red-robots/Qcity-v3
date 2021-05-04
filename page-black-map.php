@@ -65,6 +65,7 @@ get_header(); ?>
 			
 				<?php 
 				$subtitle = get_field("subtitle"); 
+				$lastModified = get_the_modified_date('F j, Y h:i a');
 				if($subtitle) {
 					$subtitle = str_replace("{{","<u>",$subtitle);
 					$subtitle = str_replace("}}","</u>",$subtitle);
@@ -76,6 +77,7 @@ get_header(); ?>
 					<?php if ($subtitle) { ?>
 					<h2 class="t2"><?php echo $subtitle ?></h2>	
 					<?php } ?>
+					<div class="mappage-modified">Last updated: <?php echo $lastModified ?></div>
 				</div>
 
 				<?php if ( $map = get_field("map_iframe_code") ) { ?>

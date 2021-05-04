@@ -110,13 +110,17 @@ $page_title = $ob->name;
 				    <?php $i=1; while ($query->have_posts()) : $query->the_post();  
 				    	$phone 			= get_field('phone');
 				    	$website 		= get_field('website');
+				    	$address 		= get_field('address');
 				    	$title 			= get_the_title();
 				    	$bob 				= get_field('black_owned_business');
 				    	$row_class 	=  ($i%2==0) ? 'even':'odd';
 			    		?>
-						  <div class="tbl-row <?php echo $row_class ?>">
+						  <div class="tbl-row <?php echo $row_class ?> <?php echo ($bob) ? 'hasbob':'nobob' ?>">
 						  	<div class="company dd">
 						  		<div class="cname"><?php echo $title ?></div>
+						  		<?php if ($address) { ?>
+						  		<div class="hide-desktop maddress"><span class="address-icon"><i class="fa fa-home" aria-hidden="true"></i></span> <?php echo $address ?></div>
+						  		<?php } ?>
 						  		<?php if ($phone) { ?>
 						  		<div class="hide-desktop mphone"><span class="phone-icon"><i class="fa fa-phone" aria-hidden="true"></i></span> <?php echo $phone ?></div>
 						  		<?php } ?>
@@ -124,13 +128,14 @@ $page_title = $ob->name;
 						  		<div class="hide-desktop mwebsite"><span class="site-icon"><i class="fa fa-globe" aria-hidden="true"></i></span> <a href="<?php echo $website ?>" target="_blank">View Website</a></div>
 						  		<?php } ?>
 						  	</div>
+						  	<div class="address dd"><?php echo ($address) ? nl2br($address):'' ?></div>
 						  	<div class="phone dd"><?php echo $phone ?></div>
 						  	<div class="website dd">
 						  		<?php if ($website) { ?>
 						  		<a href="<?php echo $website ?>" target="_blank">View Website</a>
 						  		<?php } ?>
 						  	</div>
-						  	<div class="bob dd"><?php echo ($bob) ? 'BOB':'' ?></div>
+						  	<!-- <div class="bob dd"><?php //echo ($bob) ? 'BOB':'' ?></div> -->
 						  </div>
 				    <?php $i++; endwhile; ?>
 				    </div>	

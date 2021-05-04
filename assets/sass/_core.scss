@@ -1990,9 +1990,10 @@ body.single-post {
 		border-bottom: 3px solid #f5f5f5;
 		.tbl-row {
 			@include flexgroup();
-			@include tab {
-				@include flexbox-align-items(center);
-			}
+			// @include flexbox-align-items(center);
+			// @include tab {
+			// 	@include flexbox-align-items(flex-start);
+			// }
 			&.odd {
 				background-color: #f5f5f5;
 			}
@@ -2001,55 +2002,64 @@ body.single-post {
 			font-size: 15px;
 			line-height: 1.2;
 			padding: 15px 8px;
+			width: 50%;
 			@include tab {
+				font-size: 14px;
+				width: 22.5%;
 				padding: 15px 10px;
 			}
 			.cname {
-				font-size: 17px;
+				margin-bottom: 10px;
 				@include tab {
-					font-size: 15px;
+					margin-bottom: 0;
 				}
 			}
-			&.company {
-				width: 80%;
-				@include tab {
-					width: 40%;
-				}
-			}
-			&.phone {
-				width: 25%;
+			&.address {
 				display: none;
 				@include tab {
 					display: block;
+					width: 30%;
+				}
+			}
+			&.company {
+				width: 85%;
+				@include tab {
+					width: 35%;
+				}
+			}
+			&.phone {
+				display: none;
+				@include tab {
+					display: block;
+					text-align: center;
+					width: 20%;
 				}
 			}
 			&.website {
-				width: 25%;
+				//width: 25%;
 				font-size: 13px;
 				text-align: center;
 				display: none;
 				@include tab {
 					display: block;
 					font-size: 15px;
-					width: 20%;
-					text-align: left;
+					width: 15%;
 				}
 			}
 			&.bob {
-				width: 20%;
+				width: 15%;
 				font-size: 17px;
 				text-align: right;
 				@include tab {
 					font-size: 15px;
-					width: 15%;
+					width: 10%;
 					text-align: left;
 				}
-			}
-			.mphone {
-				display: block;
-				margin-top: 7px;
-				@include tab {
+				&.nobob {
 					display: none;
+					@include tab {
+						display: block;
+					}
 				}
 			}
 			.phone-icon {
@@ -2065,14 +2075,32 @@ body.single-post {
 				position: relative;
 				top: -1px;
 			}
-			.mwebsite {
+			.hide-desktop {
 				display: block;
-				margin-top: 4px;
+				margin-bottom: 5px;
+				font-size: 14px!important;
 				@include tab {
-					display: none;
+					display: none!important;
 				}
 			}
+			.hide-desktop:last-child {
+				margin-bottom: 0;
+			}
 		}	
+		.tbl-row.nobob {
+			.dd.company {
+				width: 100%;
+				@include tab {
+					width: 35%;
+				}
+			}
+			.dd.bob {
+				display: none;
+				@include tab {
+					display: block;
+				}
+			}
+		}
 	}
 }
 // body.page-template-page-business-directory,
@@ -2085,6 +2113,38 @@ body.single-post {
 // 		padding-bottom: 100px!important;
 // 	}
 // }
+body.page-template-page-black-map .content-area-full.top-logo-page #main .entry-content {
+	@media screen and (max-width: $tab - 1px) {
+		padding-top: 0;
+		.wp-block-image {margin-top:0;}
+	}
+}
+.home-widget-images {
+	ul.hw-list {
+		margin: 0 0;
+		padding: 0 0;
+		list-style: none;
+		text-align: center;
+		li {
+			// border-top: 1px solid #CCC;
+			padding: 13px 0;
+			&.first {
+				border-top: none;
+			}
+		}
+		a {
+			display: inline-block;
+			img {
+				width: 90%;
+				height: auto;
+				@include tab {
+					width: auto;
+					height: 65px;
+				}
+			}
+		}
+	}
+}
 .site-footer {
 	width: 100%;
 	clear: both;
@@ -11502,7 +11562,7 @@ body.scrolled.archive {
 			.rightcol {
 				margin-top: 20px;
 				width: 35%;
-				padding-left: 30px;
+				padding-left: 20px;
 				float: right;
 			}
 		}
@@ -11617,6 +11677,18 @@ body.page-template-page-business-directory {
 	}
 }
 
+body.page-template-page-business-directory {
+	#content.mobile-body {
+		margin-top: 0;
+	}
+}
+
+body.logged-in.admin-bar.page-template-page-business-directory #content.site-content.mobile-body {
+	padding-top: 0!important;
+	@media screen and (min-width: 783px) {
+		padding-top: 95px!important;
+	}
+}
 body.logged-in.admin-bar.page-template-page-black-map #content {
 	padding-top: 5px;
 }
@@ -11665,6 +11737,11 @@ body.logged-in.admin-bar.page-template-page-business-directory #content {
 			top: 4px;
 		}
 	}
+}
+.mappage-modified {
+	font-size: 13px;
+	margin-top: 10px;
+	color: #6b6b6b;
 }
 .top-logo .business-map-counter{display:none;}
 @media screen and (max-width: $tab - 1px) {

@@ -47,7 +47,11 @@
 			<?php endif; wp_reset_postdata(); ?>
 
 	</div>
-	<?php get_template_part('template-parts/business-directory-footer'); ?>
+	
+	<?php 
+		// get_template_part('template-parts/business-directory-footer'); 
+		get_template_part('template-parts/home-bottom-widget'); 
+	?>
 	
 		<!--- Advertisements -->
 		<div class="ad" style="display:none; text-align: center;">
