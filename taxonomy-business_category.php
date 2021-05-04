@@ -88,6 +88,8 @@ $page_title = $ob->name;
 			'post_type' 			=> 'business_listing',
 			'posts_per_page' 	=> -1,
 			'post_status'			=> 'publish',
+			'orderby' 				=> 'title',
+			'order' 					=> 'ASC', 
 			'tax_query' 			=> array( 
 				array(
 					'taxonomy' 		=> $ob->taxonomy,
