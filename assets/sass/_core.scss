@@ -2009,6 +2009,8 @@ body.single-post {
 				padding: 15px 10px;
 			}
 			.cname {
+				font-weight: 500;
+				font-size: 17px;
 				margin-bottom: 10px;
 				@include tab {
 					margin-bottom: 0;
@@ -2113,6 +2115,30 @@ body.single-post {
 // 		padding-bottom: 100px!important;
 // 	}
 // }
+body.tax-business_category {
+	.rightcol {
+		.helper {
+			width: 100%;
+			float: left;
+		}
+	}
+}
+body.tax-business_category.scrolled {
+	@include tab {
+		.faq-sb-boxes {
+			position: fixed;
+			top: 115px;
+			right: 0;
+		}
+	}
+	&.logged-in.admin-bar {
+		@include tab {
+			.faq-sb-boxes {
+				top: 145px;
+			}
+		}
+	}
+}
 body.page-template-page-black-map .content-area-full.top-logo-page #main .entry-content {
 	@media screen and (max-width: $tab - 1px) {
 		padding-top: 0;

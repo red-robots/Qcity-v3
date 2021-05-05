@@ -1113,6 +1113,8 @@ jQuery(document).ready(function ($) {
             }
         }
     }
+    
+
 
     body_scrolled();
 
@@ -1131,8 +1133,34 @@ jQuery(document).ready(function ($) {
     function body_scrolled() {
         if ($(window).scrollTop() >= 70) {
             $('body').addClass('scrolled');
+            sticky_sidebar_biz_directory();
         } else {
             $('body').removeClass('scrolled');
+            if( $("#sticky-helper").length>0 ) {
+                $(".faq-sb-boxes").css("right","0px");
+            }
+        }
+    }
+
+    var sticky_helper_width = $("#sticky-helper").width();
+    $(".faq-sb-boxes").css("width",sticky_helper_width+"px");
+
+    $(window).on('resize', function () {
+        var sticky_helper_width = $("#sticky-helper").width();
+        $(".faq-sb-boxes").css("width",sticky_helper_width+"px");
+        sticky_sidebar_biz_directory();
+    });
+
+    function sticky_sidebar_biz_directory() {
+        if( $("#sticky-helper").length>0 ) {
+            var bodyWidth = $('body').width();
+            var biz_left = $(".biz-directory .leftcol").width();
+            var biz_right = $(".biz-directory .rightcol").width();
+            var biz_left_right = biz_left + biz_right;
+            var bw = bodyWidth - biz_left_right;
+            var side = Math.round(bw/2);
+            var offsetRight = side - 18;
+            $(".faq-sb-boxes").css("right",offsetRight+"px");
         }
     }
 

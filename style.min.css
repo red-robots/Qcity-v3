@@ -2122,7 +2122,7 @@ body.single-post .subscribe-form-single{width:100%;float:left}
 .business-listings-wrapper div.table .tbl-row.odd{background-color:#f5f5f5}
 .business-listings-wrapper div.table div.dd{font-size:15px;line-height:1.2;padding:15px 8px;width:50%}
 @media(min-width:820px){.business-listings-wrapper div.table div.dd{font-size:14px;width:22.5%;padding:15px 10px}
-}.business-listings-wrapper div.table div.dd .cname{margin-bottom:10px}
+}.business-listings-wrapper div.table div.dd .cname{font-weight:500;font-size:17px;margin-bottom:10px}
 @media(min-width:820px){.business-listings-wrapper div.table div.dd .cname{margin-bottom:0}
 }.business-listings-wrapper div.table div.dd.address{display:none}
 @media(min-width:820px){.business-listings-wrapper div.table div.dd.address{display:block;width:30%}
@@ -2145,6 +2145,9 @@ body.single-post .subscribe-form-single{width:100%;float:left}
 @media(min-width:820px){.business-listings-wrapper div.table .tbl-row.nobob .dd.company{width:35%}
 }.business-listings-wrapper div.table .tbl-row.nobob .dd.bob{display:none}
 @media(min-width:820px){.business-listings-wrapper div.table .tbl-row.nobob .dd.bob{display:block}
+}body.tax-business_category .rightcol .helper{width:100%;float:left}
+@media(min-width:820px){body.tax-business_category.scrolled .faq-sb-boxes{position:fixed;top:115px;right:0}
+}@media(min-width:820px){body.tax-business_category.scrolled.logged-in.admin-bar .faq-sb-boxes{top:145px}
 }@media screen and (max-width:819px){body.page-template-page-black-map .content-area-full.top-logo-page #main .entry-content{padding-top:0}
 body.page-template-page-black-map .content-area-full.top-logo-page #main .entry-content .wp-block-image{margin-top:0}
 }.home-widget-images ul.hw-list{margin:0;padding:0;list-style:none;text-align:center}
