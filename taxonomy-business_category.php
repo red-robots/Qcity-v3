@@ -104,6 +104,9 @@ $page_title = $ob->name;
 
 		<div class="entry-content biz-directory <?php echo $content_class ?>">
 			<div class="wrapper">
+				<div class="breadcrumb">
+					<a href="<?php echo get_site_url() ?>/business-directory/">&larr; Back to Business Directory</a>
+				</div>
 				<div class="leftcol">
 					
 					<?php if ($query->have_posts()) : ?>
