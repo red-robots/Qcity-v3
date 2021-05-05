@@ -2149,11 +2149,12 @@ body.single-post .subscribe-form-single{width:100%;float:left}
 body.tax-business_category .breadcrumb a{font-size:15px;text-decoration:underline}
 body.tax-business_category .breadcrumb a:hover{color:#c4a92f}
 body.tax-business_category .rightcol .helper{width:100%;float:left}
-@media(min-width:820px){body.tax-business_category.scrolled .faq-sb-boxes{position:fixed;top:115px;right:0}
-}@media(min-width:820px){body.tax-business_category.scrolled.logged-in.admin-bar .faq-sb-boxes{top:145px}
+@media(min-width:820px){body.page-template-page-black-map.scrolled .sb-inner-wrap,body.tax-business_category.scrolled .sb-inner-wrap{position:fixed;top:115px;right:0;z-index:999999}
+}@media(min-width:820px){body.page-template-page-black-map.scrolled.logged-in.admin-bar .sb-inner-wrap,body.tax-business_category.scrolled.logged-in.admin-bar .sb-inner-wrap{top:145px}
 }@media screen and (max-width:819px){body.page-template-page-black-map .content-area-full.top-logo-page #main .entry-content{padding-top:0}
 body.page-template-page-black-map .content-area-full.top-logo-page #main .entry-content .wp-block-image{margin-top:0}
-}.home-widget-images ul.hw-list{margin:0;padding:0;list-style:none;text-align:center}
+}.sb-inner-wrap{width:100%;float:left}
+.home-widget-images ul.hw-list{margin:0;padding:0;list-style:none;text-align:center}
 .home-widget-images ul.hw-list li{padding:13px 0}
 .home-widget-images ul.hw-list li.first{border-top:0}
 .home-widget-images ul.hw-list a{display:inline-block}

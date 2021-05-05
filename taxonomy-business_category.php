@@ -152,7 +152,9 @@ $page_title = $ob->name;
 				<?php if ( $sidebar_buttons || ($subscription_text || $subscription_button) ) { ?>
 				<div class="rightcol">
 					<div id="sticky-helper" class="helper"></div>
-					<?php include( locate_template('sidebar-business-directory.php')); ?>
+					<div class="sb-inner-wrap">
+						<?php include( locate_template('sidebar-business-directory.php')); ?>
+					</div>
 				</div>
 				<?php } ?>
 				

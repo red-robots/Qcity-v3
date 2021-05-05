@@ -2134,17 +2134,19 @@ body.tax-business_category {
 		}
 	}
 }
+body.page-template-page-black-map.scrolled,
 body.tax-business_category.scrolled {
 	@include tab {
-		.faq-sb-boxes {
+		.sb-inner-wrap {
 			position: fixed;
 			top: 115px;
 			right: 0;
+			z-index: 999999;
 		}
 	}
 	&.logged-in.admin-bar {
 		@include tab {
-			.faq-sb-boxes {
+			.sb-inner-wrap {
 				top: 145px;
 			}
 		}
@@ -2155,6 +2157,10 @@ body.page-template-page-black-map .content-area-full.top-logo-page #main .entry-
 		padding-top: 0;
 		.wp-block-image {margin-top:0;}
 	}
+}
+.sb-inner-wrap {
+	width: 100%;
+	float: left;
 }
 .home-widget-images {
 	ul.hw-list {

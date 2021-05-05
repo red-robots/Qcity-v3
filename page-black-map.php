@@ -106,11 +106,14 @@ get_header(); ?>
 
 				<?php if ( $sidebar_buttons || ($subscription_text || $subscription_button) ) { ?>
 				<div class="rightcol">
-					<?php 
-					$template = basename(__FILE__, '.php'); 
-					include( locate_template('sidebar-map-page.php'));
-						//get_template_part('sidebar-map-page');
-					?>
+					<div id="sticky-helper" class="helper"></div>
+					<div class="sb-inner-wrap">
+						<?php 
+						$template = basename(__FILE__, '.php'); 
+						include( locate_template('sidebar-map-page.php'));
+							//get_template_part('sidebar-map-page');
+						?>
+					</div>
 				</div>
 				<?php } ?>
 				
