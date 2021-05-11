@@ -4,7 +4,7 @@
  *	Developed by: Austin Crane	
  *	Designed by: Austin Crane
  *  Modified by: Lisa DeBona
- *  Date Modified: 07.28.20
+ *  Date Modified: 05.10.21
  */
 
 jQuery(document).ready(function ($) {
@@ -1131,7 +1131,7 @@ jQuery(document).ready(function ($) {
     }
 
     function body_scrolled() {
-        var pageOffset = ( $('.map-div').length>0 ) ? $('.map-div').height() : 70;
+        var pageOffset = ( $('.map-div').length>0 ) ? $('.map-div').height() + 100 : 70;
         if ($(window).scrollTop() >= pageOffset) {
             $('body').addClass('scrolled');
             sticky_sidebar_biz_directory();

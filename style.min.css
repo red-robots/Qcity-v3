@@ -2149,8 +2149,9 @@ body.single-post .subscribe-form-single{width:100%;float:left}
 body.tax-business_category .breadcrumb a{font-size:15px;text-decoration:underline}
 body.tax-business_category .breadcrumb a:hover{color:#c4a92f}
 body.tax-business_category .rightcol .helper{width:100%;float:left}
-@media(min-width:820px){body.page-template-page-black-map.scrolled .sb-inner-wrap,body.tax-business_category.scrolled .sb-inner-wrap{position:fixed;top:115px;right:0;z-index:999999}
-}@media(min-width:820px){body.page-template-page-black-map.scrolled.logged-in.admin-bar .sb-inner-wrap,body.tax-business_category.scrolled.logged-in.admin-bar .sb-inner-wrap{top:145px}
+@media(min-width:820px){body.page-template-page-black-map.scrolled .sb-inner-wrap.sbsticky,body.scrolled .sb-inner-wrap.sbsticky{position:fixed;top:115px;right:0;z-index:999999}
+body.page-template-page-black-map.scrolled .sb-inner-wrap.sbsticky .faq-sb-boxes,body.scrolled .sb-inner-wrap.sbsticky .faq-sb-boxes{position:relative;right:2px}
+}@media(min-width:820px){body.page-template-page-black-map.scrolled.logged-in.admin-bar .sb-inner-wrap,body.scrolled.logged-in.admin-bar .sb-inner-wrap{top:145px}
 }@media screen and (max-width:819px){body.page-template-page-black-map .content-area-full.top-logo-page #main .entry-content{padding-top:0}
 body.page-template-page-black-map .content-area-full.top-logo-page #main .entry-content .wp-block-image{margin-top:0}
 }.sb-inner-wrap{width:100%;float:left}
@@ -3861,4 +3862,6 @@ body.logged-in.admin-bar.page-template-page-black-map #content{padding-top:5px}
 .content-area-full.top-logo-page .map-div{padding-top:60px !important;padding-bottom:60px !important}
 .content-area-full.top-logo-page .map-div .wrapper{padding-left:20px !important;padding-right:20px !important}
 }@media screen and (max-width:480px){.content-area-full.top-logo-page .map-embed{height:65vh}
-}
+}.custom_divider{width:100% !important;float:left;margin:0 0 15px !important}
+.custom_divider hr{display:none !important}
+.custom_divider:before{content:"";display:block;width:25%;height:2px;background:#CCC;margin:0 auto}

@@ -2135,13 +2135,17 @@ body.tax-business_category {
 	}
 }
 body.page-template-page-black-map.scrolled,
-body.tax-business_category.scrolled {
+body.scrolled {
 	@include tab {
-		.sb-inner-wrap {
+		.sb-inner-wrap.sbsticky {
 			position: fixed;
 			top: 115px;
 			right: 0;
 			z-index: 999999;
+			.faq-sb-boxes {
+				position: relative;
+				right: 2px;
+			}
 		}
 	}
 	&.logged-in.admin-bar {
@@ -11811,4 +11815,22 @@ body.logged-in.admin-bar.page-template-page-business-directory #content {
 		height: 65vh;
 	}
 }
+
+.custom_divider {
+	width: 100%!important;
+	float: left;
+	margin: 0 0 15px!important;
+	hr {
+		display: none !important;
+	}
+	&:before {
+		content:"";
+		display: block;
+		width: 25%;
+		height: 2px;
+		background: #CCC;
+		margin: 0 auto;
+	}
+}
+
 
