@@ -3169,6 +3169,10 @@ body.page-template-page-jobs .jobs-page .job .info,body.page-template-page-jobs 
 .content-area{min-height:14em !important}
 header.section-title h1,header.section-title h2{padding:8px 15px 4px}
 .member_lists .members ul{margin:0;padding:0}
+}body.page-template-page-jobs-new #content.site-content{padding-top:0 !important;margin-top:88px !important}
+body.page-template-page-jobs-new #content.site-content .content-area.page-with-poweredby{padding-top:0 !important;margin-top:0 !important}
+@media screen and (max-width:819px){body.page-template-page-jobs-new.logged-in.admin-bar #content.site-content{padding-top:0 !important;margin-top:0 !important}
+body.page-template-page-jobs-new.logged-in.admin-bar #content.site-content .content-area.page-with-poweredby{padding-top:0 !important;margin-top:0 !important}
 }section.c-sponsor-block.sponsor-paid-wrapper{padding-top:20px;padding-bottom:30px;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
 section.c-sponsor-block.sponsor-paid-wrapper .sponsor-col-paid{width:100%}
 @media(min-width:820px){section.c-sponsor-block.sponsor-paid-wrapper .sponsor-col-paid{width:48%}
@@ -3865,3 +3869,45 @@ body.logged-in.admin-bar.page-template-page-black-map #content{padding-top:5px}
 }.custom_divider{width:100% !important;float:left;margin:0 0 15px !important}
 .custom_divider hr{display:none !important}
 .custom_divider:before{content:"";display:block;width:25%;height:2px;background:#CCC;margin:0 auto}
+.page-with-poweredby{width:100%;float:left}
+.page-with-poweredby .wrapper{max-width:1160px;width:100%}
+.page-with-poweredby .title-bar-gray{background:#e2e2e2;text-align:center;padding:30px 0;position:relative}
+.page-with-poweredby .title-bar-gray h1{color:#924020;font-size:30px;font-weight:600;text-transform:uppercase;line-height:1.2;margin:0}
+.page-with-poweredby .title-bar-gray h2{margin:6px 0 0;font-weight:500;font-size:22px}
+.page-with-poweredby .title-bar-gray h2 u{display:inline-block;text-decoration:none;font-style:normal;border-bottom:2px solid #924020;padding-bottom:5px}
+.page-with-poweredby .title-bar-gray .visitor-counter{display:inline-block;position:absolute;top:50%;right:20px;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);width:80px;height:80px;border-radius:100%;background:#924020;color:#FFF}
+.page-with-poweredby .title-bar-gray .visitor-counter span{display:block;position:relative;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
+.page-with-poweredby .title-bar-gray .visitor-counter em{display:block;width:100%;font-style:normal;position:relative;line-height:1}
+.page-with-poweredby .title-bar-gray .visitor-counter em.e2{top:4px}
+.page-with-poweredby .title-bar-gray .visitor-counter .e1{font-size:11px}
+.page-with-poweredby .title-bar-gray .visitor-counter .e2{font-size:18px;font-weight:500;position:relative;top:4px}
+.page-with-poweredby #main{width:100%;float:left}
+.page-with-poweredby .sponsored-logo{text-align:center;padding-top:25px;padding-bottom:10px}
+.page-with-poweredby .sponsored-logo .logo-img{display:inline-block}
+.page-with-poweredby .sponsored-logo .logo-img .poweredby{display:block;width:100%;font-size:10px;line-height:1;color:#58595b;text-transform:uppercase;letter-spacing:1px;margin:0 0 5px;display:block}
+.page-with-poweredby .sponsored-logo .logo-img img{width:auto;height:60px}
+body.page-template-page-jobs-new.logged-in.admin-bar #content.site-content{padding-top:76px;margin-right:0}
+@media screen and (max-width:819px){.page-job-new .job-cta-buttons{margin-bottom:20px}
+}@media(min-width:820px){.page-job-new .job-cta-buttons .flex{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-justify-content:space-between;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+}@media screen and (max-width:819px){.page-job-new .job-cta-buttons .flex{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
+}.page-job-new .job-cta-buttons .jobctabtn{display:inline-block;text-decoration:none;background:#c4a92f;color:#FFF;text-transform:uppercase;text-align:center;padding:10px 20px;max-width:100%;width:100%;position:relative}
+@media(min-width:820px){.page-job-new .job-cta-buttons .jobctabtn{max-width:25%}
+}.page-job-new .job-cta-buttons .jobctabtn:hover{text-decoration:none;background:#924020}
+@media screen and (max-width:819px){.page-job-new .job-cta-buttons .jobctabtn{width:33.33%;font-size:16px;line-height:1.1;padding:20px 10px}
+.page-job-new .job-cta-buttons .jobctabtn:before{content:"";display:block;width:2px;height:45%;background:rgba(255,255,255,0.35);position:absolute;top:50%;left:0;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
+.page-job-new .job-cta-buttons .jobctabtn:first-child:before{display:none}
+.page-job-new .job-cta-buttons .jobctabtn:hover:before{display:none}
+}.page-job-new .jobpageNewsletter{display:none;width:100%;float:left}
+.page-job-new .jobpageNewsletter.show{display:block}
+.page-job-new .jobpageNewsletter .form-subscribe-blue{padding:0;background:#1c788c}
+.page-job-new .jobpageNewsletter .form-subscribe-blue .form-inside{max-width:800px;width:100%;margin:0 auto}
+.page-job-new .jobpageNewsletter .gfTitle,.page-job-new .jobpageNewsletter .gftxt{color:#FFF}
+.page-job-new .jobpageNewsletter .form-subscribe-blue .gform_wrapper .gform_footer input.gform_button{line-height:14px}
+.page-job-new .jobs-page{width:100%;float:left;padding:0}
+.page-job-new .navigation-jobs{width:100%;float:left;margin-top:20px}
+@media screen and (max-width:819px){.page-job-new .navigation-jobs{padding-left:20px;padding-right:20px;text-align:center}
+.page-job-new .navigation-jobs ul.page-numbers{display:inline-block}
+}@media screen and (max-width:819px){.page-job-new .biz-job-wrap .job{padding-left:15px;padding-right:15px}
+.page-job-new .biz-job-wrap .job .info{text-align:left}
+.page-job-new .biz-job-wrap .job .view{width:25%}
+}

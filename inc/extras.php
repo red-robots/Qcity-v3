@@ -1241,7 +1241,7 @@ jQuery(document).ready(function($){
 </script>
 <?php } 
 
-$gravityFormsSelections = array('homeFormShortcode','homeSBFormShortcode','embedForms');
+$gravityFormsSelections = array('homeFormShortcode','homeSBFormShortcode','embedForms','jobpage_newsletter');
 function acf_load_gravity_form_choices( $field ) {
     // reset choices
     $field['choices'] = array();
@@ -1426,16 +1426,50 @@ function mobile_faq_sidebar_func( $atts ) {
 add_shortcode( 'mobile_faq_sidebar', 'mobile_faq_sidebar_func' );
 
 function no_top_ads($postid) {
-    $templates = array('page-black-map.php','page-business-directory.php');
+    /* Pages that don't have an ad on top of the page */
+    $templates[] = 'page-black-map.php';
+    $templates[] = 'page-business-directory.php';
+    $templates[] = 'page-jobs-new.php';
     $template_slug = get_page_template_slug($postid);
+    $baseName = ($template_slug) ? basename($template_slug):'';
     $no_ads = array();
-    foreach($templates as $temp) {
-        if($template_slug==$temp) {
-            $no_ads[] = $postid;
-        }      
+    if($baseName) {
+        foreach($templates as $temp) {
+            if($baseName==$temp) {
+                $no_ads[] = $postid;
+            }      
+        }
     }
     return $no_ads;
 }
 
+/* Example: numToKs(1499) = "1.5k" */
+// function numToKs($number) {
+//     if ($number >= 1000) {
+//         return number_format(($number / 1000), 1) . 'k';
+//     } else {
+//         return $number;
+//     }
+// }
 
+function legibleNumb($number) {
+    // if ($numb >= 1000000) { // Million
+    //     $legibleNumb = round(number_format($numb,0,',','.'),1) . ' M';
+    // } elseif ($numb >= 100000 && $numb < 1000000) { // One hundred thousand
+    //     $legibleNumb = round(number_format($numb,0,',','.'),0) . ' K';
+    // } elseif ($numb >= 10000 && $numb < 100000) { // Ten thousand
+    //     $legibleNumb = round(number_format($numb,0,',','.'),1) . ' K';
+    // } else {
+    //     $legibleNumb = number_format($numb,0,',','.');
+    // }
+    // return $legibleNumb;
+    if ($number >= 1000000) { // Million
+        return number_format(($number / 1000000), 1) . 'M';
+    }
+    elseif ($number >= 10000 && $number < 100000) { // Ten thousand
+        return number_format(($number / 1000), 1) . 'K';
+    } else {
+        return $number;
+    }
+}
 

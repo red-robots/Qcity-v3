@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Jobs
+ * Template Name: Jobs (old layout)
  *
  * 
  *

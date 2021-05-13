@@ -8182,6 +8182,28 @@ body.single-post .oakland-lightbox.show {display:block !important;}
 		padding: 0 0;
 	}
 }
+body.page-template-page-jobs-new {
+	#content.site-content {
+		padding-top: 0!important;
+		margin-top: 88px!important;
+		.content-area.page-with-poweredby {
+			padding-top: 0!important;
+			margin-top: 0!important;
+		}
+	}
+	@media screen and (max-width: $tab - 1px) {
+		&.logged-in.admin-bar {
+			#content.site-content {
+				padding-top: 0!important;
+				margin-top: 0!important;
+				.content-area.page-with-poweredby {
+					padding-top: 0!important;
+					margin-top: 0!important;
+				}
+			}
+		}
+	}
+}
 
 section.c-sponsor-block.sponsor-paid-wrapper {
 	padding-top: 20px;
@@ -11833,4 +11855,226 @@ body.logged-in.admin-bar.page-template-page-business-directory #content {
 	}
 }
 
+.page-with-poweredby {
+	width: 100%;
+	float: left;
+	.wrapper {
+		max-width: 1160px;
+		width: 100%;
+	}
+	.title-bar-gray {
+		background: $title_gray;
+		text-align: center;
+		padding: 30px 0;
+		position: relative;
+		h1 {
+			color: $color-red;
+			font-size: 30px;
+			font-weight: 600;
+			text-transform: uppercase;
+			line-height: 1.2;
+			margin: 0;
+		}
+		h2 {
+			margin: 6px 0 0;
+			font-weight: 500;
+			font-size: 22px;
+			u {
+				display: inline-block;
+				text-decoration: none;
+				font-style: normal;
+				border-bottom: 2px solid $color-red;
+				padding-bottom: 5px;
+			}
+		}
+		.visitor-counter {
+			display: inline-block;
+			position: absolute;
+			top: 50%;
+			right: 20px;
+			transform: translateY(-50%);
+			width: 80px;
+			height: 80px;
+			border-radius: 100%;
+			background: $color-red;
+			color: #FFF;
+			span {
+				display: block;
+				position: relative;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+			em {
+				display: block;
+				width: 100%;
+				font-style: normal;
+				position: relative;
+				line-height: 1;
+				&.e2 {
+    			top: 4px;
+				}
+			}
+			.e1 {
+				font-size: 11px;
+			}
+			.e2 {
+				font-size: 18px;
+				font-weight: 500;
+				position: relative;
+				top: 4px;
+			}
+		}
+	}
+	#main {
+		width: 100%;
+		float: left;	
+	}
+	.sponsored-logo {
+		text-align: center;
+		padding-top: 25px;
+    padding-bottom: 10px;
+		.logo-img {
+			display: inline-block;
+			.poweredby {
+				display: block;
+				width: 100%;
+				font-size: 10px;
+				line-height: 1;
+				color: #58595b;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				margin: 0 0 5px;
+				display: block;
+			}
+			img {
+				width: auto;
+				height: 60px;
+			}
+		}
+	}
+}
 
+body.page-template-page-jobs-new {
+	&.logged-in.admin-bar {
+		#content.site-content {
+			padding-top: 76px;
+			margin-right: 0;
+		}
+	}
+}
+
+/* JOBS page */
+.page-job-new {
+	.job-cta-buttons {
+		@media screen and (max-width: $tab - 1px) {
+			margin-bottom: 20px;
+		}
+		.flex {
+			@include tab {
+				@include flexbox();
+				@include flexbox-justify(space-between);
+				@include flexbox-align-items(center);
+			}
+			@media screen and (max-width: $tab - 1px) {
+				@include flexgroup();
+			}
+		}
+		.jobctabtn {
+			display: inline-block;
+			text-decoration: none;
+			background: $color-yellow;
+			color: #FFF;
+			text-transform: uppercase;
+			text-align: center;
+			padding: 10px 20px;
+			max-width: 100%;
+			width: 100%;
+			position: relative;
+			@include tab {
+				max-width: 25%;
+			}
+			&:hover {
+				text-decoration: none;
+				background: $color-red;
+			}
+			@media screen and (max-width: $tab - 1px) {
+				width: 33.33%;
+				font-size: 16px;
+				line-height: 1.1;
+				padding: 20px 10px;
+				&:before {
+					content:"";
+					display: block;
+					width: 2px;
+					height: 45%;
+					background: rgba(255,255,255,.35);
+					position: absolute;
+					top: 50%;
+					left: 0;
+					transform: translateY(-50%);
+				}
+				&:first-child:before {
+					display: none;
+				}
+				&:hover:before {
+					display: none;
+				}
+			}
+		}
+	}
+	.jobpageNewsletter {
+		display: none;
+		width: 100%;
+		float: left;
+		&.show {
+			display: block;
+		}
+		.form-subscribe-blue {
+			padding: 0 0;
+			background: $color-blue;
+			.form-inside {
+				max-width: 800px;
+				width: 100%;
+				margin: 0 auto;
+			}
+		}
+		.gfTitle, .gftxt {
+			color: #FFF;
+		}
+		.form-subscribe-blue .gform_wrapper .gform_footer input.gform_button {
+			line-height: 14px;
+		}
+	}
+	.jobs-page {
+		width: 100%;
+		float: left;
+		padding: 0 0;
+	}
+	.navigation-jobs {
+		width: 100%;
+		float: left;
+		margin-top: 20px;
+		@media screen and (max-width: $tab - 1px) {
+			padding-left: 20px;
+			padding-right: 20px;
+			text-align: center;
+			ul.page-numbers {
+				display: inline-block;
+			}
+		}
+	}
+	.biz-job-wrap {
+		.job {
+			@media screen and (max-width: $tab - 1px) {
+				padding-left: 15px;
+				padding-right: 15px;
+				.info {
+					text-align: left;
+				}
+				.view {
+					width: 25%;
+				}
+			}
+		}
+	}
+}
