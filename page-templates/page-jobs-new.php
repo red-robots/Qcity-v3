@@ -221,9 +221,17 @@ jQuery(document).ready(function($){
 	if( $(".jobpageNewsletter").length>0 ) {
 		var jobcount = ( $(".biz-job-wrap .job").length>0 ) ? $(".biz-job-wrap .job").length : 0;
 		if( $(".biz-job-wrap .job").length>0 ) {
-			var max = 5;
-			if(jobcount>=5) {
-				var i = 1;
+			var i = 1;
+			if(jobcount==8) {
+				$(".biz-job-wrap .job").each(function(){
+					var target = $(this);
+					if(i==4) {
+						$(".jobpageNewsletter").insertAfter(target).addClass("show");
+					}
+					i++;
+				});
+			} 
+			else if(jobcount>8) {
 				$(".biz-job-wrap .job").each(function(){
 					var target = $(this);
 					if(i==5) {
