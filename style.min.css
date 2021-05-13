@@ -3887,17 +3887,27 @@ body.logged-in.admin-bar.page-template-page-black-map #content{padding-top:5px}
 .page-with-poweredby .sponsored-logo .logo-img .poweredby{display:block;width:100%;font-size:10px;line-height:1;color:#58595b;text-transform:uppercase;letter-spacing:1px;margin:0 0 5px;display:block}
 .page-with-poweredby .sponsored-logo .logo-img img{width:auto;height:60px}
 body.page-template-page-jobs-new.logged-in.admin-bar #content.site-content{padding-top:76px;margin-right:0}
+.page-job-new .job-cta-buttons{margin-bottom:50px;position:relative;z-index:10}
 @media screen and (max-width:819px){.page-job-new .job-cta-buttons{margin-bottom:20px}
-}@media(min-width:820px){.page-job-new .job-cta-buttons .flex{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-justify-content:space-between;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+}.page-job-new .job-cta-buttons .flex{margin:0;padding:0;list-style:none}
+@media(min-width:820px){.page-job-new .job-cta-buttons .flex{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-justify-content:space-between;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 }@media screen and (max-width:819px){.page-job-new .job-cta-buttons .flex{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
-}.page-job-new .job-cta-buttons .jobctabtn{display:inline-block;text-decoration:none;background:#c4a92f;color:#FFF;text-transform:uppercase;text-align:center;padding:10px 20px;max-width:100%;width:100%;position:relative}
-@media(min-width:820px){.page-job-new .job-cta-buttons .jobctabtn{max-width:25%}
-}.page-job-new .job-cta-buttons .jobctabtn:hover{text-decoration:none;background:#924020}
+}.page-job-new .job-cta-buttons .jbtn{max-width:100%;width:100%;position:relative}
+@media(min-width:820px){.page-job-new .job-cta-buttons .jbtn{max-width:25%}
+}.page-job-new .job-cta-buttons .jobctabtn{display:inline-block;text-decoration:none;background:#c4a92f;color:#FFF;text-transform:uppercase;text-align:center;padding:10px 20px;width:100%;position:relative}
+.page-job-new .job-cta-buttons .jobctabtn:hover{text-decoration:none;background:#924020}
 @media screen and (max-width:819px){.page-job-new .job-cta-buttons .jobctabtn{width:33.33%;font-size:16px;line-height:1.1;padding:20px 10px}
 .page-job-new .job-cta-buttons .jobctabtn:before{content:"";display:block;width:2px;height:45%;background:rgba(255,255,255,0.35);position:absolute;top:50%;left:0;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
 .page-job-new .job-cta-buttons .jobctabtn:first-child:before{display:none}
 .page-job-new .job-cta-buttons .jobctabtn:hover:before{display:none}
-}.page-job-new .jobpageNewsletter{display:none;width:100%;float:left}
+}.page-job-new .dropdownList{position:absolute;width:100%;max-height:0;height:0;overflow:hidden;left:0;background:#c4a92f;padding-bottom:10px;border-bottom:4px solid #924020;box-shadow:0 10px 14px rgba(0,0,0,0.2);-webkit-transition:all ease .2s;transition:all ease .2s;opacity:0}
+.page-job-new .dropdownList ul.cats{margin:0;padding:0;list-style:none}
+.page-job-new .dropdownList a{display:block;text-decoration:none;-webkit-transition:all ease .3s;transition:all ease .3s;padding:6px 15px;line-height:1.2;font-size:16px;color:#FFF;text-transform:uppercase}
+.page-job-new .dropdownList a:hover{background:#924020}
+.page-job-new .dropdownList li.active a{background:#924020}
+.page-job-new .jbtn:hover a.jobctabtn{background:#924020}
+.page-job-new .jbtn:hover .dropdownList{opacity:1;max-height:inherit;height:auto}
+.page-job-new .jobpageNewsletter{display:none;width:100%;float:left}
 .page-job-new .jobpageNewsletter.show{display:block}
 .page-job-new .jobpageNewsletter .form-subscribe-blue{padding:0;background:#1c788c}
 .page-job-new .jobpageNewsletter .form-subscribe-blue .form-inside{max-width:800px;width:100%;margin:0 auto}

@@ -4,7 +4,9 @@
  *
  */
 get_header(); 
-$page_id = get_the_ID(); ?>
+$page_id = get_the_ID(); 
+$job_category = ( isset($_GET['category']) && $_GET['category'] ) ? $_GET['category'] : '';
+?>
 
 <div id="primary" class="content-area page-with-poweredby page-job-new">
 	<main id="main" class="site-main" role="main">
@@ -85,16 +87,43 @@ $page_id = get_the_ID(); ?>
 			<div class="entry-content">
 				<div class="wrapper">
 					
+					<?php /* BUTTONS */ ?>
 					<?php if ($buttons) { ?>
 					<div class="job-cta-buttons">
-						<div class="flex">
+						<ul class="flex">
 						<?php foreach ($buttons as $e) {
 						if( $b = $e['button'] ) { 
 							$btnId = strtolower(sanitize_title($b['title']));  ?>
-							<a id="<?php echo $btnId ?>" href="<?php echo $b['url'] ?>" target="<?php echo ( isset($b['target']) && $b['target'] ) ? $b['target'] : '_SELF'; ?>" class="jobctabtn"><?php echo $b['title'] ?></a>
+							<li class="jbtn">
+								<a id="<?php echo $btnId ?>" href="<?php echo $b['url'] ?>" target="<?php echo ( isset($b['target']) && $b['target'] ) ? $b['target'] : '_SELF'; ?>" class="jobctabtn"><?php echo $b['title'] ?></a>
+								<?php if ($b['url']=='#findjob') { ?>
+									<?php 
+									/* Find Jobs Dropdown */
+									$terms = get_terms( array(
+								    'taxonomy' 		=> 'job_cat',
+								    'orderby' => 'name',
+    								'order' => 'ASC',
+								    'hide_empty' 	=> true,
+									));
+									if( is_array($terms) && !empty($terms) ) { ?>
+									<div class="jobCategories dropdownList">
+										<ul class="cats">
+											<?php foreach($terms as $term) { 
+												//$termLink = get_term_link($term->term_id);
+												$catSlug = $term->slug;
+												$termLink = get_permalink() . '?category=' . $catSlug;
+												$isActive = ($job_category==$catSlug) ? ' active':'';
+												?>
+                      	<li class="catlink<?php echo $isActive ?>"><a href="<?php echo $termLink;?>"><?php echo $term->name;?></a></li>
+                      <?php } ?>
+										</ul>
+									</div>	
+									<?php } ?>
+								<?php } ?>
+							</li>
 							<?php } ?>
 						<?php } ?>
-						</div>
+						</ul>
 					</div>	
 					<?php } ?>
 
@@ -105,13 +134,24 @@ $page_id = get_the_ID(); ?>
 					$perPage = 10;
 					$paged = ( get_query_var( 'pg' ) ) ? absint( get_query_var( 'pg' ) ) : 1;
 					$wp_query = new WP_Query();
-					$wp_query->query(array(
-						'post_type'					=>'job',
-						'posts_per_page'   	=> $perPage,
-						'paged'			   			=> $paged,
-						'orderby'          => 'date',
-						'order'            => 'DESC'
-					));
+					$args = array(
+						'post_type'				=>'job',
+						'posts_per_page'	=> $perPage,
+						'paged'						=> $paged,
+						'orderby'					=> 'date',
+						'order'						=> 'DESC'
+					);
+					
+					if($job_category) {
+						$args['tax_query'] = array(
+				        array (
+			            'taxonomy' => 'job_cat',
+			            'field' => 'slug',
+			            'terms' => $job_category,
+				        )
+					    );
+					}
+					$wp_query->query($args);
 					if ($wp_query->have_posts())  { ?>
 						<div class="jobs-page">
 							<div class="biz-job-wrap">
@@ -173,6 +213,9 @@ $page_id = get_the_ID(); ?>
 		
 	</main>
 </div>
+
+
+
 <script type="text/javascript">
 jQuery(document).ready(function($){
 	if( $(".jobpageNewsletter").length>0 ) {

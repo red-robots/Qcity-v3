@@ -11966,10 +11966,16 @@ body.page-template-page-jobs-new {
 /* JOBS page */
 .page-job-new {
 	.job-cta-buttons {
+		margin-bottom: 50px;
+		position: relative;
+		z-index: 10;
 		@media screen and (max-width: $tab - 1px) {
 			margin-bottom: 20px;
 		}
 		.flex {
+			margin: 0 0;
+			padding: 0 0;
+			list-style: none;
 			@include tab {
 				@include flexbox();
 				@include flexbox-justify(space-between);
@@ -11977,6 +11983,14 @@ body.page-template-page-jobs-new {
 			}
 			@media screen and (max-width: $tab - 1px) {
 				@include flexgroup();
+			}
+		}
+		.jbtn {
+			max-width: 100%;
+			width: 100%;
+			position: relative;
+			@include tab {
+				max-width: 25%;
 			}
 		}
 		.jobctabtn {
@@ -11987,12 +12001,8 @@ body.page-template-page-jobs-new {
 			text-transform: uppercase;
 			text-align: center;
 			padding: 10px 20px;
-			max-width: 100%;
 			width: 100%;
 			position: relative;
-			@include tab {
-				max-width: 25%;
-			}
 			&:hover {
 				text-decoration: none;
 				background: $color-red;
@@ -12020,6 +12030,54 @@ body.page-template-page-jobs-new {
 					display: none;
 				}
 			}
+		}
+	}
+	.dropdownList {
+		position: absolute;
+		width: 100%;
+		max-height: 0;
+		height: 0;
+		overflow: hidden;
+		left: 0;
+		background: $color-yellow;
+		padding-bottom: 10px;
+		border-bottom: 4px solid $color-red;
+		box-shadow: 0 10px 14px rgba(0,0,0,0.2);
+		transition: all ease .2s;
+		opacity: 0;
+		ul.cats {
+			margin: 0 0;
+			padding: 0 0;
+			list-style: none;
+		}
+		a {
+			display: block;
+			text-decoration: none;
+			transition: all ease .3s;
+			padding: 6px 15px;
+			line-height: 1.2;
+			font-size: 16px;
+			color: #FFF;
+			text-transform: uppercase;
+			&:hover {
+				//background: rgba(255,255,255,.25);
+				background: $color-red;
+			}
+		}
+		li.active {
+			a {
+				background: $color-red;
+			}
+		}
+	}
+	.jbtn:hover {
+		a.jobctabtn {
+			background: $color-red;
+		}
+		.dropdownList {
+			opacity: 1;
+			max-height: inherit;
+			height: auto;
 		}
 	}
 	.jobpageNewsletter {
