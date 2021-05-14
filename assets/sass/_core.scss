@@ -12315,5 +12315,8 @@ body.page-template-page-jobs-new {
 	}
 	.jobpageNewsletter {
 		margin: 30px 0 20px;
+		&.bottom {
+			margin-top: 0;
+		}
 	}
 }

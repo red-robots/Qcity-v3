@@ -359,6 +359,13 @@ jQuery(document).ready(function($){
 			$(".esformbackdrop,.esformPopUp").addClass('show animated fadeIn');
 		});
 	}
+	if( $("h1.dark-gray").length>0 ) {
+		var articleTitle = $("h1.dark-gray").length;
+		if(articleTitle==1) {
+			$(".jobpageNewsletter").insertAfter('#page-events-container').addClass("bottom");
+		} 
+	}
+	
 });
 </script>
 <?php 
