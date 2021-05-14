@@ -1294,5 +1294,42 @@ jQuery(document).ready(function ($) {
     //     }
     // }
 
+    /* Get Top Position of DropdownList */
+    if( $(".hasPoweredByLogo .dropdownList").length>0 ) {
+        // $(".hasPoweredByLogo .dropdownList").each(function(){
+        //     var offset = $(this).parents(".jbtn").position().top;
+        //     console.log(offset);
+        // });
+        $(".hasPoweredByLogo .dropdownList").each(function(){
+            var cloneList = $(this).clone();
+            cloneList.insertAfter(".pageCTAButtons").addClass("mobile").append('<a href="#" class="closedropdown"><span>Close</span></a>');
+        });
+        $(".jobctabtn").hover(
+            function(){
+                var id = $(this).attr("id");
+                $(this).addClass('hover');
+                $('.dropdownList.mobile').removeClass("show");
+                $('.dropdownList.mobile[data-for="'+id+'"]').addClass('show');
+            },function(){
+                $(this).removeClass('hover');
+            }
+        );
+        $('.dropdownList.mobile').hover(
+            function(){
+                var id = $(this).attr("data-for");
+                $('.jobctabtn#'+id).addClass('hover');
+            },function(){
+                var id = $(this).attr("data-for");
+                $('.jobctabtn#'+id).removeClass('hover');
+                $(this).removeClass('show');
+            }
+        );
+        $(document).on("click",".closedropdown",function(e){
+            e.preventDefault();
+            $('.jobctabtn').removeClass('hover');
+            $('.dropdownList.mobile').removeClass('show');
+        });
+    }
+
 
 });// END #####################################    END

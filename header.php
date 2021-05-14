@@ -72,6 +72,7 @@ var eventsCount = '<?php echo get_total_events_by_date(); ?>';
 <?php wp_head(); ?>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <?php 
+$current_page_id = (is_page()) ? get_the_ID() : 0;
 $ob = get_queried_object();
 $current_term_id = ( isset($ob->term_id) && $ob->term_id ) ? $ob->term_id : '';
 $current_term_name = ( isset($ob->name) && $ob->name ) ? $ob->name : '';
@@ -116,8 +117,10 @@ for($i=0; $i<3; $i++) {
   $dateRange .= $comma . date('Ym'). $days;
 }
 $start_end = $dateToday . ',' . date('Ym') . $nexday;
+$hasPoweredByLogo = ($current_page_id) ? get_page_with_top_logo($current_page_id) : '';
+$bodyClass = ($hasPoweredByLogo) ? 'hasPoweredByLogo':'';
 ?>
-<body <?php body_class(); ?> data-today="<?php echo date('Ymd') ?>" data-dates="<?php echo $start_end ?>" data-range="<?php echo $dateRange ?>">
+<body <?php body_class($bodyClass); ?> data-today="<?php echo date('Ymd') ?>" data-dates="<?php echo $start_end ?>" data-range="<?php echo $dateRange ?>">
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'acstarter' ); ?></a>
 
@@ -218,10 +221,9 @@ $start_end = $dateToday . ',' . date('Ym') . $nexday;
 	<div id="content" class="site-content mobile-body">
 
   <?php 
-  $current_page_id = (is_page()) ? get_the_ID() : 0;
   $template = no_top_ads($current_page_id);
   
-  
+
   $show_ads = true;
   if($template) {
     $show_ads = false;

@@ -1241,7 +1241,7 @@ jQuery(document).ready(function($){
 </script>
 <?php } 
 
-$gravityFormsSelections = array('homeFormShortcode','homeSBFormShortcode','embedForms','jobpage_newsletter');
+$gravityFormsSelections = array('homeFormShortcode','homeSBFormShortcode','embedForms','jobpage_newsletter','event_submission_form');
 function acf_load_gravity_form_choices( $field ) {
     // reset choices
     $field['choices'] = array();
@@ -1453,16 +1453,6 @@ function no_top_ads($postid) {
 // }
 
 function legibleNumb($number) {
-    // if ($numb >= 1000000) { // Million
-    //     $legibleNumb = round(number_format($numb,0,',','.'),1) . ' M';
-    // } elseif ($numb >= 100000 && $numb < 1000000) { // One hundred thousand
-    //     $legibleNumb = round(number_format($numb,0,',','.'),0) . ' K';
-    // } elseif ($numb >= 10000 && $numb < 100000) { // Ten thousand
-    //     $legibleNumb = round(number_format($numb,0,',','.'),1) . ' K';
-    // } else {
-    //     $legibleNumb = number_format($numb,0,',','.');
-    // }
-    // return $legibleNumb;
     if ($number >= 1000000) { // Million
         return number_format(($number / 1000000), 1) . 'M';
     }
@@ -1473,3 +1463,30 @@ function legibleNumb($number) {
     }
 }
 
+function number_abbr($number) {
+    $suffix = ["", "K", "M", "B"];
+    $precision = 1;
+    for($i = 0; $i < count($suffix); $i++){
+        $divide = $number / pow(1000, $i);
+        if($divide < 1000){
+            return round($divide, $precision).$suffix[$i];
+            break;
+        }
+    }
+}
+
+function get_page_with_top_logo($postid) {
+    $templates[] = 'page-jobs-new.php';
+    $templates[] = 'page-events-new.php';
+    $template_slug = get_page_template_slug($postid);
+    $baseName = ($template_slug) ? basename($template_slug):'';
+    $pages = array();
+    if($baseName) {
+        foreach($templates as $temp) {
+            if($baseName==$temp) {
+                $pages[] = $postid;
+            }      
+        }
+    }
+    return ($pages) ? $pages : '';
+}

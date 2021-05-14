@@ -24,10 +24,10 @@ $job_category = ( isset($_GET['category']) && $_GET['category'] ) ? $_GET['categ
 
 				$subtitle = get_field("subtitle"); 
 				$lastModified = get_the_modified_date('F j, Y h:i a');
-				if($subtitle) {
-					$subtitle = str_replace("{{","<u>",$subtitle);
-					$subtitle = str_replace("}}","</u>",$subtitle);
-				}
+				// if($subtitle) {
+				// 	$subtitle = str_replace("{{","<u>",$subtitle);
+				// 	$subtitle = str_replace("}}","</u>",$subtitle);
+				// }
 
 				$views = '';
 				$views_display = '';
@@ -45,13 +45,15 @@ $job_category = ( isset($_GET['category']) && $_GET['category'] ) ? $_GET['categ
 					<span class="visitor-counter">
 						<span>
 							<em class="e1">Visitor Count</em>
-							<em class="e2"><?php echo legibleNumb($views); ?></em>
+							<em class="e2"><?php echo number_abbr($views); ?></em>
 						</span>
 					</span>
 				<?php 
 					$views_display = ob_get_contents();
 					ob_end_clean(); 
 				} 
+
+				$main_page_title = ( get_field("alt_page_title") ) ? get_field("alt_page_title") : get_the_title();
 			?>
 
 			<?php if ($logo) { ?>
@@ -70,7 +72,7 @@ $job_category = ( isset($_GET['category']) && $_GET['category'] ) ? $_GET['categ
 			<?php } ?>
 			<header class="title-bar-gray">
 				<div class="wrapper">
-					<h1 class="t1"><?php the_title(); ?></h1>
+					<h1 class="t1"><?php echo $main_page_title; ?></h1>
 					<?php if ($subtitle) { ?>
 					<h2 class="t2"><?php echo $subtitle ?></h2>	
 					<?php } ?>
@@ -89,12 +91,14 @@ $job_category = ( isset($_GET['category']) && $_GET['category'] ) ? $_GET['categ
 					
 					<?php /* BUTTONS */ ?>
 					<?php if ($buttons) { ?>
-					<div class="job-cta-buttons">
+					<div class="pageCTAButtons">
 						<ul class="flex">
-						<?php foreach ($buttons as $e) {
+						<?php $ctr=1; foreach ($buttons as $e) {
 						if( $b = $e['button'] ) { 
-							$btnId = strtolower(sanitize_title($b['title']));  ?>
-							<li class="jbtn">
+							$btnId = strtolower(sanitize_title($b['title']));  
+							$firstBtn = ($ctr==1) ? ' first':'';
+							?>
+							<li class="jbtn<?php echo $firstBtn ?>">
 								<a id="<?php echo $btnId ?>" href="<?php echo $b['url'] ?>" target="<?php echo ( isset($b['target']) && $b['target'] ) ? $b['target'] : '_SELF'; ?>" class="jobctabtn"><?php echo $b['title'] ?></a>
 								<?php if ($b['url']=='#findjob') { ?>
 									<?php 
@@ -106,7 +110,7 @@ $job_category = ( isset($_GET['category']) && $_GET['category'] ) ? $_GET['categ
 								    'hide_empty' 	=> true,
 									));
 									if( is_array($terms) && !empty($terms) ) { ?>
-									<div class="jobCategories dropdownList">
+									<div data-for="<?php echo $btnId ?>" class="jobCategories dropdownList">
 										<ul class="cats">
 											<?php foreach($terms as $term) { 
 												//$termLink = get_term_link($term->term_id);
@@ -121,7 +125,7 @@ $job_category = ( isset($_GET['category']) && $_GET['category'] ) ? $_GET['categ
 									<?php } ?>
 								<?php } ?>
 							</li>
-							<?php } ?>
+							<?php $ctr++; } ?>
 						<?php } ?>
 						</ul>
 					</div>	
