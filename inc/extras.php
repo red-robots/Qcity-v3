@@ -1430,6 +1430,7 @@ function no_top_ads($postid) {
     $templates[] = 'page-black-map.php';
     $templates[] = 'page-business-directory.php';
     $templates[] = 'page-jobs-new.php';
+    $templates[] = 'page-events-new.php';
     $template_slug = get_page_template_slug($postid);
     $baseName = ($template_slug) ? basename($template_slug):'';
     $no_ads = array();
