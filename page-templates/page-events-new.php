@@ -193,6 +193,30 @@ $job_category = ( isset($_GET['category']) && $_GET['category'] ) ? $_GET['categ
 							</div>
 							<?php } ?>
 
+							<?php
+							$newsletterForm = get_field("jobpage_newsletter",$page_id);
+							$newsletter_title = get_field("newsletter_title",$page_id);
+							$newsletter_text = get_field("newsletter_text",$page_id);
+							if($newsletterForm) {
+								$gravityFormId = $newsletterForm;
+								$gfshortcode = '[gravityform id="'.$gravityFormId.'" title="false" description="false" ajax="true"]';
+							 	if( do_shortcode($gfshortcode) ) { ?>
+							 		<div class="jobpageNewsletter" style="display:block;">
+										<div class="form-subscribe-blue">
+											<div class="form-inside">
+											<?php if ($newsletter_title) { ?>
+												<h3 class="gfTitle"><?php echo $newsletter_title ?></h3>
+											<?php } ?>
+											<?php if ($newsletter_text) { ?>
+												<div class="gftxt"><?php echo $newsletter_text ?></div>
+											<?php } ?>
+											<?php echo do_shortcode($gfshortcode); ?>
+											</div>
+										</div>
+									</div>
+								<?php } ?>
+							<?php } ?>
+
 							<?php 
 							/* MORE EVENTS */
 							$i = 0;
@@ -299,29 +323,6 @@ $job_category = ( isset($_GET['category']) && $_GET['category'] ) ? $_GET['categ
 					</div>
 
 
-					<?php
-					$newsletterForm = get_field("jobpage_newsletter",$page_id);
-					$newsletter_title = get_field("newsletter_title",$page_id);
-					$newsletter_text = get_field("newsletter_text",$page_id);
-					if($newsletterForm) {
-						$gravityFormId = $newsletterForm;
-						$gfshortcode = '[gravityform id="'.$gravityFormId.'" title="false" description="false" ajax="true"]';
-					 	if( do_shortcode($gfshortcode) ) { ?>
-					 		<div class="jobpageNewsletter">
-								<div class="form-subscribe-blue">
-									<div class="form-inside">
-									<?php if ($newsletter_title) { ?>
-										<h3 class="gfTitle"><?php echo $newsletter_title ?></h3>
-									<?php } ?>
-									<?php if ($newsletter_text) { ?>
-										<div class="gftxt"><?php echo $newsletter_text ?></div>
-									<?php } ?>
-									<?php echo do_shortcode($gfshortcode); ?>
-									</div>
-								</div>
-							</div>
-						<?php } ?>
-					<?php } ?>
 				</div>
 			</div>
 		
@@ -357,33 +358,6 @@ jQuery(document).ready(function($){
 			e.preventDefault();
 			$(".esformbackdrop,.esformPopUp").addClass('show animated fadeIn');
 		});
-	}
-	if( $(".jobpageNewsletter").length>0 ) {
-		var jobcount = ( $(".biz-job-wrap .job").length>0 ) ? $(".biz-job-wrap .job").length : 0;
-		if( $(".biz-job-wrap .job").length>0 ) {
-			var i = 1;
-			if(jobcount==8) {
-				$(".biz-job-wrap .job").each(function(){
-					var target = $(this);
-					if(i==4) {
-						$(".jobpageNewsletter").insertAfter(target).addClass("show");
-					}
-					i++;
-				});
-			} 
-			else if(jobcount>8) {
-				$(".biz-job-wrap .job").each(function(){
-					var target = $(this);
-					if(i==5) {
-						$(".jobpageNewsletter").insertAfter(target).addClass("show");
-					}
-					i++;
-				});
-			} else {
-				var lastList = $(".biz-job-wrap .job").last();
-				$(".jobpageNewsletter").insertAfter(lastList).addClass("show");
-			}
-		}
 	}
 });
 </script>
