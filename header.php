@@ -49,7 +49,7 @@ window.googletag = window.googletag || {cmd: []};
   });
 </script>
 
-<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+<!-- <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
 <script>
   window.googletag = window.googletag || {cmd: []};
   googletag.cmd.push(function() {
@@ -57,7 +57,7 @@ window.googletag = window.googletag || {cmd: []};
     googletag.pubads().enableSingleRequest();
     googletag.enableServices();
   });
-</script>
+</script> -->
 <script>
 var ajaxURL = "<?php echo admin_url('admin-ajax.php'); ?>";
 var assetsDIR = "<?php echo get_bloginfo("template_url") ?>/images/";
