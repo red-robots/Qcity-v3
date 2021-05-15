@@ -10,6 +10,10 @@
     $perpage = 15;
     //$sponsors = get_sponsored_posts('offers-invites+sponsored-post',$numdays,$perpage);
     //$sponsors = get_sponsored_posts('offers-invites+sponsored-post',$numdays,$perpage,1);
+
+    $ad1 = get_field("ad1_sponsored_content_home","option");
+    $ad2 = get_field("ad2_sponsored_content_home","option");
+
     $sponsors = get_sponsored_posts('sponsored-post',$numdays,$perpage,1);
     $sponsor_section_title = 'Sponsored';
     $maxDisplay = 3;
@@ -46,8 +50,6 @@
               $bgImg = ($featImage) ? $featImage[0] : $default;
               $pagelink = get_the_permalink($sp_id); 
               $postdate = get_the_date('F j,Y',$sp_id); 
-              $ad1 = get_field("ad1_sponsored_content_home","option");
-              $ad2 = get_field("ad2_sponsored_content_home","option");
               $is_show = ($ctr>$maxDisplay) ? ' hide':'';
               ?>
               <?php if ($ctr==1) { ?>

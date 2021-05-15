@@ -128,8 +128,7 @@ if( is_page('events') ) {
 			$ads = get_field("trending_ads","option");  
 			if($ads) {
 	  		foreach($ads as $ad_id) {
-	  			$adScript = get_field('ad_script',$ad_id);
-	  			if($adScript) {
+	  			if( $adScript = get_field('ad_script',$ad_id) ) {
 	  				$adList[] = $adScript;
 	  			}
 	  		}

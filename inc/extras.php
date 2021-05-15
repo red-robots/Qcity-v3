@@ -1491,3 +1491,43 @@ function get_page_with_top_logo($postid) {
     }
     return ($pages) ? $pages : '';
 }
+
+function getHeaderScripts() {
+    $output = array();
+    global $post;
+    $current_post_id = ( isset($post->ID) && $post->ID ) ? $post->ID : -1;
+    if( is_home() || is_front_page() ) {
+        $ad1 = get_field("ad1_sponsored_content_home","option");
+        $ad2 = get_field("ad2_sponsored_content_home","option");
+        if($ad1) {
+            $element1 = get_field("ad_script",$ad1);
+            $header_script1 = get_field("header_script",$ad1);
+            if($element1 && $header_script1) {
+                $output[] = $header_script1;
+            }
+        }
+        if($ad2) {
+            $element2 = get_field("ad_script",$ad2);
+            $header_script2 = get_field("header_script",$ad2);
+            if($element2 && $header_script2) {
+                $output[] = $header_script2;
+            }
+        }
+    }
+
+    if( is_singular("post") ) {
+        $trendingAds = get_field("trending_ads","option");
+        if($trendingAds) {
+            foreach($trendingAds as $id) {
+                $enable_ad = get_field("enable_ad",$id);
+                if($enable_ad=='Yes') {
+                    if( $adScript = get_field('header_script',$id) ) {
+                        $output[] = $adScript;
+                    }
+                }
+            }
+        }
+    }
+
+    return $output;
+}

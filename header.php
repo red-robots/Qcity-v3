@@ -103,6 +103,14 @@ html body.single-post .oakland-background.oakland-optin-visible.oakland-lightbox
 body.single-post .oakland-background.oakland-optin-visible.oakland-lightbox{display:none!important;}
 .gform_wrapper ul li.gfield{clear: none !important;}
 </style>
+
+<?php 
+if( $ads_scripts = getHeaderScripts() ) {
+  foreach($ads_scripts as $js) {
+    echo $js;
+  }
+}
+?>
 </head>
 <?php
 $dd = date('d') - 1;
@@ -222,8 +230,6 @@ $bodyClass = ($hasPoweredByLogo) ? 'hasPoweredByLogo':'';
 
   <?php 
   $template = no_top_ads($current_page_id);
-  
-
   $show_ads = true;
   if($template) {
     $show_ads = false;
