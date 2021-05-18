@@ -3672,7 +3672,7 @@ body.single .entry-footer .subscribe-form-single .formDiv,body.single .entry-foo
 body.single .entry-footer .subscribe-form-single .gform_wrapper{padding:0;background:transparent}
 body.single .entry-footer .subscribe-form-single .gform_wrapper .gform_body{width:78%;float:left}
 body.single .entry-footer .subscribe-form-single .gform_wrapper .gform_footer{margin:0;float:right}
-body.single .entry-footer .comments-section{margin-bottom:30px}
+body.single .entry-footer .comments-section{margin-bottom:0}
 .newHomeLayout{margin-top:20px}
 .newHomeLayout section.stickies-new.stickyPostsTop{display:block}
 .newHomeLayout section.stickies-new.stickyPostsTop .stickLeft{width:100%;float:left;padding-top:0}
