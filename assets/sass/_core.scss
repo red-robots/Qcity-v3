@@ -12348,8 +12348,12 @@ body.single.single-post {
 		}
 	}
 }
+.storypost .spcontent a,
 .storypost.more .story-wrapper a {
 	color: $color-red;
+	display: inline;
+	padding: 0 0;
+	margin: 0 0;
 	&:hover {
 		background: transparent;
 		padding: 0 0;

@@ -3946,5 +3946,5 @@ body.page-template-page-jobs-new.logged-in.admin-bar #content.site-content{paddi
 .pageEventsNew .jobpageNewsletter.bottom{margin-top:20px}
 body.single .sharethis-inline-share-buttons.stick-to-bottom,body.single.single-post .sharethis-inline-share-buttons.stick-to-bottom{width:100%;position:fixed;left:0;bottom:0;z-index:999999;margin-top:0;margin-bottom:0;padding-top:15px;padding-bottom:15px !important;box-shadow:0 0 15px rgba(0,0,0,0.1);background:#FFF}
 @media(min-width:820px){body.single .sharethis-inline-share-buttons.stick-to-bottom,body.single.single-post .sharethis-inline-share-buttons.stick-to-bottom{padding-bottom:20px}
-}.storypost.more .story-wrapper a{color:#924020}
-.storypost.more .story-wrapper a:hover{background:transparent;padding:0;margin:0;color:#c4a92f}
+}.storypost .spcontent a,.storypost.more .story-wrapper a{color:#924020;display:inline;padding:0;margin:0}
+.storypost .spcontent a:hover,.storypost.more .story-wrapper a:hover{background:transparent;padding:0;margin:0;color:#c4a92f}
