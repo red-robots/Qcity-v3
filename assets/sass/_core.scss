@@ -10849,6 +10849,29 @@ body.social-media-sticky {
 		font-size: 14px;
 	}
 }
+body.single .entry-footer {
+	.sponsoredDataDiv {
+		margin-top: 20px;
+		.sponsor-logo {
+			text-align: center;
+			margin-bottom: 20px;
+			img {
+				max-width: 150px;
+				margin: 0 auto;
+			}
+		}
+	}
+	.subscribe-form-single {
+		margin-bottom: 20px;
+		.formDiv, .form-subscribe-blue, .form-inside {
+			width: 100%;
+			float: left;
+		}
+	}
+	.comments-section {
+		margin-bottom: 30px;
+	}
+}
 .newHomeLayout {
 	margin-top: 20px;
 	section.stickies-new.stickyPostsTop {

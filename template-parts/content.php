@@ -114,89 +114,20 @@ if( !defined('HIDE_ADS') ){
 		</div>
 	</div><!-- .entry-content -->
 
-	<?php /* SUBSCRIPTION FORM */ 
-	$formPostId = get_field("embedForms");
-	$formVisibility = get_field("show_hide_form");
-	$showForm = ($formVisibility=='hide') ? false : true;
-	$genericForm = get_field("show_generic_newsletter");
-	$showGenericForm = ($genericForm=='off') ? false : true;
-	if($formPostId==111) {
-		$showGenericForm = false;
-	}
-	?>
-	<?php if ($showForm) { ?>
-		<div class="subscribe-form-single">
-			<?php if ($formPostId) { 
-				$gfshortcode = '[gravityform id="'.$formPostId.'" title="1" description="false" ajax="true"]'; ?>
-				
-				<?php if ($formPostId==111) { ?>
-					<div class="formDiv default"><?php get_template_part( 'home-parts/subscribe-form'); ?></div>
-				<?php } else { ?>
-
-					<?php if( do_shortcode($gfshortcode) ) { ?>	
-						<div class="formDiv custom">
-							<div class="home-sb-subscribe-form">
-		        		<div class="form-inside"><?php echo do_shortcode($gfshortcode); ?></div>
-		        	</div>
-						</div>
-					<?php } ?>
-
-				<?php } ?>
-				
-			<?php } ?>
-		</div>
-	<?php } ?>
-	
-	<?php if ($showGenericForm) { ?>
-	<div class="subscribe-form-single" style="margin-top: 20px;">
-		<div class="formDiv default"><?php get_template_part( 'home-parts/subscribe-form'); ?></div>
-	</div>
-	<?php } ?>
-
 	<div class="content-single-page">
 
 		<?php /* SOCIAL MEDIA SHARE */ ?>
 		<?php get_template_part('template-parts/sharethis-socialmedia'); ?>
-
-		<?php if ( comments_open() || get_comments_number() ) : ?>
-
-		<div class="comments-section">
-			<div class="comments-trigger">
-				<div class="logo-holder">
-					<img src="<?php bloginfo('template_url'); ?>/images/qc-logo.png" alt="">
-				</div>
-				<div class="text-holder">
-					<p><?php echo $single_post_comment_text; ?>  <a id="commentBtn" class="click_class" >Click here</a></p>
-				</div>
-			</div>
-
-			<div class="comments-block" style="display:block;">
-				<?php 
-					// If comments are open or we have at least one comment, load up the comment template.
-					comments_template();			
-				?>
-			</div>			
-		</div>
-		<?php endif;  ?>
-
-		<?php if( has_tag() ): ?>
-		<div class="tags">	
-			 <?php echo get_the_tag_list(
-			 	'<span class="title">This Story is Tagged: </span> ',
-			 	', '
-			 ); ?>
-		</div>
-		<?php endif; ?>
 		
 		
 		<?php /* For Mobile View Only */ ?>
-		<div id="mobileBlocks" class="mobile-visible-section">
+		<!-- <div id="mobileBlocks" class="mobile-visible-section">
 			<div id="trendingBlock" class="mobileBlock"></div>
 			<div id="sponsoredContentBlock" class="mobileBlock"></div>
 			<div id="relatedArticlesBlock" class="mobileBlock"></div>
 			<div id="sponsoredByBlock" class="mobileBlock"></div>
 			<div id="westSideConnectBlock" class="mobileBlock"></div>
-		</div>
+		</div> -->
 
 		<footer class="entry-footer">
 
@@ -241,6 +172,75 @@ if( !defined('HIDE_ADS') ){
 					</div>
 				<?php } ?>
 
+			<?php } ?>
+
+
+			<?php /* SUBSCRIPTION FORM */ 
+			$formPostId = get_field("embedForms");
+			$formVisibility = get_field("show_hide_form");
+			$showForm = ($formVisibility=='hide') ? false : true;
+			$genericForm = get_field("show_generic_newsletter");
+			$showGenericForm = ($genericForm=='off') ? false : true;
+			if($formPostId==111) {
+				$showGenericForm = false;
+			}
+			?>
+			<?php if ($showForm) { ?>
+				<div class="subscribe-form-single">
+					<?php if ($formPostId) { 
+						$gfshortcode = '[gravityform id="'.$formPostId.'" title="1" description="false" ajax="true"]'; ?>
+						
+						<?php if ($formPostId==111) { ?>
+							<div class="formDiv default"><?php get_template_part( 'home-parts/subscribe-form'); ?></div>
+						<?php } else { ?>
+
+							<?php if( do_shortcode($gfshortcode) ) { ?>	
+								<div class="formDiv custom">
+									<div class="home-sb-subscribe-form">
+				        		<div class="form-inside"><?php echo do_shortcode($gfshortcode); ?></div>
+				        	</div>
+								</div>
+							<?php } ?>
+
+						<?php } ?>
+						
+					<?php } ?>
+				</div>
+			<?php } ?>
+			
+			<?php if ($showGenericForm) { ?>
+			<div class="subscribe-form-single" style="margin-top: 20px;">
+				<div class="formDiv default"><?php get_template_part( 'home-parts/subscribe-form'); ?></div>
+			</div>
+			<?php } ?>
+
+			<?php if ( comments_open() || get_comments_number() ) { ?>
+				<div class="comments-section">
+					<div class="comments-trigger">
+						<div class="logo-holder">
+							<img src="<?php bloginfo('template_url'); ?>/images/qc-logo.png" alt="">
+						</div>
+						<div class="text-holder">
+							<p><?php echo $single_post_comment_text; ?>  <a id="commentBtn" class="click_class" >Click here</a></p>
+						</div>
+					</div>
+
+					<div class="comments-block" style="display:block;">
+						<?php 
+							// If comments are open or we have at least one comment, load up the comment template.
+							comments_template();			
+						?>
+					</div>			
+				</div>
+			<?php }  ?>
+
+			<?php if( has_tag() ) { ?>
+				<div class="tags">	
+					 <?php echo get_the_tag_list(
+					 	'<span class="title">This Story is Tagged: </span> ',
+					 	', '
+					 ); ?>
+				</div>
 			<?php } ?>
 
 			<?php 

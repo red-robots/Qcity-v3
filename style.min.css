@@ -3663,6 +3663,12 @@ body.social-media-sticky .grecaptcha-badge{bottom:60px !important}
 .subscribe-form-single .gform_title{text-align:center;color:#36c;font-size:15px !important;font-weight:700;text-transform:uppercase;margin:0 0 12px}
 .subscribe-form-single .gfield_html_formatted{max-width:90% !important;width:100%;margin:0 auto !important;display:block}
 .subscribe-form-single .gfield_html_formatted,.subscribe-form-single .gfield_html_formatted small{font-size:14px}
+body.single .entry-footer .sponsoredDataDiv{margin-top:20px}
+body.single .entry-footer .sponsoredDataDiv .sponsor-logo{text-align:center;margin-bottom:20px}
+body.single .entry-footer .sponsoredDataDiv .sponsor-logo img{max-width:150px;margin:0 auto}
+body.single .entry-footer .subscribe-form-single{margin-bottom:20px}
+body.single .entry-footer .subscribe-form-single .formDiv,body.single .entry-footer .subscribe-form-single .form-subscribe-blue,body.single .entry-footer .subscribe-form-single .form-inside{width:100%;float:left}
+body.single .entry-footer .comments-section{margin-bottom:30px}
 .newHomeLayout{margin-top:20px}
 .newHomeLayout section.stickies-new.stickyPostsTop{display:block}
 .newHomeLayout section.stickies-new.stickyPostsTop .stickLeft{width:100%;float:left;padding-top:0}

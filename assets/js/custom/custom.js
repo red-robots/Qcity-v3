@@ -1349,8 +1349,8 @@ jQuery(document).ready(function ($) {
         //         $(".sharethis-inline-share-buttons").appendTo("#shareThisPost").removeClass("stick-to-bottom");
         //     }
         // });
-
         $("#shareThisPost .sharethis-inline-share-buttons").insertAfter("#page.site").addClass("stick-to-bottom");
+        $(".content-single-page #shareThisPost").hide();
     }
 
 });// END #####################################    END
