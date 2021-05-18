@@ -10867,6 +10867,18 @@ body.single .entry-footer {
 			width: 100%;
 			float: left;
 		}
+		.gform_wrapper {
+			padding: 0 0;
+			background: transparent;
+			.gform_body {
+				width: 78%;
+				float: left;
+			}
+			.gform_footer {
+				margin: 0 0;
+				float: right;
+			}
+		}
 	}
 	.comments-section {
 		margin-bottom: 30px;
@@ -11119,7 +11131,7 @@ body.single .entry-footer {
 			padding-bottom: 0;
 			input.gform_button {
 				cursor: pointer;
-				padding: 10px 15px 8px;
+				padding: 8px 15px 8px;
 				width: 100%;
 				font-size: 15px;
 				font-weight: 500;

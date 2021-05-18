@@ -3668,6 +3668,9 @@ body.single .entry-footer .sponsoredDataDiv .sponsor-logo{text-align:center;marg
 body.single .entry-footer .sponsoredDataDiv .sponsor-logo img{max-width:150px;margin:0 auto}
 body.single .entry-footer .subscribe-form-single{margin-bottom:20px}
 body.single .entry-footer .subscribe-form-single .formDiv,body.single .entry-footer .subscribe-form-single .form-subscribe-blue,body.single .entry-footer .subscribe-form-single .form-inside{width:100%;float:left}
+body.single .entry-footer .subscribe-form-single .gform_wrapper{padding:0;background:transparent}
+body.single .entry-footer .subscribe-form-single .gform_wrapper .gform_body{width:78%;float:left}
+body.single .entry-footer .subscribe-form-single .gform_wrapper .gform_footer{margin:0;float:right}
 body.single .entry-footer .comments-section{margin-bottom:30px}
 .newHomeLayout{margin-top:20px}
 .newHomeLayout section.stickies-new.stickyPostsTop{display:block}
@@ -3718,7 +3721,7 @@ body.single .entry-footer .comments-section{margin-bottom:30px}
 .home-sb-subscribe-form .gform_wrapper ul.gform_fields ul.gfield_checkbox li input[type="checkbox"]{margin:0;position:absolute;top:3px;left:0}
 .home-sb-subscribe-form .gform_wrapper .top_label div.ginput_container{margin-top:0}
 .home-sb-subscribe-form .gform_wrapper .gform_footer.top_label{margin-top:15px;margin-bottom:0;padding-top:0;padding-bottom:0}
-.home-sb-subscribe-form .gform_wrapper .gform_footer.top_label input.gform_button{cursor:pointer;padding:10px 15px 8px;width:100%;font-size:15px;font-weight:500;line-height:1;border:0;border-radius:0;box-shadow:none;text-shadow:none;-webkit-appearance:none;background:#c4a92f;color:#FFF;margin:0 auto}
+.home-sb-subscribe-form .gform_wrapper .gform_footer.top_label input.gform_button{cursor:pointer;padding:8px 15px 8px;width:100%;font-size:15px;font-weight:500;line-height:1;border:0;border-radius:0;box-shadow:none;text-shadow:none;-webkit-appearance:none;background:#c4a92f;color:#FFF;margin:0 auto}
 .home-sb-subscribe-form .gform_wrapper .gform_footer.top_label input.gform_button:hover{background:#924020}
 .home-sb-subscribe-form .gform_wrapper ul.gform_fields li.gfield{padding-right:0}
 div.ad .home-sb-subscribe-form{margin-bottom:30px}
