@@ -1353,4 +1353,11 @@ jQuery(document).ready(function ($) {
         $(".content-single-page #shareThisPost").hide();
     }
 
+    /* Comments */
+    $(".comments-trigger #commentInfoBtn").click(function(e){
+        e.preventDefault();
+        $(this).toggleClass("open-comments");
+        $(".comments-block").toggleClass("show");
+    });
+
 });// END #####################################    END

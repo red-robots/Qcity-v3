@@ -3960,3 +3960,9 @@ body.single .sharethis-inline-share-buttons.stick-to-bottom,body.single.single-p
 .storypost .spcontent a:hover,.storypost.more .story-wrapper a:hover{background:transparent;padding:0;margin:0;color:#c4a92f}
 .articles-wrapper .storypost.more .photo-wrap .spImages.count1{max-width:700px;width:100%;margin:0 auto}
 .articles-wrapper .storypost.more .photo-wrap .spImages.count1 .frame-photo{max-width:100%;width:100%;float:left}
+.comments-section .comments-title,.comments-section .comments-block{display:none !important}
+.comments-section .comments-block.show{display:block !important}
+.comments-section .comments-block.show .comment-respond{display:block !important}
+#commentInfoBtn{display:inline-block;padding:8px 25px;border-radius:150px;border:1px solid #924020;font-size:18px}
+#commentInfoBtn .icon{margin-right:5px}
+#commentInfoBtn.open-comments,#commentInfoBtn:hover{background:#924020;color:#FFF}

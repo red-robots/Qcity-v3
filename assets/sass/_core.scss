@@ -12411,3 +12411,37 @@ body.single.single-post {
 		}
 	}
 }
+
+.comments-section {
+	.comments-title, .comments-block {
+		display: none !important;
+	}
+	.comments-block.show {
+		display: block !important;
+		// &.nocomments {
+		// 	.comment-respond {
+		// 		display: block !important;
+		// 	}
+		// }
+		.comment-respond {
+			display: block !important;
+		}
+	}
+
+}
+
+#commentInfoBtn {
+	display: inline-block;
+	padding: 8px 25px;
+	border-radius: 150px;
+	border: 1px solid $color-red;
+	font-size: 18px;
+	.icon {
+		margin-right: 5px;
+	}
+	&.open-comments,
+	&:hover {
+		background: $color-red;
+		color: #FFF;
+	}
+}
