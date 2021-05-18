@@ -12361,3 +12361,15 @@ body.single.single-post {
 		color: $color-yellow;
 	}	
 }
+.articles-wrapper .storypost.more {
+	.photo-wrap .spImages.count1 {
+		max-width: 700px;
+		width: 100%;
+		margin: 0 auto;
+		.frame-photo {
+			max-width: 100%;
+			width: 100%;
+			float: left;
+		}
+	}
+}

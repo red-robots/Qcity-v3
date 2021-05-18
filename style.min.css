@@ -3948,3 +3948,5 @@ body.single .sharethis-inline-share-buttons.stick-to-bottom,body.single.single-p
 @media(min-width:820px){body.single .sharethis-inline-share-buttons.stick-to-bottom,body.single.single-post .sharethis-inline-share-buttons.stick-to-bottom{padding-bottom:20px}
 }.storypost .spcontent a,.storypost.more .story-wrapper a{color:#924020;display:inline;padding:0;margin:0}
 .storypost .spcontent a:hover,.storypost.more .story-wrapper a:hover{background:transparent;padding:0;margin:0;color:#c4a92f}
+.articles-wrapper .storypost.more .photo-wrap .spImages.count1{max-width:700px;width:100%;margin:0 auto}
+.articles-wrapper .storypost.more .photo-wrap .spImages.count1 .frame-photo{max-width:100%;width:100%;float:left}
