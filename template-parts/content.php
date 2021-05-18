@@ -186,10 +186,11 @@ if( !defined('HIDE_ADS') ){
 			}
 			?>
 			<?php if ($showForm) { ?>
-				<div class="subscribe-form-single">
+				
 					<?php if ($formPostId) { 
 						$gfshortcode = '[gravityform id="'.$formPostId.'" title="1" description="false" ajax="true"]'; ?>
 						
+						<div class="subscribe-form-single">
 						<?php if ($formPostId==111) { ?>
 							<div class="formDiv default"><?php get_template_part( 'home-parts/subscribe-form'); ?></div>
 						<?php } else { ?>
@@ -203,9 +204,9 @@ if( !defined('HIDE_ADS') ){
 							<?php } ?>
 
 						<?php } ?>
-						
+						</div>
 					<?php } ?>
-				</div>
+				
 			<?php } ?>
 			
 			<?php if ($showGenericForm) { ?>
