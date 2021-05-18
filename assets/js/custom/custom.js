@@ -949,32 +949,39 @@ jQuery(document).ready(function ($) {
             var newImage = '<img src="'+placeholder+'" alt="" aria-hidden="true" class="prplaceholder" />';
             // $(this).find(".rp4wp_component_image a").attr("style","background-image:url('"+imgSrc+"')")
             var imgThumbURL = '';
-            if( $(this).find("img.wp-post-image").length>0 ) {
+            if( $(this).find("img").length>0 ) {
                 var srcset = '';
-                if( typeof $(this).find("img.wp-post-image").attr("srcset")!='undefined' ) {
-                    srcset = $(this).find("img.wp-post-image").attr("srcset");
-                    if(srcset) {
-                        var srcparts = srcset.split(",");
-                        if( srcparts && typeof srcparts[2]!='undefined' ) {
-                            var image_file_src = srcparts[2];
-                            var matches = image_file_src.match(/\bhttps?:\/\/\S+/gi);
-                            if( typeof matches[0]!='undefined' ) {
-                                imgThumbURL = matches[0];
-                            }
-                        }
-                    }
-                }
-                else if( typeof $(this).find("img.wp-post-image").attr("data-src")!='undefined' ) {
-                    imgThumbURL = $(this).find("img.wp-post-image").attr("data-src");
+                // if( typeof $(this).find("img").attr("srcset")!='undefined' ) {
+                //     srcset = $(this).find("img").attr("srcset");
+                //     if(srcset) {
+                //         var srcparts = srcset.split(",");
+                //         if( srcparts && typeof srcparts[2]!='undefined' ) {
+                //             var image_file_src = srcparts[2];
+                //             var matches = image_file_src.match(/\bhttps?:\/\/\S+/gi);
+                //             if( typeof matches[0]!='undefined' ) {
+                //                 imgThumbURL = matches[0];
+                //             }
+                //         }
+                //     }
+                // }
+                // else if( typeof $(this).find("img").attr("data-src")!='undefined' ) {
+                //     imgThumbURL = $(this).find("img").attr("data-src");
+                // }
+
+                if( typeof $(this).find("img").attr("src")!='undefined' ) {
+                    var imageSrc = $(this).find("img").attr("src");
+                    $(this).find("img").parent().attr("style","background-image:url('"+imageSrc+"')");
                 }
             }
-            if(imgThumbURL) {
-                $(this).find(".rp4wp_component_image a").attr("style","background-image:url('"+imgThumbURL+"')");
-            }
+            // if(imgThumbURL) {
+            //     $(this).find(".rp4wp_component_image a").attr("style","background-image:url('"+imgThumbURL+"')");
+            // }
             $(this).find(".rp4wp_component_image a").append(newImage);
 
         });
     }
+
+
 
     /* inline subscription form */
 
@@ -983,11 +990,11 @@ jQuery(document).ready(function ($) {
         $(this).find("input").focus();
     });
 
-    $(window).on("scroll resize",function(){
-        if( $("#shareThisPost").length>0 ) {
-            inViewport(".entry-footer");
-        }
-    });
+    // $(window).on("scroll resize",function(){
+    //     if( $("#shareThisPost").length>0 ) {
+    //         inViewport(".entry-footer");
+    //     }
+    // });
 
     function inViewport(elem){
         $(elem).each(function(){
@@ -995,10 +1002,10 @@ jQuery(document).ready(function ($) {
             topOfWindow = $(window).scrollTop();
             if( divPos < topOfWindow+400 ){
                 $("body").addClass('social-media-sticky');
-                $("#shareThisPost").addClass('animated fadeIn fixed');
+                //$("#shareThisPost").addClass('animated fadeIn fixed');
             } else {
                 $("body").removeClass('social-media-sticky');
-                $("#shareThisPost").removeClass('fadeIn fixed');
+                //$("#shareThisPost").removeClass('fadeIn fixed');
             }
         });
     }
@@ -1331,5 +1338,19 @@ jQuery(document).ready(function ($) {
         });
     }
 
+    /* Social Media stick to footer */
+    if( $("#shareThisPost").length>0 ) {
+        
+        // $(window).on("scroll resize",function(){
+        //     var pageTopOffset = $("#masthead .mobile-stick").height();
+        //     if ($(window).scrollTop() >= pageTopOffset) {
+        //         $("#shareThisPost .sharethis-inline-share-buttons").insertAfter("#page.site").addClass("stick-to-bottom");
+        //     } else {
+        //         $(".sharethis-inline-share-buttons").appendTo("#shareThisPost").removeClass("stick-to-bottom");
+        //     }
+        // });
+
+        $("#shareThisPost .sharethis-inline-share-buttons").insertAfter("#page.site").addClass("stick-to-bottom");
+    }
 
 });// END #####################################    END

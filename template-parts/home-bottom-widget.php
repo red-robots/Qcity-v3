@@ -9,8 +9,8 @@ $foot_images = get_field('home_foot_images','option');
 	</header>
 	<?php } ?>
 
-	<?php if ($foot_images) { ?>
-	<div class="home-widget-images">
+	<?php if ($foot_images) { $count = count($foot_images); ?>
+	<div class="home-widget-images <?php echo ($count>1) ? 'images-med':'images-full' ?>">
 		<ul class="hw-list">
 			<?php $n=1; foreach ($foot_images as $e) { 
 				$image = $e['image'];

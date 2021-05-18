@@ -2185,8 +2185,17 @@ body.page-template-page-black-map .content-area-full.top-logo-page #main .entry-
 				width: 90%;
 				height: auto;
 				@include tab {
-					width: auto;
-					height: 65px;
+					width: 100%;
+					height: auto;
+				}
+			}
+		}
+	}
+	&.images-med {
+		ul.hw-list {
+			a img {
+				@include tab {
+					width: 50%;
 				}
 			}
 		}
@@ -12319,4 +12328,32 @@ body.page-template-page-jobs-new {
 			margin-top: 20px;
 		}
 	}
+}
+body.single,
+body.single.single-post {
+	.sharethis-inline-share-buttons.stick-to-bottom {
+		width: 100%;
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		z-index: 999999;
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 15px;
+		padding-bottom: 15px!important;
+		box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+		background: #FFF;
+		@include tab {
+			padding-bottom: 20px;
+		}
+	}
+}
+.storypost.more .story-wrapper a {
+	color: $color-red;
+	&:hover {
+		background: transparent;
+		padding: 0 0;
+		margin: 0 0;
+		color: $color-yellow;
+	}	
 }
