@@ -3966,3 +3966,18 @@ body.single .sharethis-inline-share-buttons.stick-to-bottom,body.single.single-p
 #commentInfoBtn{display:inline-block;padding:8px 25px;border-radius:150px;border:1px solid #924020;font-size:18px}
 #commentInfoBtn .icon{margin-right:5px}
 #commentInfoBtn.open-comments,#commentInfoBtn:hover{background:#924020;color:#FFF}
+.generic-page #main .wrapper{max-width:1200px;width:100%;margin:0 auto;padding-top:50px;padding-bottom:50px;padding-left:20px;padding-right:20px}
+.text-and-image-div{margin-top:80px}
+.text-and-image-div .flexwrap{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
+.text-and-image-div .infoblock{width:100%;position:relative;padding:50px 0 30px;border-top:1px solid #924020}
+@media(min-width:820px){.text-and-image-div .infoblock{padding:50px 0}
+}.text-and-image-div .infoblock.first{border-top:0;padding-top:0}
+.text-and-image-div .infoblock .imagecol{width:100%;margin-bottom:20px}
+@media(min-width:600px){.text-and-image-div .infoblock .imagecol{margin-bottom:0}
+}.text-and-image-div .infoblock .imagecol img{width:100%;height:auto}
+.text-and-image-div .infoblock .textcol .heading h2{color:#924020;margin:0}
+@media(min-width:600px){.text-and-image-div .infoblock.half .imagecol{width:35%}
+.text-and-image-div .infoblock.half .textcol{width:65%;padding-left:3vw}
+}@media(min-width:820px){.text-and-image-div .infoblock.half .imagecol{width:30%}
+.text-and-image-div .infoblock.half .textcol{width:70%;padding-left:3vw}
+}

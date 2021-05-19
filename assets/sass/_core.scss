@@ -12445,3 +12445,74 @@ body.single.single-post {
 		color: #FFF;
 	}
 }
+
+.generic-page {
+	#main .wrapper {
+		max-width: 1200px;
+		width: 100%;
+		margin: 0 auto;
+		padding-top: 50px;
+		padding-bottom: 50px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+.text-and-image-div {
+	margin-top: 80px;
+	.flexwrap {
+		@include flexgroup();
+	}
+	.infoblock {
+		width: 100%;
+		position: relative;
+		padding: 50px 0 30px;
+		border-top: 1px solid $color-red;
+		@include tab {
+			padding: 50px 0;
+		}
+		&.first {
+			border-top: none;
+			padding-top: 0;
+		}
+		.imagecol {
+			width: 100%;
+			margin-bottom: 20px;
+			@include xs {
+				margin-bottom: 0;
+			}
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+		.textcol {
+			.heading {
+				h2 {
+					color: $color-red;
+					margin: 0 0;
+				}
+			}
+		}
+		&.half {
+			@include xs {
+				.imagecol {
+					width: 35%;
+				}
+				.textcol {
+					width: 65%;
+					padding-left: 3vw;
+				}
+			}
+			@include tab {
+				.imagecol {
+					width: 30%;
+				}
+				.textcol {
+					width: 70%;
+					padding-left: 3vw;
+				}
+			}
+		}
+	}
+}
+
