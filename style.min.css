@@ -3968,6 +3968,7 @@ body.single .sharethis-inline-share-buttons.stick-to-bottom,body.single.single-p
 #commentInfoBtn.open-comments,#commentInfoBtn:hover{background:#924020;color:#FFF}
 .generic-page #main .wrapper{max-width:1200px;width:100%;margin:0 auto;padding-top:50px;padding-bottom:50px;padding-left:20px;padding-right:20px}
 .text-and-image-div{margin-top:80px}
+.text-and-image-div .section-title{color:#924020;font-size:35px;line-height:1.2;margin:0 0 20px}
 .text-and-image-div .flexwrap{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
 .text-and-image-div .infoblock{width:100%;position:relative;padding:50px 0 30px;border-top:1px solid #924020}
 @media(min-width:820px){.text-and-image-div .infoblock{padding:50px 0}
@@ -3975,7 +3976,7 @@ body.single .sharethis-inline-share-buttons.stick-to-bottom,body.single.single-p
 .text-and-image-div .infoblock .imagecol{width:100%;margin-bottom:20px}
 @media(min-width:600px){.text-and-image-div .infoblock .imagecol{margin-bottom:0}
 }.text-and-image-div .infoblock .imagecol img{width:100%;height:auto}
-.text-and-image-div .infoblock .textcol .heading h2{color:#924020;margin:0;font-size:28px;line-height:1.1}
+.text-and-image-div .infoblock .textcol .heading h2{color:#924020;margin:0;font-size:25px;line-height:1.1}
 .text-and-image-div .infoblock .textcol .heading .t2{margin:0;color:#924020}
 @media(min-width:600px){.text-and-image-div .infoblock.half .imagecol{width:35%}
 .text-and-image-div .infoblock.half .textcol{width:65%;padding-left:3vw}

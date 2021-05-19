@@ -12459,6 +12459,12 @@ body.single.single-post {
 }
 .text-and-image-div {
 	margin-top: 80px;
+	.section-title {
+		color: $color-red;
+		font-size: 35px;
+		line-height:1.2;
+		margin: 0 0 20px;
+	}
 	.flexwrap {
 		@include flexgroup();
 	}
@@ -12490,7 +12496,7 @@ body.single.single-post {
 				h2 {
 					color: $color-red;
 					margin: 0 0;
-					font-size: 28px;
+					font-size: 25px;
 					line-height: 1.1;
 				}
 				.t2 {

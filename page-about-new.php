@@ -14,7 +14,11 @@ get_header(); ?>
 				<?php } ?>
 
 				<?php if( $rowContent = get_field("imageAndText") ) { ?>
+				<?php $section_title = get_field("section_title") ?>
 				<div class="text-and-image-div">
+					<?php if ($section_title) { ?>
+					<h2 class="section-title"><?php echo $section_title ?></h2>	
+					<?php } ?>
 					<?php $i=1; foreach ($rowContent as $row) { 
 						$image = $row['image'];
 						$title = $row['title'];
