@@ -1360,4 +1360,10 @@ jQuery(document).ready(function ($) {
         $(".comments-block").toggleClass("show");
     });
 
+    /* Join Button for Mobile view */
+    if( $("#site-navigation .headerRedBtn.redbutton").length>0 ) {
+        $("#site-navigation .headerRedBtn.redbutton").clone().prependTo(".mobilemain .menu-main-navigation-container");
+    }
+
+
 });// END #####################################    END

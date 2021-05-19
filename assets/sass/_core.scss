@@ -810,7 +810,7 @@ body {
   z-index: 100002;
   float: right;
   right: 0;
-  top: -4px;
+  top: -20px;
   @media screen and (min-width: $tabwidth) {
     position: relative;
     top: 0;
@@ -12527,3 +12527,23 @@ body.single.single-post {
 	}
 }
 
+@media screen and (max-width: 767px) {
+	.mobilemain {
+		a.headerRedBtn.redbutton {
+			display: block;
+			background: red;
+			color: #FFF;
+			position: relative;
+			padding: 10px 15px;
+			line-height: 1.2;
+			border-radius: 100px;
+			margin-right: 0;
+			margin-bottom: 10px;
+			text-align: center;
+			-webkit-transition: all ease .3s;
+		}
+	}
+	.mobilemain li.menu-item.red-button-link {
+		display: none;
+	}
+}

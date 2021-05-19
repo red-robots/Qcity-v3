@@ -1876,7 +1876,7 @@ a:hover,a:active{outline:0}
 *,*:before,*:after{margin:0;padding:0;box-sizing:border-box}
 body{width:100%;height:100%}
 body.overflow{overflow:hidden}
-.burger{width:50px;height:50px;position:relative;border-radius:4px;z-index:100002;float:right;right:0;top:-4px}
+.burger{width:50px;height:50px;position:relative;border-radius:4px;z-index:100002;float:right;right:0;top:-20px}
 @media screen and (min-width:768px){.burger{position:relative;top:0;right:0;margin-right:0}
 }@media screen and (min-width:900px){.burger{margin-right:15px}
 }.burger span{position:relative;margin-top:10px;margin-bottom:10px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;position:absolute;top:50%;left:50%;margin-left:-15px;margin-top:-1.5px;width:30px}
@@ -3982,4 +3982,6 @@ body.single .sharethis-inline-share-buttons.stick-to-bottom,body.single.single-p
 .text-and-image-div .infoblock.half .textcol{width:65%;padding-left:3vw}
 }@media(min-width:820px){.text-and-image-div .infoblock.half .imagecol{width:30%}
 .text-and-image-div .infoblock.half .textcol{width:70%;padding-left:3vw}
+}@media screen and (max-width:767px){.mobilemain a.headerRedBtn.redbutton{display:block;background:red;color:#FFF;position:relative;padding:10px 15px;line-height:1.2;border-radius:100px;margin-right:0;margin-bottom:10px;text-align:center;-webkit-transition:all ease .3s}
+.mobilemain li.menu-item.red-button-link{display:none}
 }
