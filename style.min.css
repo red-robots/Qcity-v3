@@ -3513,7 +3513,7 @@ div.ctct-form-embed div.ctct-form-defaults p.ctct-form-text{font-size:15px !impo
 .sidebar-sponsored-posts article,.sidebar-sponsored-posts .inside{width:100%;float:left}
 .sidebar-sponsored-posts article{margin-bottom:30px}
 .sidebar-sponsored-posts .sbTitle{color:#36c;font-family:"Roboto",sans-serif;font-size:.85rem;font-weight:700;text-transform:uppercase;margin-top:0;margin-bottom:7px;width:100%;float:left}
-@media(min-width:820px){.sidebar-sponsored-posts .sbTitle{margin-top:10px}
+@media(min-width:820px){.sidebar-sponsored-posts .sbTitle{margin-top:0}
 }.sidebar-sponsored-posts .sp-item.hide{display:none}
 .sidebar-sponsored-posts .sp-item.first{display:block}
 .sidebar-sponsored-posts .sp-item.hide-mobile{display:none}
@@ -3982,6 +3982,10 @@ body.single .sharethis-inline-share-buttons.stick-to-bottom,body.single.single-p
 .text-and-image-div .infoblock.half .textcol{width:65%;padding-left:3vw}
 }@media(min-width:820px){.text-and-image-div .infoblock.half .imagecol{width:30%}
 .text-and-image-div .infoblock.half .textcol{width:70%;padding-left:3vw}
-}@media screen and (max-width:767px){.mobilemain a.headerRedBtn.redbutton{display:block;background:red;color:#FFF;position:relative;padding:10px 15px;line-height:1.2;border-radius:100px;margin-right:0;margin-bottom:10px;text-align:center;-webkit-transition:all ease .3s}
+}.subscribe-wrap.home-mission-bar{padding:20px 0 10px}
+.home-ad-fullwidth{width:100%;float:left;margin:20px 0;text-align:center;position:relative;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+.home-ad-fullwidth.home-block-AD2{margin:30px 0}
+.home-ad-fullwidth.home-block-AD3{top:-18px}
+@media screen and (max-width:767px){.mobilemain a.headerRedBtn.redbutton{display:block;background:red;color:#FFF;position:relative;padding:10px 15px;line-height:1.2;border-radius:100px;margin-right:0;margin-bottom:10px;text-align:center;-webkit-transition:all ease .3s}
 .mobilemain li.menu-item.red-button-link{display:none}
 }

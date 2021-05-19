@@ -11,8 +11,8 @@
     //$sponsors = get_sponsored_posts('offers-invites+sponsored-post',$numdays,$perpage);
     //$sponsors = get_sponsored_posts('offers-invites+sponsored-post',$numdays,$perpage,1);
 
-    // $ad1 = get_field("ad1_sponsored_content_home","option");
-    // $ad2 = get_field("ad2_sponsored_content_home","option");
+    $ad1 = get_field("ad1_sponsored_content_home","option");
+    $ad2 = get_field("ad2_sponsored_content_home","option");
 
     $sponsors = get_sponsored_posts('sponsored-post',$numdays,$perpage,1);
     $sponsor_section_title = 'Sponsored';
@@ -52,12 +52,22 @@
               $postdate = get_the_date('F j,Y',$sp_id); 
               $is_show = ($ctr>$maxDisplay) ? ' hide':'';
               ?>
-          
               <?php if ($ctr==1) { ?>
-                <?php if ($sponsor_section_title) { ?>
-                  <div class="sbTitle"><?php echo $sponsor_section_title ?></div>
-                <?php } ?>   
-              <?php } ?>     
+                <?php if ($ad1) { ?>
+                  <?php if ($ad_info = get_field("ad_script",$ad1)) { ?>
+                  <div class="sc_adbox sponsoredAd1"><?php echo $ad_info ?></div>
+                  <?php } ?>
+                <?php } ?>
+                
+                <div class="sbTitle"><?php echo $sponsor_section_title ?></div>
+
+              <?php }  else if ($ctr==2) { ?>
+                <?php if ($ad2) { ?>
+                <?php if ($ad_info = get_field("ad_script",$ad2)) { ?>
+                  <div class="sc_adbox sponsoredAd2"><?php echo $ad_info ?></div>
+                  <?php } ?>
+                <?php } ?>
+              <?php } ?>
 
               <article id="sponsoredPost<?php echo $sp_id?>" class="sp-item sp<?php echo $ctr.$is_show ?>">
                 <div class="inside">

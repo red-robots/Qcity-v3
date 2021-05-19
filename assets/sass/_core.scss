@@ -10086,7 +10086,7 @@ div.ctct-form-embed div.ctct-form-defaults p.ctct-form-text {
 		width: 100%;
 		float: left;
 		@include tab {
-			margin-top: 10px;
+			margin-top: 0;
 		}
 	}
 	.sp-item.hide{display:none;}
@@ -12524,6 +12524,25 @@ body.single.single-post {
 				}
 			}
 		}
+	}
+}
+.subscribe-wrap.home-mission-bar {
+	padding: 20px 0 10px;
+}
+.home-ad-fullwidth {
+	width: 100%;
+	float: left;
+	margin: 20px 0;
+	text-align: center;
+	position: relative;
+	@include flexgroup();
+	@include flexbox-align-items(center);
+	@include flexbox-justify(center);
+	&.home-block-AD2 {
+		margin: 30px 0;
+	}
+	&.home-block-AD3 {
+		top: -18px;
 	}
 }
 

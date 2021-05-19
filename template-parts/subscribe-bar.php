@@ -1,4 +1,4 @@
-<div class="subscribe-wrap">
+<div class="subscribe-wrap home-mission-bar">
 	<div class="subscribe">
 		<?php echo ($subscribe_text) ? $subscribe_text : '';  ?> 
         <?php if($subscribe_button_name): ?>

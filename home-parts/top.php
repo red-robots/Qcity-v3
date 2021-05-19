@@ -194,5 +194,14 @@ if($stickyPosts) {
 		?>
 	</div>
 
+	<?php $homeAD1 = get_field("home_ad1","option"); ?>
+	<?php if ($homeAD1) {  $ad_script = get_field("ad_script",$homeAD1); ?>
+		<?php if ($ad_script) { ?>
+		<div class="home-block-AD1 home-ad-fullwidth">
+			<?php echo $ad_script ?>
+		</div>	
+		<?php } ?>
+	<?php } ?>
+
 </section>
 
