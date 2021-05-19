@@ -18,6 +18,7 @@ get_header(); ?>
 					<?php $i=1; foreach ($rowContent as $row) { 
 						$image = $row['image'];
 						$title = $row['title'];
+						$title2 = $row['title2'];
 						$text = $row['text'];
 						$row_class = ($image && ($title || $text)) ? 'half':'full';
 						if($image || ($title || $text)) { $isfirst = ($i==1) ? ' first':''; ?>
@@ -31,9 +32,14 @@ get_header(); ?>
 
 								<?php if ($title || $text) { ?>
 								<div class="textcol">
-									<?php if ($title) { ?>
+									<?php if ($title || $title2) { ?>
 									<div class="heading">
-										<h2><?php echo $title ?></h2>
+										<?php if ($title) { ?>
+											<h2><?php echo $title ?></h2>
+										<?php } ?>
+										<?php if ($title2) { ?>
+											<p class="t2"><?php echo $title2 ?></p>
+										<?php } ?>
 									</div>	
 									<?php } ?>
 									<?php if ($text) { ?>
