@@ -12507,20 +12507,20 @@ body.single.single-post {
 		&.half {
 			@include xs {
 				.imagecol {
-					width: 35%;
+					width: 20%;
 				}
 				.textcol {
-					width: 65%;
-					padding-left: 3vw;
+					width: 80%;
+					padding-left: 20px;
 				}
 			}
 			@include tab {
 				.imagecol {
-					width: 30%;
+					width: 12%;
 				}
 				.textcol {
-					width: 70%;
-					padding-left: 3vw;
+					width: 88%;
+					padding-left: 30px;
 				}
 			}
 		}
