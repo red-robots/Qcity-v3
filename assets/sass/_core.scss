@@ -1121,7 +1121,11 @@ body.single {
 			max-width: 990px;
 		}
 	}
-	
+	#content,
+	#primary {
+		position: relative;
+		z-index: 2;
+	}
 }
 body.category {
 	.wrapper {
@@ -6798,6 +6802,11 @@ body.page-template-page-membership {
 		}
 	}
 }
+.items-before-footer,
+.site-footer {
+	position: relative;
+	z-index: 5000;
+}
 
 @media screen and (max-width: 767px) {
 
@@ -10566,10 +10575,14 @@ body.scrolled.single {
 	}
 	#widget-singleSidebar #widget-trending-post {
 		@include tab {
-			position: fixed;
-			height: 100%!important;
-			overflow: hidden;
+			// position: fixed;
+			// height: calc(100% - 100px)!important;
+			// overflow: hidden;
+			position: sticky;
+			height: 90vh;
+			// height: calc(100% - 100px)!important;
 			padding-bottom: 140px;
+			z-index: 5;
 			.trending-sidebar-wrap {
 				height: 100%;
 				overflow: auto;
@@ -10589,6 +10602,11 @@ body.scrolled.single {
 			@include tab {
 				padding-bottom: 185px;
 			}
+		}
+	}
+	&.single-post {
+		#page.site {
+			padding-bottom: 60px;
 		}
 	}
 }
@@ -12565,4 +12583,8 @@ body.single.single-post {
 	.mobilemain li.menu-item.red-button-link {
 		display: none;
 	}
+}
+
+.sbi-critical-notice {
+	bottom: 70px!important;
 }
