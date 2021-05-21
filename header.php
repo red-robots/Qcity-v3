@@ -110,8 +110,10 @@ body.single-post .oakland-background.oakland-optin-visible.oakland-lightbox{disp
 .gform_wrapper ul li.gfield{clear: none !important;}
 </style>
 
-<!-- Crazy Egg -->
-<script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0106/1306.js" async="async" ></script>
+<?php 
+if( $customHeadScripts = get_field("custom_scripts_inside_head","option") ) { 
+  echo $customHeadScripts;
+} ?>
 </head>
 <?php
 $dd = date('d') - 1;
