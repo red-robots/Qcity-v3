@@ -2368,7 +2368,7 @@ section.news-home {
 	margin: 0 0 40px 0;
 	section.twocol {
 		@media screen and (min-width: $tabwidth) {
-			width: 66.555555%;
+			width: 65.65%;
 			float: left;
 		}
 		@media screen and (max-width: 767px) {
@@ -2380,8 +2380,10 @@ section.news-home {
 	}
 	.ads-home {
 		@media screen and (min-width: $tabwidth) {
-			width: 31%;
+			width: 31.6%;
 			float: right;
+			position: relative;
+			top: -27px;
 		}
 		@media screen and (max-width: 768px) {
 			display: none;
