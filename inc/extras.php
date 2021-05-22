@@ -1392,6 +1392,7 @@ function get_page_id_by_template($fileName) {
     if($fileName) {
         $pages = get_pages(array(
             'post_type' => 'page',
+            'post_status'=> 'publish',
             'meta_key' => '_wp_page_template',
             'meta_value' => $fileName.'.php'
         ));
@@ -1530,4 +1531,10 @@ function getHeaderScripts() {
     }
 
     return $output;
+}
+
+add_action('wp_head', 'show_page_template');
+function show_page_template() {
+    global $template;
+    return basename($template);
 }

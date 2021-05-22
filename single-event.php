@@ -274,5 +274,8 @@ if( $img ){
 	
 	
 </div>
+
+<?php get_template_part('template-parts/post-event-form'); ?>
+
 <?php 
 get_footer();

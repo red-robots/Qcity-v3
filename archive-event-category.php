@@ -15,13 +15,15 @@ get_template_part('template-parts/banner-category');
 
 	<div class="single-page-event">
 
+		<?php get_template_part('template-parts/event-btn'); ?>
+
 		<header class="section-title ">
 			<h1 class="dark-gray"><?php the_archive_title(); ?></h1>
 		</header>
 
 		<div id="primary" class="content-area-event">
 			<main id="main" class="site-main" role="main">
-				<div class="">
+				<div class="main-inner">
 
 					<div class="listing_initial">
 
@@ -55,4 +57,6 @@ get_template_part('template-parts/banner-category');
 	</div>
 
 </div>
+
+<?php get_template_part('template-parts/post-event-form'); ?>
 <?php get_footer();

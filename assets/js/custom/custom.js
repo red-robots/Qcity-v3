@@ -1302,12 +1302,12 @@ jQuery(document).ready(function ($) {
     // }
 
     /* Get Top Position of DropdownList */
-    if( $(".hasPoweredByLogo .dropdownList").length>0 ) {
+    if( $(".pageCTAButtons .dropdownList").length>0 ) {
         // $(".hasPoweredByLogo .dropdownList").each(function(){
         //     var offset = $(this).parents(".jbtn").position().top;
         //     console.log(offset);
         // });
-        $(".hasPoweredByLogo .dropdownList").each(function(){
+        $(".pageCTAButtons .dropdownList").each(function(){
             var cloneList = $(this).clone();
             cloneList.insertAfter(".pageCTAButtons").addClass("mobile").append('<a href="#" class="closedropdown"><span>Close</span></a>');
         });
@@ -1321,6 +1321,7 @@ jQuery(document).ready(function ($) {
                 $(this).removeClass('hover');
             }
         );
+
         $('.dropdownList.mobile').hover(
             function(){
                 var id = $(this).attr("data-for");
@@ -1336,7 +1337,14 @@ jQuery(document).ready(function ($) {
             $('.jobctabtn').removeClass('hover');
             $('.dropdownList.mobile').removeClass('show');
         });
+        $(document).on("click","#event-categories.jobctabtn",function(e){
+            e.preventDefault();
+            $(this).toggleClass('hover');
+            $(this).next().toggleClass('show');
+        });
     }
+
+    
 
     /* Social Media stick to footer */
     if( $("#shareThisPost").length>0 ) {
@@ -1363,6 +1371,21 @@ jQuery(document).ready(function ($) {
     /* Join Button for Mobile view */
     if( $("#site-navigation .headerRedBtn.redbutton").length>0 ) {
         $("#site-navigation .headerRedBtn.redbutton").clone().prependTo(".mobilemain .menu-main-navigation-container");
+    }
+
+    /* Events Page > Post An Event Form */
+    if( $(".esformPopUp").length>0 ) {
+        $(".esformbackdrop").insertAfter("#page.site");
+        $(".esformPopUp").insertAfter("#page.site");
+        $(document).on("click","#closeEsPopup",function(e){
+            e.preventDefault();
+            $(".esformbackdrop,.esformPopUp").removeClass('show animated fadeIn');
+        });
+
+        $(document).on("click","#post-an-event",function(e){
+            e.preventDefault();
+            $(".esformbackdrop,.esformPopUp").addClass('show animated fadeIn');
+        });
     }
 
 
