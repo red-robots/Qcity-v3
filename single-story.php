@@ -167,27 +167,33 @@ get_header(); ?>
 			<?php } ?>
 		</div>
 
-		<?php if ( comments_open() || get_comments_number() ) : ?>
-		<div class="story-wrapper">
-			<div class="comments-section">
-				<div class="comments-trigger">
-					<div class="logo-holder">
-						<img src="<?php bloginfo('template_url'); ?>/images/qc-logo.png" alt="">
+		<?php if ( comments_open() || get_comments_number() ) { ?>
+			<?php 
+				$commentCount = get_comments_number();
+				$commentText = ($commentCount>1) ? ' Comments':' Comment'; 
+				$isCommentZero = ($commentCount==0) ? 'nocomments':'hascomments';
+			?>
+			<div class="story-wrapper">
+				<div class="comments-section story-comments">
+					<div class="comments-trigger">
+						<div class="logo-holder" style="display:none;">
+							<img src="<?php bloginfo('template_url'); ?>/images/qc-logo.png" alt="">
+						</div>
+						<div class="text-holder">
+							<a href="#" id="commentInfoBtn"><span class="commentTxt"><span class="icon"><i class="far fa-comment"></i></span> <?php echo $commentCount.$commentText ?></span></a>
+							
+						</div>
 					</div>
-					<div class="text-holder">
-						<p><?php echo $single_post_comment_text; ?>  <a id="commentBtn" class="click_class" >Click here</a></p>
-					</div>
-				</div>
 
-				<div class="comments-block" style="display:block;">
-					<?php 
-						// If comments are open or we have at least one comment, load up the comment template.
-						comments_template();			
-					?>
-				</div>			
+					<div class="comments-block <?php echo $isCommentZero ?>" style="display:block;">
+						<?php 
+							// If comments are open or we have at least one comment, load up the comment template.
+							comments_template();			
+						?>
+					</div>			
+				</div>
 			</div>
-		</div>
-		<?php endif;  ?>
+		<?php }  ?>
 
 	</div>
 </div>
