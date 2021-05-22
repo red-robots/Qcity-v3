@@ -4006,7 +4006,8 @@ body.single .sharethis-inline-share-buttons.stick-to-bottom,body.single.single-p
 .newsLetterBottom.mtop .jobpageNewsletter{margin-top:20px !important}
 body.single-event .event-butts{margin-left:-20px;margin-right:-20px}
 @media(min-width:820px){body.single-event .event-butts{margin-left:0;margin-right:0}
-}body.single-event .pageCTAWrap{width:100%}
+}body.single-event .story-image{margin-top:20px}
+body.single-event .pageCTAWrap{width:100%}
 body.single-event .pageCTAWrap .pageCTAButtons .flex li.jbtn{max-width:33.33%;width:100%}
 @media(min-width:820px){body.single-event .pageCTAWrap .pageCTAButtons .flex li.jbtn{max-width:30%}
 }body.single-event .pageCTAWrap .pageCTAButtons .jbtn a.jobctabtn{font-size:13px;padding:20px 10px}
