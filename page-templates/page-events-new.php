@@ -6,6 +6,14 @@
 get_header(); 
 $page_id = get_the_ID(); 
 $job_category = ( isset($_GET['category']) && $_GET['category'] ) ? $_GET['category'] : '';
+$filter = ( isset($_GET['filter']) && $_GET['filter']=='thisweekend' ) ? $_GET['filter'] : '';
+$paged = ( get_query_var( 'pg' ) ) ? absint( get_query_var( 'pg' ) ) : 1;
+$currentURL = get_permalink();
+if($filter) {
+	$currentURL .= '?filter='.$filter;
+}
+$custom_page_title = '';
+$postPerPage = 27;
 ?>
 
 <div id="primary" class="content-area page-with-poweredby page-job-new pageEventsNew">
@@ -97,35 +105,42 @@ $job_category = ( isset($_GET['category']) && $_GET['category'] ) ? $_GET['categ
 						if( $b = $e['button'] ) { 
 							$btnId = strtolower(sanitize_title($b['title']));  
 							$firstBtn = ($ctr==1) ? ' first':'';
-							?>
-							<li class="jbtn<?php echo $firstBtn ?>">
-								<a id="<?php echo $btnId ?>" href="<?php echo $b['url'] ?>" target="<?php echo ( isset($b['target']) && $b['target'] ) ? $b['target'] : '_SELF'; ?>" class="jobctabtn"><?php echo $b['title'] ?></a>
-								<?php if ($b['url']=='#eventcategories') { ?>
+							if($b['title'] && $b['url']) { ?>
+								<li class="jbtn<?php echo $firstBtn ?>">
+									<a id="<?php echo $btnId ?>" href="<?php echo $b['url'] ?>" target="<?php echo ( isset($b['target']) && $b['target'] ) ? $b['target'] : '_SELF'; ?>" class="jobctabtn"><?php echo $b['title'] ?></a>
 									<?php 
-									/* Find Jobs Dropdown */
-									$terms = get_terms( array(
-								    'taxonomy' 		=> 'event_cat',
-								    'orderby' => 'name',
-    								'order' => 'ASC',
-								    'hide_empty' 	=> true
-									));
-									if( is_array($terms) && !empty($terms) ) { ?>
-									<div data-for="<?php echo $btnId ?>" class="jobCategories dropdownList">
-										<ul class="cats">
-											<?php foreach($terms as $term) { 
-												//$termLink = get_term_link($term->term_id);
-												$catSlug = $term->slug;
-												$termLink = get_permalink() . '?category=' . $catSlug;
-												$isActive = ($job_category==$catSlug) ? ' active':'';
-												?>
-                      	<li class="catlink<?php echo $isActive ?>"><a href="<?php echo $termLink;?>"><?php echo $term->name;?></a></li>
-                      <?php } ?>
-										</ul>
-									</div>
+									if (strpos($b['url'], "thisweekend") !== false) { 
+										$custom_page_title = $b['title'];
+									}
+									?>
+
+									<?php if ($b['url']=='#eventcategories') { ?>
+										<?php 
+										/* Find Jobs Dropdown */
+										$terms = get_terms( array(
+									    'taxonomy' 		=> 'event_cat',
+									    'orderby' => 'name',
+	    								'order' => 'ASC',
+									    'hide_empty' 	=> true
+										));
+										if( is_array($terms) && !empty($terms) ) { ?>
+										<div data-for="<?php echo $btnId ?>" class="jobCategories dropdownList">
+											<ul class="cats">
+												<?php foreach($terms as $term) { 
+													//$termLink = get_term_link($term->term_id);
+													$catSlug = $term->slug;
+													$termLink = get_permalink() . '?category=' . $catSlug;
+													$isActive = ($job_category==$catSlug) ? ' active':'';
+													?>
+	                      	<li class="catlink<?php echo $isActive ?>"><a href="<?php echo $termLink;?>"><?php echo $term->name;?></a></li>
+	                      <?php } ?>
+											</ul>
+										</div>
+										<?php } ?>
 									<?php } ?>
-								<?php } ?>
-							</li>
-							<?php $ctr++; } ?>
+								</li>
+								<?php $ctr++; } ?>
+							<?php } ?>
 						<?php } ?>
 						</ul>
 					</div>	
@@ -135,122 +150,42 @@ $job_category = ( isset($_GET['category']) && $_GET['category'] ) ? $_GET['categ
 
 						<div id="processing-data" class="fw-left"><span class="load-icon-2"><i class="fas fa-sync-alt spin"></i></span></div>
 
-						<div id="page-events-container" class="single-page-event">
-
-							<?php
-							/* SPONSORED EVENTS */
-							$postID = array();
-							$i = 0;
-							$day = date('d');
-							$day2 = $day - 1;
-							$day_plus = sprintf('%02s', $day);
-							$today = date('Ym') . $day_plus;
+						<?php if ($filter) { ?>
 							
-							$args = array(
-								'post_type'			=>'event',
-								'post_status'		=>'publish',
-								'posts_per_page' 	=> -1,
-								'order' 			=> 'ASC',
-								'meta_key' 		=> 'event_date',
-								'orderby'     => 'meta_value_num',
-								'meta_query' 		=> array(
-									array(
-										'key'		=> 'event_date',
-										'compare'	=> '>=',
-										'value'		=> $today,
-									),		
-								),
-								'tax_query' => array(
-									array(
-										'taxonomy' 	=> 'event_category', 
-										'field' 	=> 'slug',
-										'terms' 	=> array( 'premium' ) 
-									)
-								)
-							);
-
-							$sponsored = new WP_Query($args);
-							if ($sponsored->have_posts()) { ?>
-							<div id="sponsored-events-section" class="qcity-sponsored-container">
-								<header class="section-title ">
-									<h1 class="dark-gray">Sponsored</h1>
-								</header>
-								<div class="eventListWrap">
-									<section class="events">
-										<?php while ($sponsored->have_posts()) : $sponsored->the_post(); 
-											$date 		= get_field("event_date", false, false);
-											$date 		= new DateTime($date);
-											$enddate 	= get_field("end_date", false, false);
-											$enddate 	= ( !empty($enddate) ) ? new DateTime($enddate) : $date;
-
-											$date_start 	= strtotime($date->format('Y-m-d'));
-											$date_stop 		= strtotime($enddate->format('Y-m-d')); 
-											$postID[] = get_the_ID();
-											include( locate_template('template-parts/sponsored-block.php') );
-										endwhile; ?>
-									</section>
-								</div>
-							</div>
-							<?php } ?>
-
-							<?php
-							$newsletterForm = get_field("jobpage_newsletter",$page_id);
-							$newsletter_title = get_field("newsletter_title",$page_id);
-							$newsletter_text = get_field("newsletter_text",$page_id);
-							if($newsletterForm) {
-								$gravityFormId = $newsletterForm;
-								$gfshortcode = '[gravityform id="'.$gravityFormId.'" title="false" description="false" ajax="true"]';
-							 	if( do_shortcode($gfshortcode) ) { ?>
-							 		<div class="jobpageNewsletter" style="display:block;">
-										<div class="form-subscribe-blue">
-											<div class="form-inside">
-											<?php if ($newsletter_title) { ?>
-												<h3 class="gfTitle"><?php echo $newsletter_title ?></h3>
-											<?php } ?>
-											<?php if ($newsletter_text) { ?>
-												<div class="gftxt"><?php echo $newsletter_text ?></div>
-											<?php } ?>
-											<?php echo do_shortcode($gfshortcode); ?>
-											</div>
-										</div>
-									</div>
-								<?php } ?>
-							<?php } ?>
-
+							<?php /* EVENTS THIS WEEKEND */ ?>	
 							<?php 
-							/* MORE EVENTS */
-							$i = 0;
-							$events = array();
-							$paged = ( get_query_var( 'pg' ) ) ? absint( get_query_var( 'pg' ) ) : 1;
-							$more_args = array(
-								'post_type'			=>'event',
-								'paged'			   => $paged,
-								'post_status'		=>'publish',
-								'posts_per_page' 	=> 27,
-								'order' 			=> 'ASC',
-								'meta_key' 		=> 'event_date',
-								'orderby'     => 'meta_value_num',
-								'meta_query' 		=> array(
-									array(
-										'key'		=> 'event_date',
-										'compare'	=> '>=',
-										'value'		=> $today,
-									),		
-								)
+							$this_saturday = date("F dS, Y", strtotime('this Saturday')); /* outputs May 22nd, 2021 */
+							$this_sunday = date("F dS, Y", strtotime('this Sunday')); /* outputs May 23rd, 2021 */
+
+							$saturday = date("Y-m-d", strtotime('this Saturday'));
+							$sunday = date("Y-m-d", strtotime('this Sunday'));
+
+							$this_weekend = array(
+								'post_type'				=>'event',
+								'post_status'			=>'publish',
+								'posts_per_page' 	=> $postPerPage,
+								'paged'			   		=> $paged,
+								'order' 					=> 'ASC',
+								'meta_key' 				=> 'event_date',
+								'orderby'     		=> 'meta_value_num',
+								'meta_query'			=> array(
+											array(
+												'key'     => 'event_date',
+												'value'   => array($saturday,$sunday),
+												'compare' => 'BETWEEN',
+												'type'    => 'DATE'
+											)
+										)
 							);
 
-							if($postID) {
-								$more_args['post__not_in'] = $postID;
-							}
-							$more_events = new WP_Query($more_args);
-							?>
+							$more_events = new WP_Query($this_weekend); ?>
 
-							<div id="primary" class="content-area-event more-happenings-section fw-left">
+							<div id="primary" class="content-area-event more-happenings-section fw-left filtered-events">
 									<main id="main" class="site-main" role="main">
 
-										<?php if ( $more_events->have_posts() )  { ?>
-										<header class="section-title qcity-more-happen">
-											<h1 class="dark-gray">More Happenings</h1>
+										<?php if ($custom_page_title) { ?>
+										<header class="section-title ">
+											<h1 class="dark-gray"><?php echo $custom_page_title ?></h1>
 										</header>
 										<?php } ?>
 
@@ -280,46 +215,209 @@ $job_category = ( isset($_GET['category']) && $_GET['category'] ) ? $_GET['categ
 					                $total_pages = $more_events->max_num_pages;
 					                if ($total_pages > 1){ ?>
 
-					                    <div id="pagination" class="pagination" style="display:none;">
-					                        <?php
-																    $pagination = array(
-																			'base' => @add_query_arg('pg','%#%'),
-																			'format' => '?pg=%#%',
-																			'mid-size' => 1,
-																			'current' => $paged,
-																			'total' => $total_pages,
-																			'prev_next' => True,
-																			'prev_text' => __( '<span class="fa fa-arrow-left"></span>' ),
-																			'next_text' => __( '<span class="fa fa-arrow-right"></span>' )
-																    );
-																    echo paginate_links($pagination);
-																  ?>
-					                    </div>
+				                    <div id="more-bottom-button" class="more">	
+														 	<a href="#" id="viewMorePosts" class="red" data-permalink="<?php echo $currentURL; ?>" data-next-page="2" data-total-pages="<?php echo $total_pages; ?>">		
+														 		<span class="load-text">Load More</span>
+																<span class="load-icon"><i class="fas fa-sync-alt spin"></i></span>
+														 	</a>
+														</div>
 
-					                    <div id="more-bottom-button" class="more">	
-															 	<a href="#" id="load-more-action" class="red" data-permalink="<?php echo $currentURL; ?>" data-next-page="2" data-total-pages="<?php echo $total_pages; ?>">		
-															 		<span class="load-text">Load More</span>
-																	<span class="load-icon"><i class="fas fa-sync-alt spin"></i></span>
-															 	</a>
-															</div>
-
-					                    <?php
+				                    <?php
 					            	} ?>
 
 											</div>
 											<?php } ?>
 										</div>
-
-										<div id="listing-search-result" class="listing_search" style="margin-bottom: 20px; padding: 0 0 40px;">
-											<div class="listing_search_result"></div>				
-										</div>
 									</main>
 							</div>
 
-						</div>
+						<?php } else { ?>
 
-						<div id="search-result-pagination"><?php /* DO NOT DELETE!! THIS WILL BE USED FOR AJAX PAGINATION */ ?></div>
+							<div id="page-events-container" class="single-page-event">
 
+								<?php
+								/* SPONSORED EVENTS */
+								$postID = array();
+								$i = 0;
+								$day = date('d');
+								$day2 = $day - 1;
+								$day_plus = sprintf('%02s', $day);
+								$today = date('Ym') . $day_plus;
+								
+								$args = array(
+									'post_type'			=>'event',
+									'post_status'		=>'publish',
+									'posts_per_page' 	=> -1,
+									'order' 			=> 'ASC',
+									'meta_key' 		=> 'event_date',
+									'orderby'     => 'meta_value_num',
+									'meta_query' 		=> array(
+										array(
+											'key'		=> 'event_date',
+											'compare'	=> '>=',
+											'value'		=> $today,
+										),		
+									),
+									'tax_query' => array(
+										array(
+											'taxonomy' 	=> 'event_category', 
+											'field' 	=> 'slug',
+											'terms' 	=> array( 'premium' ) 
+										)
+									)
+								);
+
+								$sponsored = new WP_Query($args);
+								if ($sponsored->have_posts()) { ?>
+								<div id="sponsored-events-section" class="qcity-sponsored-container">
+									<header class="section-title ">
+										<h1 class="dark-gray">Sponsored</h1>
+									</header>
+									<div class="eventListWrap">
+										<section class="events">
+											<?php while ($sponsored->have_posts()) : $sponsored->the_post(); 
+												$date 		= get_field("event_date", false, false);
+												$date 		= new DateTime($date);
+												$enddate 	= get_field("end_date", false, false);
+												$enddate 	= ( !empty($enddate) ) ? new DateTime($enddate) : $date;
+
+												$date_start 	= strtotime($date->format('Y-m-d'));
+												$date_stop 		= strtotime($enddate->format('Y-m-d')); 
+												$postID[] = get_the_ID();
+												include( locate_template('template-parts/sponsored-block.php') );
+											endwhile; ?>
+										</section>
+									</div>
+								</div>
+								<?php } ?>
+
+								<?php
+								$newsletterForm = get_field("jobpage_newsletter",$page_id);
+								$newsletter_title = get_field("newsletter_title",$page_id);
+								$newsletter_text = get_field("newsletter_text",$page_id);
+								if($newsletterForm) {
+									$gravityFormId = $newsletterForm;
+									$gfshortcode = '[gravityform id="'.$gravityFormId.'" title="false" description="false" ajax="true"]';
+								 	if( do_shortcode($gfshortcode) ) { ?>
+								 		<div class="jobpageNewsletter" style="display:block;">
+											<div class="form-subscribe-blue">
+												<div class="form-inside">
+												<?php if ($newsletter_title) { ?>
+													<h3 class="gfTitle"><?php echo $newsletter_title ?></h3>
+												<?php } ?>
+												<?php if ($newsletter_text) { ?>
+													<div class="gftxt"><?php echo $newsletter_text ?></div>
+												<?php } ?>
+												<?php echo do_shortcode($gfshortcode); ?>
+												</div>
+											</div>
+										</div>
+									<?php } ?>
+								<?php } ?>
+
+								<?php 
+								/* MORE EVENTS */
+								$i = 0;
+								$events = array();
+								$more_args = array(
+									'post_type'			=>'event',
+									'paged'			   	=> $paged,
+									'post_status'		=> 'publish',
+									'posts_per_page'=> $postPerPage,
+									'order' 				=> 'ASC',
+									'meta_key' 			=> 'event_date',
+									'orderby'     	=> 'meta_value_num',
+									'meta_query' 		=> array(
+										array(
+											'key'			=> 'event_date',
+											'compare'	=> '>=',
+											'value'		=> $today,
+										),		
+									)
+								);
+
+								if($postID) {
+									$more_args['post__not_in'] = $postID;
+								}
+								$more_events = new WP_Query($more_args);
+								?>
+
+								<div id="primary" class="content-area-event more-happenings-section fw-left">
+										<main id="main" class="site-main" role="main">
+
+											<?php if ( $more_events->have_posts() )  { ?>
+											<header class="section-title qcity-more-happen">
+												<h1 class="dark-gray">More Happenings</h1>
+											</header>
+											<?php } ?>
+
+											<div class="page-event-list">
+												<?php if ( $more_events->have_posts() )  { ?>
+												<div class="listing_initial more-events-section">
+													<div class="qcity-news-container">
+														<div class="eventListWrap">
+															<section class="events more-events-posts">
+																<?php while ($more_events->have_posts()) : $more_events->the_post(); 
+																		$date 		= get_field("event_date", false, false);
+																		$date 		= new DateTime($date);
+																		$enddate 	= get_field("end_date", false, false);
+																		$enddate 	= ( !empty($enddate) ) ? new DateTime($enddate) : $date;
+
+																		$date_start 	= strtotime($date->format('Y-m-d'));
+																		$date_stop 		= strtotime($enddate->format('Y-m-d'));
+																		$now 			= strtotime(date('Y-m-d'));
+																		include( locate_template('template-parts/sponsored-block.php') );
+																	endwhile; ?>
+															</section>
+														</div>
+													</div>
+													<div id="more-posts-hidden" style="display:none;"><?php /* DO NOT DELETE!! THIS WILL BE USED AS CONTAINER FOR NEXT SET OF ITEMS FROM LOAD MORE BUTTON */ ?></div>
+
+													<?php
+						                $total_pages = $more_events->max_num_pages;
+						                if ($total_pages > 1){ ?>
+
+						                    <div id="pagination" class="pagination" style="display:none;">
+						                        <?php
+																	    $pagination = array(
+																				'base' => @add_query_arg('pg','%#%'),
+																				'format' => '?pg=%#%',
+																				'mid-size' => 1,
+																				'current' => $paged,
+																				'total' => $total_pages,
+																				'prev_next' => True,
+																				'prev_text' => __( '<span class="fa fa-arrow-left"></span>' ),
+																				'next_text' => __( '<span class="fa fa-arrow-right"></span>' )
+																	    );
+																	    echo paginate_links($pagination);
+																	  ?>
+						                    </div>
+
+						                    <div id="more-bottom-button" class="more">	
+																 	<a href="#" id="load-more-action" class="red" data-permalink="<?php echo $currentURL; ?>" data-next-page="2" data-total-pages="<?php echo $total_pages; ?>">		
+																 		<span class="load-text">Load More</span>
+																		<span class="load-icon"><i class="fas fa-sync-alt spin"></i></span>
+																 	</a>
+																</div>
+
+						                    <?php
+						            	} ?>
+
+												</div>
+												<?php } ?>
+											</div>
+
+											<div id="listing-search-result" class="listing_search" style="margin-bottom: 20px; padding: 0 0 40px;">
+												<div class="listing_search_result"></div>				
+											</div>
+										</main>
+								</div>
+
+							</div>
+
+							<div id="search-result-pagination"><?php /* DO NOT DELETE!! THIS WILL BE USED FOR AJAX PAGINATION */ ?></div>
+
+						<?php } ?>
 					</div>
 
 
@@ -365,6 +463,40 @@ jQuery(document).ready(function($){
 			$(".jobpageNewsletter").insertAfter('#page-events-container').addClass("bottom");
 		} 
 	}
+
+	var ctr=2;
+	$(document).on("click","#viewMorePosts",function(e){
+		e.preventDefault();
+		var n = ctr++;
+		var total = $(this).attr("data-total-pages");
+		var baseURL = $(this).attr("data-permalink");
+		baseURL += '&pg=' + n;
+
+		if(n<=total) {
+			$("#more-bottom-button .load-text").hide();
+			$("#more-bottom-button .load-icon").show();
+			setTimeout(function(){
+				$("#more-bottom-button .load-text").show();
+				$("#more-bottom-button .load-icon").hide();
+			},1000);
+		}
+
+		$("#more-posts-hidden").load(baseURL+" .more-events-posts",function(e){
+			var result = $("#more-posts-hidden").html();
+			var nomore = '<div style="text-align:center;color:#969696;font-size:12px;">No more post to load!</div>';
+			if(result) {
+				$("#more-posts-hidden .more-events-posts .story-block").addClass("animated fadeIn");
+				var resultList = $("#more-posts-hidden .more-events-posts").html();
+				$(".qcity-news-container .more-events-posts").append(resultList);
+				
+				if(n==total) {
+					$("#more-bottom-button").html(nomore);
+				} 
+			} else {
+				$("#more-bottom-button").html(nomore);
+			}
+		});
+	});
 	
 });
 </script>

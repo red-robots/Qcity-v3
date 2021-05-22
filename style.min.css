@@ -4000,3 +4000,4 @@ body.single .sharethis-inline-share-buttons.stick-to-bottom,body.single.single-p
 @media screen and (max-width:767px){.mobilemain a.headerRedBtn.redbutton{display:block;background:red;color:#FFF;position:relative;padding:10px 15px;line-height:1.2;border-radius:100px;margin-right:0;margin-bottom:10px;text-align:center;-webkit-transition:all ease .3s}
 .mobilemain li.menu-item.red-button-link{display:none}
 }.sbi-critical-notice{bottom:70px !important}
+#more-bottom-button.more a{text-decoration:none !important}
