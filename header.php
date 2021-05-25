@@ -171,6 +171,14 @@ $bodyClass = ($hasPoweredByLogo) ? 'hasPoweredByLogo':'';
           if($redButtonName && $redButtonLink) {
             $customMenuLink = '<li class="menu-item red-button-link"><a href="'.$redButtonLink.'" target="'.$redButtonTarget.'" class="headerRedBtn redbutton">'.$redButtonName.'</a></li>';
           }
+          $mobileJoinBtn = get_field("mainNavRedButtonMobile","option");
+          $mobileRedBtnName = ( isset($mobileJoinBtn['title']) && $mobileJoinBtn['title'] ) ? $mobileJoinBtn['title'] : '';
+          $mobileRedBtnLink = ( isset($mobileJoinBtn['url']) && $mobileJoinBtn['url'] ) ? $mobileJoinBtn['url'] : '';
+          $mobileRedBtnTarget = ( isset($mobileJoinBtn['target']) && $mobileJoinBtn['target'] ) ? $mobileJoinBtn['target'] : '_self';
+          $mobile_join_button  = '';
+          if($mobileRedBtnName && $mobileRedBtnLink) {
+            $mobile_join_button = '<a href="'.$mobileRedBtnLink.'" target="'.$mobileRedBtnTarget.'" class="mobile-join-btn">'.$mobileRedBtnName.'</a>';
+          }
           ?>
           <?php if ($subscribeText || $subscribeButton) { ?>
           <section class="red-band">
@@ -217,7 +225,7 @@ $bodyClass = ($hasPoweredByLogo) ? 'hasPoweredByLogo':'';
                 'menu_id' => 'primary-menu', 
                 'menu_class'=>'mobile-version',
                 'echo' => true,
-                'items_wrap' => '<ul id="primary-menu" class="with-custom-link %2$s">%3$s'.$customMenuLink.'</ul>'
+                'items_wrap' => $mobile_join_button . '<ul id="primary-menu" class="with-custom-link %2$s">%3$s</ul>'
               )
             ); 
           ?>

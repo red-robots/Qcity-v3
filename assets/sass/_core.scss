@@ -12672,11 +12672,24 @@ body.single-event {
 		}
 	}
 }
-
+nav.mobilemenu .mobilemain a.mobile-join-btn {
+	display: block;
+	text-decoration: none;
+	background-color: red;
+	color: #FFF;
+	position: relative;
+	padding: 10px 15px;
+	line-height: 1.2;
+	border-radius: 100px;
+	margin-right: 0;
+	margin-bottom: 10px;
+	text-align: center;
+	-webkit-transition: all ease .3s;
+}
 @media screen and (max-width: 767px) {
 	.mobilemain {
 		a.headerRedBtn.redbutton {
-			display: block;
+			display: none;
 			background: red;
 			color: #FFF;
 			position: relative;
