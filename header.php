@@ -46,6 +46,13 @@
     googletag.pubads().collapseEmptyDivs();
     googletag.enableServices();
   });
+	
+window.googletag = window.googletag || {cmd: []};
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/1009068/Trending', [300, 250], 'div-gpt-ad-1620161049302-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
 </script>
 
 <!-- <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
