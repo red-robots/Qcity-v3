@@ -282,7 +282,20 @@ if( !defined('HIDE_ADS') ){
 	</div>
 
 </article><!-- #post-## -->
-
+<style type="text/css">
+	body.single .subscribe-form-single .gform_wrapper {
+		padding: 0;
+    	background: transparent;
+	}
+	body.single .subscribe-form-single .gform_wrapper .gform_body {
+	    width: 78%;
+	    float: left;
+	}
+	body.single .subscribe-form-single .gform_wrapper .gform_footer {
+	    margin: 0;
+	    float: right;
+	}
+</style>
 
 
 

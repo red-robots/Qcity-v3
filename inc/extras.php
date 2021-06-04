@@ -363,6 +363,62 @@ function qcity_add_incontent_ad( $content )
     return $content;    
 }
 
+
+
+/*
+*   Adding Ads inside single article
+*/
+
+
+add_filter( 'the_content', 'qcity_add_in_newsletter_signup' );
+function qcity_add_in_newsletter_signup( $content ) {
+    $hformTitle = get_field("homeFormTextTitle","option");
+    $hformText = get_field("homeFormTextContent","option");
+    $gravityFormId = get_field("homeFormShortcode","option");
+
+    $gfshortcode = '[gravityform id="'.$gravityFormId.'" title="false" description="false" ajax="true"]';
+
+    $ad_code = '<div class="subscribe-form-single" style="margin-top: 20px;margin-bottom: 40px;">
+                    
+                    <div class="formDiv default">
+                        <div class="form-subscribe-blue">
+                            <div class="form-inside" style="float: left;">
+                                <h3 class="gfTitle" style="color: #ffffff;">'.$hformTitle.'</h3>
+                                <div class="gftxt">'.$hformText.'</div>'.
+                                do_shortcode($gfshortcode).'
+                            </div>
+                        </div>
+                    </div>
+                </div>';
+
+    if ( is_single() && ! is_admin() ) {
+        return qcity_insert_after_paragraph_four( $ad_code, 4, $content );
+    }
+return $content;
+}
+ 
+// Parent Function that makes the magic happen
+function qcity_insert_after_paragraph_four( $insertion, $paragraph_id, $content ) {
+    $closing_p = '</p>';
+    $paragraphs = explode( $closing_p, $content );
+    foreach ($paragraphs as $index => $paragraph) {
+
+        if ( trim( $paragraph ) ) {
+            $paragraphs[$index] .= $closing_p;
+        }
+
+        if ( $paragraph_id == $index + 1 ) {
+            $paragraphs[$index] .= $insertion;
+        }
+    }
+    
+    return implode( '', $paragraphs );
+}
+
+/*
+*   Packages
+*/
+
 function qcity_insert_packages()
 {
     $content_block = '';
