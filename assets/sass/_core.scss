@@ -11668,6 +11668,12 @@ body.scrolled.archive {
 			padding-top: 55px;
 			padding-bottom: 50px;
 		}
+		&.nopoweredby {
+			margin-top: 85px;
+			@include tab {
+				margin-top: 102px;
+			}
+		}
 	}
 	.titlediv {
 		text-align: center;
@@ -12712,4 +12718,24 @@ nav.mobilemenu .mobilemain a.mobile-join-btn {
 }
 #more-bottom-button.more a {
 	text-decoration: none !important;
+}
+
+body.page-template-page-business-directory {
+	@media screen and (max-width: $tab - 1px) {
+		.titlediv .business-map-counter {
+			display: block;
+			top: 55px;
+			right: 10px;
+		}
+	}
+}
+body.logged-in.admin-bar {
+	.content-area-full.top-logo-page #main {
+		.map-div.title-gray-bg.nopoweredby {
+			margin-top: 0;
+			@include tab {
+				margin-top: 95px;
+			}
+		}
+	}
 }

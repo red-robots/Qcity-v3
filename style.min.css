@@ -3836,7 +3836,9 @@ body.archive #widget-singleSidebar #widget-trending-post,body.scrolled.archive #
 }.content-area-full.top-logo-page #main .top-logo .poweredby{font-size:10px;line-height:1;color:#58595b;text-transform:uppercase;letter-spacing:1px;margin:0 0 5px;display:block}
 .content-area-full.top-logo-page #main .map-div{width:100%;float:left;background:#e2e2e2;padding-top:70px;padding-bottom:80px}
 .content-area-full.top-logo-page #main .map-div.title-gray-bg{padding-top:55px;padding-bottom:50px}
-.content-area-full.top-logo-page #main .titlediv{text-align:center;position:relative}
+.content-area-full.top-logo-page #main .map-div.nopoweredby{margin-top:85px}
+@media(min-width:820px){.content-area-full.top-logo-page #main .map-div.nopoweredby{margin-top:102px}
+}.content-area-full.top-logo-page #main .titlediv{text-align:center;position:relative}
 .content-area-full.top-logo-page #main .titlediv h1.t1{font-size:30px;font-weight:600;text-transform:uppercase;line-height:1.2;margin:0;color:#924020}
 .content-area-full.top-logo-page #main .titlediv h2.t2{margin:6px 0 0;font-weight:500;font-size:22px}
 .content-area-full.top-logo-page #main .titlediv h2.t2 u{display:inline-block;text-decoration:none;font-style:normal;border-bottom:2px solid #924020;padding-bottom:5px}
@@ -4018,3 +4020,7 @@ body.single-event .pageCTAWrap .pageCTAButtons .flex li.jbtn{max-width:33.33%;wi
 .mobilemain li.menu-item.red-button-link{display:none}
 }.sbi-critical-notice{bottom:70px !important}
 #more-bottom-button.more a{text-decoration:none !important}
+@media screen and (max-width:819px){body.page-template-page-business-directory .titlediv .business-map-counter{display:block;top:55px;right:10px}
+}body.logged-in.admin-bar .content-area-full.top-logo-page #main .map-div.title-gray-bg.nopoweredby{margin-top:0}
+@media(min-width:820px){body.logged-in.admin-bar .content-area-full.top-logo-page #main .map-div.title-gray-bg.nopoweredby{margin-top:95px}
+}

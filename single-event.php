@@ -265,12 +265,9 @@ if( $img ){
 				</div>
 		    	
 			</div>
-        </div> <!-- sidebar-event -->
-
-
-
-	</div> <!--  wrapper-event -->
+    </div> <!-- sidebar-event -->
 	
+	</div> <!--  wrapper-event -->
 	
 	
 </div>

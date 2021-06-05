@@ -37,7 +37,7 @@ get_header();
 				<span class="postViews business-map-counter">
 					<span>
 						<em class="e1">Visitor Count</em>
-						<em class="e2"><?php echo $views ?></em>
+						<em class="e2"><?php echo number_abbr($views); ?></em>
 					</span>
 				</span>
 			<?php 
@@ -61,7 +61,7 @@ get_header();
 		</div>	
 		<?php } ?>
 
-		<div class="map-div title-gray-bg">
+		<div class="map-div title-gray-bg <?php echo ($logo) ? 'haspoweredby':'nopoweredby'; ?>">
 			<div class="wrapper mapwrapper">
 			
 				<?php 

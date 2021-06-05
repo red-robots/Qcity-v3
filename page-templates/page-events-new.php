@@ -131,8 +131,16 @@ $today = date('Ym') . $day_plus;
 							$this_saturday = date("F dS, Y", strtotime('this Saturday')); /* outputs May 22nd, 2021 */
 							$this_sunday = date("F dS, Y", strtotime('this Sunday')); /* outputs May 23rd, 2021 */
 
+							$friday = date("Y-m-d", strtotime('this Friday'));
 							$saturday = date("Y-m-d", strtotime('this Saturday'));
 							$sunday = date("Y-m-d", strtotime('this Sunday'));
+
+							$todayDayName = date('l');
+							$satSun = array('Saturday','Sunday');
+							$compareValues = array($friday,$saturday,$sunday);
+							if( in_array($todayDayName, $satSun) ) {
+								$compareValues = array($saturday,$sunday);
+							}
 
 							$this_weekend = array(
 								'post_type'				=>'event',
@@ -145,8 +153,8 @@ $today = date('Ym') . $day_plus;
 								'meta_query'			=> array(
 											array(
 												'key'     => 'event_date',
-												'value'   => array($saturday,$sunday),
-												'compare' => 'BETWEEN',
+												'value'   => $compareValues,
+												'compare' => 'IN',
 												'type'    => 'DATE'
 											)
 										)
