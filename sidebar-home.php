@@ -16,7 +16,7 @@
 
     $sponsors = get_sponsored_posts('sponsored-post',$numdays,$perpage,1);
     $sponsor_section_title = 'Sponsored';
-    $maxDisplay = 3;
+    $maxDisplay = 4;
     if( $sponsors ) { ?>
     <div id="sponsoredPostDivider"></div>
     <div id="sponsoredPostDiv">

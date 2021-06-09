@@ -25,34 +25,46 @@ get_header(); ?>
 
 		include( locate_template('home-parts/top.php') );
 
+		if( $adsZone2 = get_ads_script('right-rail') ) { ?>
+      <?php if ( isset($adsZone2['ad_script']) && $adsZone2['ad_script'] ) { ?>
+      <!--- AD ZONE 2 -->
+      <div id="ads-zone-2" class="home-block-AD1 home-ad-fullwidth">
+      	<div class="wrapper" style="max-width:1270px;width:100%;">
+      		<?php echo $adsZone2['ad_script'] ?>
+				</div>
+			</div>
+      <?php } ?>
+    <?php } ?>
+
+    <?php
 		// include( locate_template('template-parts/hero.php') ); 
 		include( locate_template('template-parts/sponsored-posts.php') );
 		include( locate_template('template-parts/home-stories.php') );
 		include( locate_template('template-parts/subscribe-bar.php') ); 
 
-		$homeAD2 = get_field("home_ad2","option"); 
-		if ($homeAD2) {  $ad_script = get_field("ad_script",$homeAD2); ?>
-		<?php if ($ad_script) { ?>
-		<div class="home-block-AD2 home-ad-fullwidth">
-			<?php echo $ad_script ?>
-		</div>	
-		<?php } ?>
-		<?php } 
+    if( $adsZone3 = get_ads_script('small-ad-right') ) { ?>
+      <?php if ( isset($adsZone3['ad_script']) && $adsZone3['ad_script'] ) { ?>
+      <!--- AD ZONE 3 -->
+      <div id="ads-zone-3" class="home-block-AD3 home-ad-fullwidth">
+        <?php echo $adsZone3['ad_script'] ?>
+      </div>
+      <?php } ?>
+    <?php } ?>
 
-		if($show_instagram_feeds=='on') {
+		<?php if($show_instagram_feeds=='on') {
 			include( locate_template('template-parts/instagram-feeds.php') );
 		}
 
 		include( locate_template('template-parts/non-sticky-news.php') ); ?>
 
-		<?php $homeAD3 = get_field("home_ad3","option"); 
-		if ($homeAD3) {  $ad_script3 = get_field("ad_script",$homeAD3); ?>
-			<?php if ($ad_script3) { ?>
-			<div class="home-block-AD3 home-ad-fullwidth">
-				<?php echo $ad_script3 ?>
-			</div>	
-			<?php } ?>
-		<?php }  ?>
+		<?php if( $adsZone4 = get_ads_script('business-directory-home') ) { ?>
+      <?php if ( isset($adsZone4['ad_script']) && $adsZone4['ad_script'] ) { ?>
+      <!--- AD ZONE 4 -->
+      <div id="ads-zone-4" class="home-block-AD4 home-ad-fullwidth">
+        <?php echo $adsZone4['ad_script'] ?>
+      </div>
+      <?php } ?>
+    <?php } ?>
 
 		<?php include( locate_template('template-parts/home-bottom.php') ); ?>
 			

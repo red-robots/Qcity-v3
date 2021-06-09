@@ -252,13 +252,27 @@ $bodyClass = ($hasPoweredByLogo) ? 'hasPoweredByLogo':'';
   if($template) {
     $show_ads = false;
   }
-  if( $show_ads ) {
-    if($electionCatId!=$current_term_id) { ?>
-      <?php if ( $ads_header = get_ads_script('leaderboard-ad-home') ) { ?>
-      <div class="ads_home_leaderboard">
-        <?php echo $ads_header['ad_script'] ?>
+
+  if( is_home() || is_front_page() ) {
+    if( $adsZone1 = get_ads_script('leaderboard-ad-home') ) { ?>
+      <?php if ( isset($adsZone1['ad_script']) && $adsZone1['ad_script'] ) { ?>
+      <!--- AD ZONE 1 --> 
+      <div id="ads-zone-1" class="ads_home_leaderboard">
+        <?php echo $adsZone1['ad_script'] ?>
       </div>
       <?php } ?>
+    <?php }
+  } else {
+
+    if( $show_ads ) {
+      if($electionCatId!=$current_term_id) { ?>
+        <?php if ( $ads_header = get_ads_script('leaderboard-ad-home') ) { ?>
+        <div class="ads_home_leaderboard">
+          <?php echo $ads_header['ad_script'] ?>
+        </div>
+        <?php } ?>
+      <?php } ?>
     <?php } ?>
+
   <?php } ?>
    

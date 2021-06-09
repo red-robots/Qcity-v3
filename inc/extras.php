@@ -212,45 +212,48 @@ function get_ads_script($slug)
     $ad_script = '';
     $ads_params = array();
 
-    $ad_post = get_page_by_path( $slug, OBJECT, 'ad' );
+    if( $ad_post = get_page_by_path( $slug, OBJECT, 'ad' ) ) {
 
-    $args = array(       
-        'post_type'         => 'ad',
-        'post_status'       => 'publish',
-        'p'                 => $ad_post->ID,        
-    );
+        $args = array(       
+            'post_type'         => 'ad',
+            'post_status'       => 'publish',
+            'p'                 => $ad_post->ID,        
+        );
 
-    $query = new WP_Query( $args );
+        $query = new WP_Query( $args );
 
-    if ( $query->have_posts() ) :   
+        if ( $query->have_posts() ) :   
 
-         while ( $query->have_posts() ) :
-     
-            $query->the_post();
+             while ( $query->have_posts() ) :
+         
+                $query->the_post();
 
-            $ad_enable = get_field('enable_ad');
-            if( $ad_enable == 'Yes' ):
+                $ad_enable = get_field('enable_ad');
+                if( $ad_enable == 'Yes' ):
 
-                $ad_script      = get_field('ad_script');
-                $ads_label      = get_field('ads_label');
-                $ads_link_text  = get_field('ads_link_text');
-                $ads_link_url   = get_field('ads_link_url');
+                    $ad_script      = get_field('ad_script');
+                    $ads_label      = get_field('ads_label');
+                    $ads_link_text  = get_field('ads_link_text');
+                    $ads_link_url   = get_field('ads_link_url');
 
-                $ads_params = array(
-                    'ad_script'     => $ad_script,
-                    'ads_label'     => $ads_label,
-                    'ads_link_text' => $ads_link_text,
-                    'ads_link_url'  => $ads_link_url
-                );            
-            endif;
+                    $ads_params = array(
+                        'ad_script'     => $ad_script,
+                        'ads_label'     => $ads_label,
+                        'ads_link_text' => $ads_link_text,
+                        'ads_link_url'  => $ads_link_url
+                    );            
+                endif;
 
-        endwhile;
+            endwhile;
 
-    endif;
+        endif;
 
-    wp_reset_postdata();
-
-    return $ads_params;
+        wp_reset_postdata();
+        return $ads_params;
+        
+    } else {
+        return '';
+    }
 }
 
 /*
