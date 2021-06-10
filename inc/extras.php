@@ -250,7 +250,7 @@ function get_ads_script($slug)
 
         wp_reset_postdata();
         return $ads_params;
-        
+
     } else {
         return '';
     }
@@ -375,14 +375,25 @@ function qcity_add_incontent_ad( $content )
 
 add_filter( 'the_content', 'qcity_add_in_newsletter_signup' );
 function qcity_add_in_newsletter_signup( $content ) {
+    global $post;
+    $post_id = (isset($post->ID) && $post->ID) ? $post->ID : '';
     $hformTitle = get_field("homeFormTextTitle","option");
     $hformText = get_field("homeFormTextContent","option");
     $gravityFormId = get_field("homeFormShortcode","option");
+    $terms = get_the_terms($post_id,'category');
+    $is_sponsored = false;
 
+    if($terms) {
+        foreach($terms as $term) {
+            $slug = $term->slug;
+            if($slug=='sponsored-post') {
+                $is_sponsored = true;
+                break;
+            }
+        }
+    }
     $gfshortcode = '[gravityform id="'.$gravityFormId.'" title="false" description="false" ajax="true"]';
-
-    $ad_code = '<div class="subscribe-form-single" style="margin-top: 20px;margin-bottom: 40px;">
-                    
+    $ad_code = '<div id="subform-postid-'.$post_id.'" class="subscribe-form-single" style="margin-top: 20px;margin-bottom: 40px;">
                     <div class="formDiv default">
                         <div class="form-subscribe-blue">
                             <div class="form-inside" style="float: left;">
@@ -394,10 +405,14 @@ function qcity_add_in_newsletter_signup( $content ) {
                     </div>
                 </div>';
 
+    if($is_sponsored) {
+        $ad_code = '';
+    }
+
     if ( is_single() && ! is_admin() ) {
         return qcity_insert_after_paragraph_four( $ad_code, 4, $content );
     }
-return $content;
+    return $content;
 }
  
 // Parent Function that makes the magic happen

@@ -248,8 +248,9 @@ if( !defined('HIDE_ADS') ){
 				
 			<?php } ?>
 			
-			<?php if ($showGenericForm) { ?>
-			<div class="subscribe-form-single" style="margin-top: 20px;">
+			<?php 
+			if ($showGenericForm) { ?>
+			<div class="subscribe-form-single generic-form" style="margin-top: 20px;">
 				<div class="formDiv default"><?php get_template_part( 'home-parts/subscribe-form'); ?></div>
 			</div>
 			<?php } ?>
