@@ -10905,6 +10905,26 @@ body.social-media-sticky {
 		font-size: 14px;
 	}
 }
+@media screen and (max-width: $tabwidth) {
+	body.single-post {
+		.form-subscribe-blue {
+			.gform_wrapper, form, .gform_body, ul, li {
+				width: 100%!important;
+				float: left;
+			}
+			.gform_wrapper .ginput_container {
+				margin-bottom: 15px;
+			}
+			.gform_footer {
+				input.gform_button {
+					padding-top: 0;
+					padding-bottom: 0;
+				}
+			}
+		}
+	}
+}
+
 body.single .entry-footer {
 	.sponsoredDataDiv {
 		margin-top: 20px;
@@ -11597,6 +11617,12 @@ body.scrolled.archive {
 	#widget-singleSidebar #widget-trending-post {
 		height: auto!important;
 		overflow: visible;
+	}
+}
+body.single-event {
+	.form-subscribe-blue {
+		padding: 0 0;
+		margin: 30px 0 20px;
 	}
 }
 
@@ -12617,7 +12643,10 @@ body.single.single-post {
 		margin: 30px 0;
 	}
 	&.home-block-AD3 {
-		top: -18px;
+		top: 0;
+		@include tab {
+			top: -18px;
+		}
 	}
 }
 

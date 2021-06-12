@@ -3674,7 +3674,10 @@ body.social-media-sticky .grecaptcha-badge{bottom:60px !important}
 .subscribe-form-single .gform_title{text-align:center;color:#36c;font-size:15px !important;font-weight:700;text-transform:uppercase;margin:0 0 12px}
 .subscribe-form-single .gfield_html_formatted{max-width:90% !important;width:100%;margin:0 auto !important;display:block}
 .subscribe-form-single .gfield_html_formatted,.subscribe-form-single .gfield_html_formatted small{font-size:14px}
-body.single .entry-footer .sponsoredDataDiv{margin-top:20px}
+@media screen and (max-width:768px){body.single-post .form-subscribe-blue .gform_wrapper,body.single-post .form-subscribe-blue form,body.single-post .form-subscribe-blue .gform_body,body.single-post .form-subscribe-blue ul,body.single-post .form-subscribe-blue li{width:100% !important;float:left}
+body.single-post .form-subscribe-blue .gform_wrapper .ginput_container{margin-bottom:15px}
+body.single-post .form-subscribe-blue .gform_footer input.gform_button{padding-top:0;padding-bottom:0}
+}body.single .entry-footer .sponsoredDataDiv{margin-top:20px}
 body.single .entry-footer .sponsoredDataDiv .sponsor-logo{text-align:center;margin-bottom:20px}
 body.single .entry-footer .sponsoredDataDiv .sponsor-logo img{max-width:150px;margin:0 auto}
 body.single .entry-footer .sponsoredDataDiv .sponsored-by{margin-bottom:30px}
@@ -3822,6 +3825,7 @@ body.home .subscribe-wrap .subscribe{padding:25px 20px 20px}
 }body.archive .widget-area.category-post .form-subscribe-blue,body.scrolled.archive .widget-area.category-post .form-subscribe-blue{opacity:1 !important}
 body.archive #widget-singleSidebar,body.scrolled.archive #widget-singleSidebar{position:relative !important;top:0 !important}
 body.archive #widget-singleSidebar #widget-trending-post,body.scrolled.archive #widget-singleSidebar #widget-trending-post{height:auto !important;overflow:visible}
+body.single-event .form-subscribe-blue{padding:0;margin:30px 0 20px}
 .content-area-full.top-logo-page #main{width:100%;float:left}
 .content-area-full.top-logo-page #main .wrapper{max-width:1200px;width:100%;margin:0 auto;padding-left:20px;padding-right:20px}
 .content-area-full.top-logo-page #main .mapwrapper{position:relative}
@@ -4000,8 +4004,9 @@ body.single .sharethis-inline-share-buttons.stick-to-bottom,body.single.single-p
 }.subscribe-wrap.home-mission-bar{padding:20px 0 10px}
 .home-ad-fullwidth{width:100%;float:left;margin:20px 0;text-align:center;position:relative;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 .home-ad-fullwidth.home-block-AD2{margin:30px 0}
-.home-ad-fullwidth.home-block-AD3{top:-18px}
-.events-breadcrumbs{font-size:14px;margin-top:20px;text-align:center}
+.home-ad-fullwidth.home-block-AD3{top:0}
+@media(min-width:820px){.home-ad-fullwidth.home-block-AD3{top:-18px}
+}.events-breadcrumbs{font-size:14px;margin-top:20px;text-align:center}
 @media(min-width:820px){.events-breadcrumbs{text-align:left}
 }.events-breadcrumbs span.current{color:#949494}
 .newsLetterBottom .jobpageNewsletter{margin-top:0 !important}

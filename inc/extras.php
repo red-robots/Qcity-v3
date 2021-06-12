@@ -307,15 +307,15 @@ function qcity_add_incontent_ad( $content )
         $content_block  = explode('<p>',$content);
         $ads_6th        = get_ads_script('single-article-after-6th-paragraph');
         $ads_12th       = get_ads_script('single-article-after-12th-paragraph');
-        if( !empty($content_block[5]) && $ads_6th)
+        if( !empty($content_block[7]) && $ads_6th)
         {               
-            $content_block[5] .= '</div>
+            $content_block[7] .= '</div>
                             <div class="brown-bar"><div class="qcity-ads-label">'. $ads_6th['ads_label'] .' <a href="'. $ads_6th['ads_link_url'] .'">'. $ads_6th['ads_link_text'] .'</a> </div>'. $ads_6th['ad_script'] .'</div>
                             <div class="content-single-page">';
         }
-        if( !empty($content_block[11]) && $ads_12th)
+        if( !empty($content_block[13]) && $ads_12th)
         {               
-            $content_block[11] .= '</div>
+            $content_block[13] .= '</div>
                             <div class="brown-bar"><div class="qcity-ads-label">'. $ads_12th['ads_label'] .' <a href="'. $ads_12th['ads_link_url'] .'">'. $ads_12th['ads_link_text'] .'</a> </div>'. $ads_12th['ad_script'] .'</div>
                             <div class="content-single-page">';
         }

@@ -80,9 +80,12 @@
 	
 	<section class="news-home newsHomeV2">
 
+        <?php $show_ads = false; ?>
+        <?php if ($show_ads) { ?>
         <div class="mobile-version" style="margin-bottom: 20px; text-align: center;"> <!-- Small Optional Ad Right -->
-                <?php $small_ad =  get_ads_script('small-ad-right'); echo $small_ad['ad_script']; ?>
+            <?php $small_ad =  get_ads_script('small-ad-right'); echo $small_ad['ad_script']; ?>
         </div> <!-- Small Optional Ad Right -->
+         <?php } ?>
 
 		<section class="twocol qcity-news-container">	
 

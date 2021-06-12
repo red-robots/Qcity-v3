@@ -121,13 +121,13 @@ if( !defined('HIDE_ADS') ){
 		
 		
 		<?php /* For Mobile View Only */ ?>
-		<!-- <div id="mobileBlocks" class="mobile-visible-section">
+		<div id="mobileBlocks" class="mobile-visible-section">
 			<div id="trendingBlock" class="mobileBlock"></div>
-			<div id="sponsoredContentBlock" class="mobileBlock"></div>
+			<!-- <div id="sponsoredContentBlock" class="mobileBlock"></div>
 			<div id="relatedArticlesBlock" class="mobileBlock"></div>
 			<div id="sponsoredByBlock" class="mobileBlock"></div>
-			<div id="westSideConnectBlock" class="mobileBlock"></div>
-		</div> -->
+			<div id="westSideConnectBlock" class="mobileBlock"></div> -->
+		</div>
 
 		<footer class="entry-footer">
 

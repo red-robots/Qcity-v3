@@ -173,18 +173,23 @@ if( $img ){
 								<?php get_template_part('template-parts/sharethis-socialmedia'); ?>
 							</div>
 
-							
+							<?php 
+							$subscribe_text = $sidebar_event_text;  
+							$subscribe_text = '';
+							if ($subscribe_text) { ?>
 							<footer class="entry-footer desktop-version">
-								<?php 
-								$text = $sidebar_event_text; 
-								?>
 								<div class="side-offer">
-								<p><?php echo $text; ?></p>
+								<p><?php echo $subscribe_text; ?></p>
 								<div class="btn">
 									<a class="white" href="<?php bloginfo('url'); ?>/email-signup">Subscribe</a>
 								</div>
-							</div>
+								</div>
 							</footer><!-- .entry-footer -->
+							<?php } ?>
+
+							<?php 
+							$the_page_id = get_page_id_by_template('page-templates/page-events-new');
+							include( locate_template('template-parts/events-newsletter-box.php') ); ?>
 
 						</article><!-- #post-## -->
 
