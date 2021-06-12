@@ -137,11 +137,20 @@ for($i=0; $i<3; $i++) {
 $start_end = $dateToday . ',' . date('Ym') . $nexday;
 $hasPoweredByLogo = ($current_page_id) ? get_page_with_top_logo($current_page_id) : '';
 $bodyClass = ($hasPoweredByLogo) ? 'hasPoweredByLogo':'';
+$is_member_page = false;
+if( is_page() ) {
+  $pageTemplate = get_page_template_slug($current_page_id);
+  if($pageTemplate=="page-membership-new.php") {
+    $is_member_page = true;
+  }
+}
+
 ?>
 <body <?php body_class($bodyClass); ?> data-today="<?php echo date('Ymd') ?>" data-dates="<?php echo $start_end ?>" data-range="<?php echo $dateRange ?>">
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'acstarter' ); ?></a>
 
+  <?php if (!$is_member_page) { ?>
 	<header id="masthead" class="site-header " role="banner" >
 
     <div class="mobile-stick" id="fixed" >
@@ -243,6 +252,7 @@ $bodyClass = ($hasPoweredByLogo) ? 'hasPoweredByLogo':'';
     </div>      
 	
 	</header><!-- #masthead -->
+  <?php } ?>
 
 	<div id="content" class="site-content mobile-body">
 

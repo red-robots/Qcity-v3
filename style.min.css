@@ -4025,6 +4025,22 @@ body.single-event .pageCTAWrap .pageCTAButtons .flex li.jbtn{max-width:33.33%;wi
 .mobilemain li.menu-item.red-button-link{display:none}
 }.sbi-critical-notice{bottom:70px !important}
 #more-bottom-button.more a{text-decoration:none !important}
+body.page-template-page-membership-new{background-color:#e2e2e2}
+body.page-template-page-membership-new #content{padding-top:10px}
+body.page-template-page-membership-new.logged-in.admin-bar #content{padding-top:10px}
+body.page-template-page-membership-new .new-membership-page{padding-bottom:80px}
+body.page-template-page-membership-new .new-membership-page .site-main.wrapper{max-width:1000px;width:100%;margin:0 auto}
+body.page-template-page-membership-new .new-membership-page .page-title{text-align:center}
+body.page-template-page-membership-new .new-membership-page .membership-form-wrap{max-width:650px;width:100%;margin:0 auto}
+body.page-template-page-membership-new .new-membership-page div.logo{position:relative;left:-20px;margin:0 auto 50px}
+body.page-template-page-membership-new .new-membership-page .form-inner{padding:30px 20px;border:1px solid #CCC;background-color:#FFF}
+body.page-template-page-membership-new .new-membership-page .formLabel{font-weight:bold;font-size:18px;margin:25px 0 -10px}
+body.page-template-page-membership-new .new-membership-page .donations{margin-top:20px}
+body.page-template-page-membership-new .new-membership-page .donations ul{margin:0;padding:0;list-style:none}
+body.page-template-page-membership-new .new-membership-page .donations ul li{margin:15px 0}
+body.page-template-page-membership-new .new-membership-page .donations ul a{display:block;text-decoration:none;padding:10px 15px;background-color:#1470bd;border:1px solid #1470bd;color:#FFF;text-align:center;font-size:22px;border-radius:5px}
+body.page-template-page-membership-new .new-membership-page .donations ul a:hover{background-color:#2a95ef}
+body.page-template-page-membership-new .new-membership-page .donations ul a.default{background-color:#FFF;color:#1470bd}
 @media screen and (max-width:819px){body.page-template-page-business-directory .titlediv .business-map-counter{display:block;top:55px;right:10px}
 }body.logged-in.admin-bar .content-area-full.top-logo-page #main .map-div.title-gray-bg.nopoweredby{margin-top:0}
 @media(min-width:820px){body.logged-in.admin-bar .content-area-full.top-logo-page #main .map-div.title-gray-bg.nopoweredby{margin-top:95px}

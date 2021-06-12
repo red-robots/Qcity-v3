@@ -12749,6 +12749,80 @@ nav.mobilemenu .mobilemain a.mobile-join-btn {
 	text-decoration: none !important;
 }
 
+body.page-template-page-membership-new {
+	background-color: #e2e2e2;
+	#content {
+		padding-top: 10px;
+	}
+	&.logged-in.admin-bar {
+		#content {
+			padding-top: 10px;
+		}
+	}
+	
+	.new-membership-page {
+		padding-bottom: 80px;
+		.site-main.wrapper {
+			max-width: 1000px;
+			width: 100%;
+			margin: 0 auto;
+		}
+		.page-title {
+			text-align: center;
+		}
+		.membership-form-wrap {
+			max-width: 650px;
+			width: 100%;
+			margin: 0 auto;
+		}
+		div.logo {
+			position: relative;
+			left: -20px;
+			margin: 0 auto 50px;
+		}
+		.form-inner {
+			padding: 30px 20px;
+			border: 1px solid #CCC;
+			background-color: #FFF;
+		}
+		.formLabel {
+			font-weight: bold;
+			font-size: 18px;
+			margin: 25px 0 -10px;
+		}
+		.donations {
+			margin-top: 20px;
+			ul {
+				margin: 0 0;
+				padding: 0 0;
+				list-style: none;
+				li {
+					margin: 15px 0;
+				}
+				a {
+					display: block;
+					text-decoration: none;
+					padding: 10px 15px;
+					background-color: #1470bd;
+					border: 1px solid #1470bd;
+					color: #FFF;
+					text-align: center;
+					font-size: 22px;
+					border-radius: 5px;
+					&:hover {
+						background-color: #2a95ef;
+					}
+					&.default {
+						background-color: #FFF;
+						color: #1470bd;
+					}
+				}
+			}
+		}
+	}
+
+}
+
 body.page-template-page-business-directory {
 	@media screen and (max-width: $tab - 1px) {
 		.titlediv .business-map-counter {
@@ -12768,3 +12842,5 @@ body.logged-in.admin-bar {
 		}
 	}
 }
+
+

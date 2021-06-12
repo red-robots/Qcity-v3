@@ -752,6 +752,10 @@ add_action( 'admin_print_scripts', 'jupload_scripts' );
 add_action( 'admin_head', 'post_visibility_head_scripts' );
 function post_visibility_head_scripts(){ ?>
     <style type="text/css">
+    .acf-field-repeater[data-name="donation_amounts"] [data-name="default"] .acf-input label {
+        font-size: 1px;
+        color: transparent;
+    }
     body.post-type-post .acf-field[data-name="show_hide_form"] .acf-label {
         display: none!important;
     }
@@ -1311,11 +1315,16 @@ jQuery(document).ready(function($){
             parent.find(".acf-fc-layout-handle").attr("data-title",'Untitled');
         }
     });
+
+    var donationAmountInput = $('.acf-field-repeater[data-name="donation_amounts"] [data-name="default"] .acf-checkbox-list input[type="checkbox"]');
+    donationAmountInput.on('change', function() {
+        donationAmountInput.not(this).prop('checked', false);  
+    }); 
 });
 </script>
 <?php } 
 
-$gravityFormsSelections = array('homeFormShortcode','homeSBFormShortcode','embedForms','jobpage_newsletter','event_submission_form');
+$gravityFormsSelections = array('homeFormShortcode','homeSBFormShortcode','embedForms','jobpage_newsletter','event_submission_form','gty_membership_form');
 function acf_load_gravity_form_choices( $field ) {
     // reset choices
     $field['choices'] = array();
