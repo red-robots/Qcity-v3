@@ -10735,6 +10735,7 @@ body.social-media-sticky {
 		font-size: 20px;
     font-weight: 500;
     line-height: 1.2;
+    color: #FFF!important;
 	}
 	.gftxt {
 		font-size: 15px;
@@ -10903,6 +10904,21 @@ body.social-media-sticky {
 	.gfield_html_formatted,
 	.gfield_html_formatted small {
 		font-size: 14px;
+	}
+	.gform_footer input.gform_button {
+		padding: 9px 15px 10px!important;
+	}
+	.form-subscribe-blue,
+	.form-inside {
+		width: 100%;
+		float: left;
+	}
+
+}
+.content-single-page {
+	.subscribe-form-single {
+		margin-top: 20px;
+		margin-bottom: 30px;
 	}
 }
 @media screen and (max-width: $tabwidth) {
@@ -12803,24 +12819,33 @@ body.page-template-page-membership-new {
 					display: block;
 					text-decoration: none;
 					padding: 10px 15px;
-					background-color: #1470bd;
-					border: 1px solid #1470bd;
-					color: #FFF;
+					background-color: #FFF;
+					border: 1px solid $color-red;
+					color: $color-red;
 					text-align: center;
 					font-size: 22px;
 					border-radius: 5px;
 					&:hover {
-						background-color: #2a95ef;
+						background-color: $color-yellow;
+						border-color: $color-yellow;
+						color: #FFF;
 					}
 					&.default {
-						background-color: #FFF;
-						color: #1470bd;
+						background-color: $color-yellow;
+						border-color: $color-yellow;
+						color: #FFF;
 					}
 				}
 			}
 		}
 	}
 
+	.donation-bottom-text {
+		margin-top: 40px;
+	}
+	.donation-bottom-text p:last-child {
+		margin-bottom: 0;
+	}
 }
 
 body.page-template-page-business-directory {

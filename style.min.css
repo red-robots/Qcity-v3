@@ -3642,7 +3642,7 @@ body.social-media-sticky .grecaptcha-badge{bottom:60px !important}
 .form-subscribe-blue{padding:0 0 10px 0;-webkit-transition:all ease .2s;transition:all ease .2s}
 @media(min-width:820px){.form-subscribe-blue{padding:0 15px 10px 15px}
 }.form-subscribe-blue .form-inside{background:#1c788c;color:#FFF;padding:30px 30px 35px;position:relative}
-.form-subscribe-blue h3.gfTitle{font-size:20px;font-weight:500;line-height:1.2}
+.form-subscribe-blue h3.gfTitle{font-size:20px;font-weight:500;line-height:1.2;color:#FFF !important}
 .form-subscribe-blue .gftxt{font-size:15px;line-height:1.4}
 .form-subscribe-blue .gform_wrapper{margin-bottom:0}
 .form-subscribe-blue .gform_wrapper form,.form-subscribe-blue .gform_wrapper .gform_body{width:100%;position:relative}
@@ -3674,6 +3674,9 @@ body.social-media-sticky .grecaptcha-badge{bottom:60px !important}
 .subscribe-form-single .gform_title{text-align:center;color:#36c;font-size:15px !important;font-weight:700;text-transform:uppercase;margin:0 0 12px}
 .subscribe-form-single .gfield_html_formatted{max-width:90% !important;width:100%;margin:0 auto !important;display:block}
 .subscribe-form-single .gfield_html_formatted,.subscribe-form-single .gfield_html_formatted small{font-size:14px}
+.subscribe-form-single .gform_footer input.gform_button{padding:9px 15px 10px !important}
+.subscribe-form-single .form-subscribe-blue,.subscribe-form-single .form-inside{width:100%;float:left}
+.content-single-page .subscribe-form-single{margin-top:20px;margin-bottom:30px}
 @media screen and (max-width:768px){body.single-post .form-subscribe-blue .gform_wrapper,body.single-post .form-subscribe-blue form,body.single-post .form-subscribe-blue .gform_body,body.single-post .form-subscribe-blue ul,body.single-post .form-subscribe-blue li{width:100% !important;float:left}
 body.single-post .form-subscribe-blue .gform_wrapper .ginput_container{margin-bottom:15px}
 body.single-post .form-subscribe-blue .gform_footer input.gform_button{padding-top:0;padding-bottom:0}
@@ -4038,9 +4041,11 @@ body.page-template-page-membership-new .new-membership-page .formLabel{font-weig
 body.page-template-page-membership-new .new-membership-page .donations{margin-top:20px}
 body.page-template-page-membership-new .new-membership-page .donations ul{margin:0;padding:0;list-style:none}
 body.page-template-page-membership-new .new-membership-page .donations ul li{margin:15px 0}
-body.page-template-page-membership-new .new-membership-page .donations ul a{display:block;text-decoration:none;padding:10px 15px;background-color:#1470bd;border:1px solid #1470bd;color:#FFF;text-align:center;font-size:22px;border-radius:5px}
-body.page-template-page-membership-new .new-membership-page .donations ul a:hover{background-color:#2a95ef}
-body.page-template-page-membership-new .new-membership-page .donations ul a.default{background-color:#FFF;color:#1470bd}
+body.page-template-page-membership-new .new-membership-page .donations ul a{display:block;text-decoration:none;padding:10px 15px;background-color:#FFF;border:1px solid #924020;color:#924020;text-align:center;font-size:22px;border-radius:5px}
+body.page-template-page-membership-new .new-membership-page .donations ul a:hover{background-color:#c4a92f;border-color:#c4a92f;color:#FFF}
+body.page-template-page-membership-new .new-membership-page .donations ul a.default{background-color:#c4a92f;border-color:#c4a92f;color:#FFF}
+body.page-template-page-membership-new .donation-bottom-text{margin-top:40px}
+body.page-template-page-membership-new .donation-bottom-text p:last-child{margin-bottom:0}
 @media screen and (max-width:819px){body.page-template-page-business-directory .titlediv .business-map-counter{display:block;top:55px;right:10px}
 }body.logged-in.admin-bar .content-area-full.top-logo-page #main .map-div.title-gray-bg.nopoweredby{margin-top:0}
 @media(min-width:820px){body.logged-in.admin-bar .content-area-full.top-logo-page #main .map-div.title-gray-bg.nopoweredby{margin-top:95px}

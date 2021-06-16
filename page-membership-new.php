@@ -20,13 +20,14 @@ get_header(); ?>
 			<?php 
 			$form_text = get_field("form_text"); 
 			$donations_label = get_field("donations_label"); 
+			$donation_bottom_text = get_field("donation_bottom_text"); 
 			$donation_amounts = get_field("donation_amounts"); 
 			// $membershipForm = get_field("gty_membership_form"); 
 			// $gfshortcode = '';
 			// if($membershipForm) {
 			// 	$gfshortcode = '[gravityform id="'.$membershipForm.'" title="false" description="false" ajax="true"]';
 			// }
-			if($form_text) { ?>	
+			if($form_text || $donation_bottom_text || $donation_amounts) { ?>	
 				<div class="membership-form-wrap">
 					<div class="form-inner">
 						<?php if ($form_text) { ?>
@@ -62,9 +63,19 @@ get_header(); ?>
 							</ul>
 						</div>
 						<?php } ?>
+					
+						<?php if ($donation_bottom_text) { ?>
+						<div class="donation-bottom-text">
+							<?php echo $donation_bottom_text ?>
+						</div>	
+						<?php } ?>
 					</div>
 				</div>
+
+				
 			<?php } ?>
+
+			
 		
 		<?php endwhile; ?>
 

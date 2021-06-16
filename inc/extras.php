@@ -96,6 +96,12 @@ if( function_exists('acf_add_options_page') ) {
     ));
 
     acf_add_options_sub_page(array(
+        'page_title'     => 'News Options',
+        'menu_title'    => 'News Options',
+        'parent_slug'    => 'edit.php'
+    ));
+
+    acf_add_options_sub_page(array(
         'page_title'     => 'Elections Options',
         'menu_title'    => 'Elections Options',
         'parent_slug'    => 'edit.php'
@@ -377,12 +383,16 @@ add_filter( 'the_content', 'qcity_add_in_newsletter_signup' );
 function qcity_add_in_newsletter_signup( $content ) {
     global $post;
     $post_id = (isset($post->ID) && $post->ID) ? $post->ID : '';
-    $hformTitle = get_field("homeFormTextTitle","option");
-    $hformText = get_field("homeFormTextContent","option");
-    $gravityFormId = get_field("homeFormShortcode","option");
+    // $hformTitle = get_field("homeFormTextTitle","option");
+    // $hformText = get_field("homeFormTextContent","option");
+    // $gravityFormId = get_field("homeFormShortcode","option");
+
+    $gravityFormId = get_field("default_newsletterform_post","option");
+    $hformTitle = get_field("default_title_post","option");
+    $hformText = get_field("default_text_post","option");
     $terms = get_the_terms($post_id,'category');
     $is_sponsored = false;
-
+    $ad_code = '';
     if($terms) {
         foreach($terms as $term) {
             $slug = $term->slug;
@@ -392,25 +402,30 @@ function qcity_add_in_newsletter_signup( $content ) {
             }
         }
     }
-    $gfshortcode = '[gravityform id="'.$gravityFormId.'" title="false" description="false" ajax="true"]';
-    $ad_code = '<div id="subform-postid-'.$post_id.'" class="subscribe-form-single" style="margin-top: 20px;margin-bottom: 40px;">
-                    <div class="formDiv default">
-                        <div class="form-subscribe-blue">
-                            <div class="form-inside" style="float: left;">
-                                <h3 class="gfTitle" style="color: #ffffff;">'.$hformTitle.'</h3>
-                                <div class="gftxt">'.$hformText.'</div>'.
-                                do_shortcode($gfshortcode).'
-                            </div>
-                        </div>
-                    </div>
-                </div>';
 
-    if($is_sponsored) {
-        $ad_code = '';
-    }
+    ob_start();
+    get_template_part('template-parts/news-post-newsletter');
+    $ad_code = ob_get_contents();
+    ob_end_clean();
 
-    if ( is_single() && ! is_admin() ) {
-        return qcity_insert_after_paragraph_four( $ad_code, 4, $content );
+    // $gfshortcode = '[gravityform id="'.$gravityFormId.'" title="false" description="false" ajax="true"]';
+    // $ad_code = '<div id="subform-postid-'.$post_id.'" class="subscribe-form-single" style="margin-top: 20px;margin-bottom: 40px;">
+    //                 <div class="formDiv default">
+    //                     <div class="form-subscribe-blue">
+    //                         <div class="form-inside" style="float: left;">
+    //                             <h3 class="gfTitle" style="color: #ffffff;">'.$hformTitle.'</h3>
+    //                             <div class="gftxt">'.$hformText.'</div>'.
+    //                             do_shortcode($gfshortcode).'
+    //                         </div>
+    //                     </div>
+    //                 </div>
+    //             </div>';
+
+    
+    if( !$is_sponsored ) {
+        if ( is_single() && ! is_admin() ) {
+            return qcity_insert_after_paragraph_four( $ad_code, 4, $content );
+        }
     }
     return $content;
 }
@@ -752,6 +767,11 @@ add_action( 'admin_print_scripts', 'jupload_scripts' );
 add_action( 'admin_head', 'post_visibility_head_scripts' );
 function post_visibility_head_scripts(){ ?>
     <style type="text/css">
+    body.posts_page_acf-options-news-options [data-name="enableNewsletterPost"] { position:relative; padding-bottom: 23px; }
+    body.posts_page_acf-options-news-options [data-name="enableNewsletterPost"] div.acf-input {position: absolute; top: 11px; left: 11px;}
+    body.posts_page_acf-options-news-options [data-name="enableNewsletterPost"] div.acf-label .description {position: relative; top: 18px; left: 23px; font-size: 11px; }
+    body.posts_page_acf-options-news-options [data-name="enableNewsletterPost"] div.acf-label label {display:none!important;}
+    body.posts_page_acf-options-news-options [data-name="enableNewsletterPost"] .acf-checkbox-list li { font-weight: bold; }
     .acf-field-repeater[data-name="donation_amounts"] [data-name="default"] .acf-input label {
         font-size: 1px;
         color: transparent;
@@ -1324,7 +1344,7 @@ jQuery(document).ready(function($){
 </script>
 <?php } 
 
-$gravityFormsSelections = array('homeFormShortcode','homeSBFormShortcode','embedForms','jobpage_newsletter','event_submission_form','gty_membership_form');
+$gravityFormsSelections = array('homeFormShortcode','homeSBFormShortcode','embedForms','jobpage_newsletter','event_submission_form','gty_membership_form','newsletterFormPost','default_newsletterform_post');
 function acf_load_gravity_form_choices( $field ) {
     // reset choices
     $field['choices'] = array();
@@ -1515,6 +1535,7 @@ function no_top_ads($postid) {
     $templates[] = 'page-business-directory.php';
     $templates[] = 'page-jobs-new.php';
     $templates[] = 'page-events-new.php';
+    $templates[] = 'page-membership-new.php';
     $template_slug = get_page_template_slug($postid);
     $baseName = ($template_slug) ? basename($template_slug):'';
     $no_ads = array();

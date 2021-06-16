@@ -213,8 +213,48 @@ if( !defined('HIDE_ADS') ){
 			<?php } ?>
 
 
-			<?php /*===== SUBSCRIPTION FORM =====*/ ?>
-			<?php get_template_part('template-parts/news-post-newsletter') ?>
+
+			<?php /*===== SUBSCRIPTION FORM =====*/ 
+			$formPostId = get_field("embedForms");
+			$formVisibility = get_field("show_hide_form");
+			$showForm = ($formVisibility=='hide') ? false : true;
+			$genericForm = get_field("show_generic_newsletter");
+			$showGenericForm = ($genericForm=='off') ? false : true;
+			if($formPostId==111) {
+				$showGenericForm = false;
+			}
+			?>
+			<?php if ($showForm) { ?>
+				
+					<?php if ($formPostId) { 
+						$gfshortcode = '[gravityform id="'.$formPostId.'" title="1" description="false" ajax="true"]'; ?>
+						
+						<div class="subscribe-form-single">
+						<?php if ($formPostId==111) { ?>
+							<div class="formDiv default"><?php get_template_part( 'home-parts/subscribe-form'); ?></div>
+						<?php } else { ?>
+
+							<?php if( do_shortcode($gfshortcode) ) { ?>	
+								<div class="formDiv custom">
+									<div class="home-sb-subscribe-form">
+				        		<div class="form-inside"><?php echo do_shortcode($gfshortcode); ?></div>
+				        	</div>
+								</div>
+							<?php } ?>
+
+						<?php } ?>
+						</div>
+					<?php } ?>
+				
+			<?php } ?>
+			
+			<?php 
+			if ($showGenericForm) { ?>
+			<div class="subscribe-form-single generic-form" style="margin-top: 20px;">
+				<div class="formDiv default"><?php get_template_part( 'home-parts/subscribe-form'); ?></div>
+			</div>
+			<?php } ?>
+			
 			<?php /*===== end of SUBSCRIPTION FORM =====*/ ?>
 
 
