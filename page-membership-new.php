@@ -81,4 +81,12 @@ get_header(); ?>
 
 	</main><!-- #main -->
 </div><!-- #primary -->
+<script>
+jQuery(document).ready(function($){
+	$(".donations a.tier-btn").click(function(){
+		$(".donations a.tier-btn").removeClass("default").not(this);
+		$(this).addClass("default");
+	});
+});	
+</script>
 <?php get_footer();
