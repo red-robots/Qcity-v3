@@ -103,12 +103,27 @@ if($postsNotIn) {
 $bigPost = array();
 if($stickyPosts) {
 	$ids = '';
-	arsort($stickyPosts);
-	$mainPostId = $stickyPosts[0];
-	$mainPost = get_post($mainPostId);
-	if($mainPost) {
-		$bigPost = $mainPost;
+	$mainPostId = '';
+	
+	if( is_array($stickyPosts) ) {
+		$count = count($stickyPosts);
+		if($count>1) {
+			arsort($stickyPosts);
+		}
+		$mainPostId = $stickyPosts[0];
+	} else {
+		$serializedItem = @unserialize($stickyPosts);
+		if( is_array($serializedItem) ) {
+			$mainPostId = $serializedItem[0];
+		}
 	}
+
+	if($mainPostId && is_numeric($mainPostId)) {
+		if( $mainPost = get_post($mainPostId) ) {
+			$bigPost = $mainPost;
+		}
+	}
+	
 } else {
 	$mainPost = get_posts($mainArgs);
 	if($mainPost) {
