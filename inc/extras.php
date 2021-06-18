@@ -1183,6 +1183,13 @@ function getAllPostsByTermSlug($catSlugs) {
     return ($postsIds) ? array_unique($postsIds) : array();
 }
 
+function get_single_latest_post($post_type='post') {
+    global $wpdb;
+    $query = "SELECT p.* FROM ".$wpdb->prefix."posts p WHERE p.post_type='".$post_type."' AND post_status='publish' ORDER BY p.post_date DESC LIMIT 1";
+    $result = $wpdb->get_row($query);
+    return ($result) ? $result : '';
+}
+
 function get_news_posts_with_videos($limitNum=null) {
     global $wpdb;
     $whichCatId = get_field("elect_which_category","option");

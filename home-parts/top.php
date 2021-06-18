@@ -47,7 +47,9 @@ $mainArgs = array(
 	'post_status'  => 'publish',
 	'orderby'	=> 'date', 
 	'order'		=> 'DESC',
+	'suppress_filters' => false
 );
+
 
 if($excludePosts) {
 	$exlude_post_ids = $excludePosts;
@@ -77,33 +79,11 @@ if($postsNotIn) {
 	}
 }
 
-
-// if($rightPostItems) {
-// 	if($exlude_post_ids) {
-// 		$mergedIds = array_merge($rightPostItems,)
-// 	} else {
-// 		$exlude_post_ids = $rightPostItems;
-// 	}
-// 	//$mainArgs['post__not_in'] = $rightPostItems;
-// }
-
-
-// if($excludeCatID) {
-// 	$mainArgs['tax_query'] = array(
-// 	    array(
-// 	        'taxonomy' => 'category',
-// 	        'field'    => 'id',
-// 	        'terms'    => $excludeCatID,
-// 	        'operator' => 'NOT IN'
-// 	    )
-// 	);
-// }
-
-
 $bigPost = array();
 if($stickyPosts) {
 	$ids = '';
 	$mainPostId = '';
+	$stickyPostsIds = array();
 	
 	if( is_array($stickyPosts) ) {
 		$count = count($stickyPosts);
@@ -112,15 +92,40 @@ if($stickyPosts) {
 		}
 		$mainPostId = $stickyPosts[0];
 	} else {
-		$serializedItem = @unserialize($stickyPosts);
-		if( is_array($serializedItem) ) {
-			$mainPostId = $serializedItem[0];
+		$stickyPostsIds = @unserialize($stickyPosts);
+		if( is_array($stickyPostsIds) ) {
+			$mainPostId = $stickyPostsIds[0];
 		}
 	}
 
 	if($mainPostId && is_numeric($mainPostId)) {
 		if( $mainPost = get_post($mainPostId) ) {
 			$bigPost = $mainPost;
+		}
+	}
+
+	/* Compare the date between Latest Post with `$stickyPosts` post */
+	$latestPostsArgs = array(
+		'post_type'    => 'post',
+		'posts_per_page'    => 1,
+		'post_status'  => 'publish',
+		'orderby'	=> 'date', 
+		'order'		=> 'DESC',
+		'suppress_filters' => false
+	);
+	if($mainPostId) {
+		$latestPostsArgs['post__not_in'] = array($mainPostId);
+	}
+
+	$latestPosts = get_posts($latestPostsArgs);
+	if($latestPosts) {
+		$compare_post = $latestPosts[0];
+		$compare_date = $compare_post->post_date;
+		$sticky_date = ($bigPost) ? $bigPost->post_date : "";
+		if($compare_date && $sticky_date) {
+			if( strtotime($compare_date) > strtotime($sticky_date) ) {
+				$bigPost = $compare_post;
+			}
 		}
 	}
 	
@@ -130,6 +135,8 @@ if($stickyPosts) {
 		$bigPost = $mainPost[0];
 	}
 }
+
+
 
 ?>
 <section id="homeTopElements" class="stickies-new stickyPostsTop">
