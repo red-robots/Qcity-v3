@@ -1448,54 +1448,64 @@ function get_sponsored_posts($terms,$numdays=61,$perpage=3,$randomize=false) {
 
     return $final_output;
 }
+/*
+#########################################################
 
-function get_trending_articles($perpage=5) {
-    global $wpdb;
-    $current_date = date('Y-m-d');
-    $currentMonth = date('m');
-    $previousMonth = $currentMonth-1;
-    $currentYear = date('Y');
-    $currentDateUnix = strtotime(date('Y-m-d'));
-    $listMax = 5;
-    $maxdays = 10;
-    $trendingArticles = array();
-    $trendingPostIDs = array();
-    for( $i=1; $i<=$maxdays; $i++ ) {
-        $min = "-".$i." days";
-        $prevdate = date('Y-m-d',strtotime($min));
-        $query = "SELECT p.ID, p.post_title, p.post_date, meta.meta_value AS views FROM ".$wpdb->prefix."posts p LEFT JOIN ".$wpdb->prefix."postmeta meta
-        ON p.ID=meta.post_id WHERE meta.meta_key='views' AND meta.meta_value>0 AND p.post_type='post' AND p.post_status='publish' AND DATE(p.post_date)='".$prevdate."'";
-        $result = $wpdb->get_results($query);
-        if($result) {
-            foreach($result as $row) {
-                $trendingArticles[] = $row;
-            }
-        }
-    }
+        get_trending_articles() was causing too 
+            loaded of a query and causing the 
+            site to crash. 
+
+            Function is called in 'template-parts/single-footer-bottom-west-connect'
+
+#########################################################
+*/
+// function get_trending_articles($perpage=5) {
+//     global $wpdb;
+//     $current_date = date('Y-m-d');
+//     $currentMonth = date('m');
+//     $previousMonth = $currentMonth-1;
+//     $currentYear = date('Y');
+//     $currentDateUnix = strtotime(date('Y-m-d'));
+//     $listMax = 5;
+//     $maxdays = 10;
+//     $trendingArticles = array();
+//     $trendingPostIDs = array();
+//     for( $i=1; $i<=$maxdays; $i++ ) {
+//         $min = "-".$i." days";
+//         $prevdate = date('Y-m-d',strtotime($min));
+//         $query = "SELECT p.ID, p.post_title, p.post_date, meta.meta_value AS views FROM ".$wpdb->prefix."posts p LEFT JOIN ".$wpdb->prefix."postmeta meta
+//         ON p.ID=meta.post_id WHERE meta.meta_key='views' AND meta.meta_value>0 AND p.post_type='post' AND p.post_status='publish' AND DATE(p.post_date)='".$prevdate."'";
+//         $result = $wpdb->get_results($query);
+//         if($result) {
+//             foreach($result as $row) {
+//                 $trendingArticles[] = $row;
+//             }
+//         }
+//     }
 
 
-    if($trendingArticles) {
-        $keys = array_column($trendingArticles, 'views');
-        array_multisort($keys, SORT_DESC, $trendingArticles);
-        foreach($trendingArticles as $t) {
-            $trendingPostIDs[] = $t->ID;
-        }
-    }
+//     if($trendingArticles) {
+//         $keys = array_column($trendingArticles, 'views');
+//         array_multisort($keys, SORT_DESC, $trendingArticles);
+//         foreach($trendingArticles as $t) {
+//             $trendingPostIDs[] = $t->ID;
+//         }
+//     }
 
-    $entries = array();
-    $raw_entries = array();
-    if($trendingPostIDs) {
-        $trending_count = count($trendingPostIDs);
-        if($trending_count>$listMax) {
-            for($n=0; $n<$listMax; $n++) {
-                $entries[] =  $trendingPostIDs[$n];
-            }
-        } else {
-            $entries = $trendingPostIDs;
-        }
-    }
-    return $entries;
-}
+//     $entries = array();
+//     $raw_entries = array();
+//     if($trendingPostIDs) {
+//         $trending_count = count($trendingPostIDs);
+//         if($trending_count>$listMax) {
+//             for($n=0; $n<$listMax; $n++) {
+//                 $entries[] =  $trendingPostIDs[$n];
+//             }
+//         } else {
+//             $entries = $trendingPostIDs;
+//         }
+//     }
+//     return $entries;
+// }
 
 function get_page_id_by_template($fileName) {
     $page_id = 0;

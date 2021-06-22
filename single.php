@@ -118,12 +118,26 @@ $content_class = ($is_sponsored_post) ? 'is-sponsored-post':'normal-post';
 		<?php //get_sidebar('single-post'); ?>
 	</main>
 </div>
+<!-- 
+	#################################################
 
-<div id="beforeFooter" class="items-before-footer">
+			Hiding this for now. 
+
+			get_trending_articles() was causing too 
+			loaded of a query and causing the 
+			site to crash. 
+
+			Function is called in 'template-parts/single-footer-bottom-west-connect'
+			to exclude posts. Function has been commented out in 'inc/extras'
+
+
+#####################################################
+-->
+<!-- <div id="beforeFooter" class="items-before-footer">
 	<div class="content-area-full">			
-		<?php get_template_part( 'template-parts/single-footer-bottom');	?>
+		<?php //get_template_part( 'template-parts/single-footer-bottom');	?>
 	</div>
 	<div class="clear"></div>
-</div>
+</div> -->
 <?php 
 get_footer();
