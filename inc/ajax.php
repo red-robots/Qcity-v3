@@ -47,6 +47,19 @@ function qcity_load_more(){
                     'include_children' => true
                 )
             ),
+            'meta_query' => array(
+                'relation' => 'OR',
+                array(
+                    'key' => 'home_more_news',
+                    'compare' => 'NOT EXISTS',
+                    'value' => 'null'
+                ),
+                array(
+                    'key' => 'home_more_news',
+                    'compare' => '=',
+                    'value' => ''
+                )
+            )
         );
 
     // if($cat_id) {

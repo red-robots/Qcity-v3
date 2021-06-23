@@ -12,6 +12,7 @@ $stickyPostId = '';
 $stickyPostDate = '';
 $stickpost = '';
 $featured_posts = array();
+$more_item_ids = array();
 
 if($stickyPosts) {	
 	if( is_array($stickyPosts) ) {
@@ -55,7 +56,7 @@ $big_post_args = array(
   			),
 	'meta_query' => array(
 			'relation' => 'OR',
-		  array(
+  		array(
 				'key' => 'video_single_post',
 				'compare' => 'NOT EXISTS',
 				'value' => 'null'
@@ -65,7 +66,7 @@ $big_post_args = array(
         'compare' => '=',
         'value' => ''
 	    )
-	)
+		)
 );
 
 
@@ -80,7 +81,6 @@ if($rightPostItems) {
 	$exclude_items[] = $rightPostItems;
 }
 if($moreNewsItems) {
-	$more_item_ids = array();
 	foreach($moreNewsItems as $m) {
 		$more_item_ids[] = $m->ID;
 	}
@@ -256,7 +256,7 @@ if($stickyPostDate) {
 				  			),
 					'meta_query' => array(
 							'relation' => 'OR',
-						  array(
+				  		array(
 								'key' => 'video_single_post',
 								'compare' => 'NOT EXISTS',
 								'value' => 'null'
@@ -266,11 +266,25 @@ if($stickyPostDate) {
 				        'compare' => '=',
 				        'value' => ''
 					    )
-					)
+						)
 				);
 
+				$right_posts_exclude = array();
+
 				if($featured_posts) {
-					$r_args['post__not_in'] = $featured_posts;
+					foreach($featured_posts as $fp_id) {
+						$right_posts_exclude[] = $fp_id;
+					} 
+				}
+
+				if($more_item_ids) {
+					foreach($more_item_ids as  $more_id) {
+						$right_posts_exclude[] = $more_id;
+					}
+				}
+
+				if($right_posts_exclude) {
+					$r_args['post__not_in'] = $right_posts_exclude;
 				}
 
 				$right_posts = get_posts($r_args);
