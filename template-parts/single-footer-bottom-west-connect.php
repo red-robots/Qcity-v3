@@ -1,6 +1,5 @@
 <?php 
 	$excludedPosts ='';
-
 	$post_id = get_the_ID();
 	$excludedPosts = get_trending_articles(5);
 	$trend = ($excludedPosts) ? count($excludedPosts) : 0;

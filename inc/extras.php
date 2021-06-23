@@ -1246,11 +1246,17 @@ function getTermId($slug) {
     return $exclude_term_id;
 }
 
-function getMoreNewsPosts($limit=3) {
+function getMoreNewsPosts($limit=3,$field=null) {
     global $wpdb;
-    $query = "SELECT p.* FROM ".$wpdb->prefix."posts p, ".$wpdb->prefix."postmeta m
+    if($field) {
+        $query = "SELECT p.".$field." FROM ".$wpdb->prefix."posts p, ".$wpdb->prefix."postmeta m
               WHERE p.ID=m.post_id AND m.meta_key='home_more_news' AND TRIM(IFNULL(m.meta_value,'')) <> '' AND p.post_status='publish' AND p.post_type='post'
                 ORDER BY p.ID DESC LIMIT " . $limit;
+    } else {
+        $query = "SELECT p.* FROM ".$wpdb->prefix."posts p, ".$wpdb->prefix."postmeta m
+              WHERE p.ID=m.post_id AND m.meta_key='home_more_news' AND TRIM(IFNULL(m.meta_value,'')) <> '' AND p.post_status='publish' AND p.post_type='post'
+                ORDER BY p.ID DESC LIMIT " . $limit;
+    }
     $entries = $wpdb->get_results($query);
     return ($entries) ? $entries : '';
 }
@@ -1659,3 +1665,5 @@ function show_page_template() {
     global $template;
     return basename($template);
 }
+
+

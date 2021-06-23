@@ -12,21 +12,11 @@
     $excludePostIds = array();
     $excludeCategories = array();
 
-    $not_in_categories = array('sponsored-post','commentaries');
     $args1 = array(
         'post_type'             =>'post',
         'post_status'           => 'publish',       
         'posts_per_page'        => 6,    
-        'paged'                 => 1,
-        'tax_query' => array (
-            array(
-                'taxonomy' => 'category',
-                'terms' => $not_in_categories,
-                'field' => 'slug',
-                'operator' => 'NOT IN',
-                'include_children' => true
-            )
-        ),
+        'paged'                 => 1
     );
 
 

@@ -12765,6 +12765,7 @@ nav.mobilemenu .mobilemain a.mobile-join-btn {
 	text-decoration: none !important;
 }
 
+body.page-template-page-membership-confirmation,
 body.page-template-page-membership-new {
 	background-color: #e2e2e2;
 	#content {
@@ -12865,6 +12866,38 @@ body.logged-in.admin-bar {
 				margin-top: 95px;
 			}
 		}
+	}
+}
+
+.membership-confirmation {
+	#main {
+		max-width: 650px;
+		width: 100%;
+		margin: 100px auto;
+		div.logo {
+			width: 100%;
+			float: left;
+			position: relative;
+			top: 0;
+			left: 0;
+			text-align: center;
+			margin-bottom: 30px;
+			a {
+				display: inline-block;
+				width: 110px;
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+		}
+	}
+	.page-entry-content {
+		padding: 30px 20px;
+		border: 1px solid #CCC;
+		background-color: #FFF;
+		width: 100%;
+		float: left;
 	}
 }
 

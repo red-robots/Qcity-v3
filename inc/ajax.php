@@ -31,12 +31,22 @@ function qcity_load_more(){
         )
     );
 
+    $not_in_categories = array('sponsored-post','commentaries');
     $args = array(
             'post_type'             => 'post',
             'post_status'           => 'publish',
             'paged'                 => $paged,
             'posts_per_page'        => $perpage,
-            'date_query'            => $date_query
+            'date_query'            => $date_query,
+            'tax_query' => array (
+                array(
+                    'taxonomy' => 'category',
+                    'terms' => $not_in_categories,
+                    'field' => 'slug',
+                    'operator' => 'NOT IN',
+                    'include_children' => true
+                )
+            ),
         );
 
     // if($cat_id) {

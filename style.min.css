@@ -4028,25 +4028,29 @@ body.single-event .pageCTAWrap .pageCTAButtons .flex li.jbtn{max-width:33.33%;wi
 .mobilemain li.menu-item.red-button-link{display:none}
 }.sbi-critical-notice{bottom:70px !important}
 #more-bottom-button.more a{text-decoration:none !important}
-body.page-template-page-membership-new{background-color:#e2e2e2}
-body.page-template-page-membership-new #content{padding-top:10px}
-body.page-template-page-membership-new.logged-in.admin-bar #content{padding-top:10px}
-body.page-template-page-membership-new .new-membership-page{padding-bottom:80px}
-body.page-template-page-membership-new .new-membership-page .site-main.wrapper{max-width:1000px;width:100%;margin:0 auto}
-body.page-template-page-membership-new .new-membership-page .page-title{text-align:center}
-body.page-template-page-membership-new .new-membership-page .membership-form-wrap{max-width:650px;width:100%;margin:0 auto}
-body.page-template-page-membership-new .new-membership-page div.logo{position:relative;left:-20px;margin:0 auto 50px}
-body.page-template-page-membership-new .new-membership-page .form-inner{padding:30px 20px;border:1px solid #CCC;background-color:#FFF}
-body.page-template-page-membership-new .new-membership-page .formLabel{font-weight:bold;font-size:18px;margin:25px 0 -10px}
-body.page-template-page-membership-new .new-membership-page .donations{margin-top:20px}
-body.page-template-page-membership-new .new-membership-page .donations ul{margin:0;padding:0;list-style:none}
-body.page-template-page-membership-new .new-membership-page .donations ul li{margin:15px 0}
-body.page-template-page-membership-new .new-membership-page .donations ul a{display:block;text-decoration:none;padding:10px 15px;background-color:#FFF;border:1px solid #924020;color:#924020;text-align:center;font-size:22px;border-radius:5px}
-body.page-template-page-membership-new .new-membership-page .donations ul a:hover{background-color:#c4a92f;border-color:#c4a92f;color:#FFF}
-body.page-template-page-membership-new .new-membership-page .donations ul a.default{background-color:#c4a92f;border-color:#c4a92f;color:#FFF}
-body.page-template-page-membership-new .donation-bottom-text{margin-top:40px}
-body.page-template-page-membership-new .donation-bottom-text p:last-child{margin-bottom:0}
+body.page-template-page-membership-confirmation,body.page-template-page-membership-new{background-color:#e2e2e2}
+body.page-template-page-membership-confirmation #content,body.page-template-page-membership-new #content{padding-top:10px}
+body.page-template-page-membership-confirmation.logged-in.admin-bar #content,body.page-template-page-membership-new.logged-in.admin-bar #content{padding-top:10px}
+body.page-template-page-membership-confirmation .new-membership-page,body.page-template-page-membership-new .new-membership-page{padding-bottom:80px}
+body.page-template-page-membership-confirmation .new-membership-page .site-main.wrapper,body.page-template-page-membership-new .new-membership-page .site-main.wrapper{max-width:1000px;width:100%;margin:0 auto}
+body.page-template-page-membership-confirmation .new-membership-page .page-title,body.page-template-page-membership-new .new-membership-page .page-title{text-align:center}
+body.page-template-page-membership-confirmation .new-membership-page .membership-form-wrap,body.page-template-page-membership-new .new-membership-page .membership-form-wrap{max-width:650px;width:100%;margin:0 auto}
+body.page-template-page-membership-confirmation .new-membership-page div.logo,body.page-template-page-membership-new .new-membership-page div.logo{position:relative;left:-20px;margin:0 auto 50px}
+body.page-template-page-membership-confirmation .new-membership-page .form-inner,body.page-template-page-membership-new .new-membership-page .form-inner{padding:30px 20px;border:1px solid #CCC;background-color:#FFF}
+body.page-template-page-membership-confirmation .new-membership-page .formLabel,body.page-template-page-membership-new .new-membership-page .formLabel{font-weight:bold;font-size:18px;margin:25px 0 -10px}
+body.page-template-page-membership-confirmation .new-membership-page .donations,body.page-template-page-membership-new .new-membership-page .donations{margin-top:20px}
+body.page-template-page-membership-confirmation .new-membership-page .donations ul,body.page-template-page-membership-new .new-membership-page .donations ul{margin:0;padding:0;list-style:none}
+body.page-template-page-membership-confirmation .new-membership-page .donations ul li,body.page-template-page-membership-new .new-membership-page .donations ul li{margin:15px 0}
+body.page-template-page-membership-confirmation .new-membership-page .donations ul a,body.page-template-page-membership-new .new-membership-page .donations ul a{display:block;text-decoration:none;padding:10px 15px;background-color:#FFF;border:1px solid #924020;color:#924020;text-align:center;font-size:22px;border-radius:5px}
+body.page-template-page-membership-confirmation .new-membership-page .donations ul a:hover,body.page-template-page-membership-new .new-membership-page .donations ul a:hover{background-color:#c4a92f;border-color:#c4a92f;color:#FFF}
+body.page-template-page-membership-confirmation .new-membership-page .donations ul a.default,body.page-template-page-membership-new .new-membership-page .donations ul a.default{background-color:#c4a92f;border-color:#c4a92f;color:#FFF}
+body.page-template-page-membership-confirmation .donation-bottom-text,body.page-template-page-membership-new .donation-bottom-text{margin-top:40px}
+body.page-template-page-membership-confirmation .donation-bottom-text p:last-child,body.page-template-page-membership-new .donation-bottom-text p:last-child{margin-bottom:0}
 @media screen and (max-width:819px){body.page-template-page-business-directory .titlediv .business-map-counter{display:block;top:55px;right:10px}
 }body.logged-in.admin-bar .content-area-full.top-logo-page #main .map-div.title-gray-bg.nopoweredby{margin-top:0}
 @media(min-width:820px){body.logged-in.admin-bar .content-area-full.top-logo-page #main .map-div.title-gray-bg.nopoweredby{margin-top:95px}
-}
+}.membership-confirmation #main{max-width:650px;width:100%;margin:100px auto}
+.membership-confirmation #main div.logo{width:100%;float:left;position:relative;top:0;left:0;text-align:center;margin-bottom:30px}
+.membership-confirmation #main div.logo a{display:inline-block;width:110px}
+.membership-confirmation #main div.logo a img{width:100%;height:auto}
+.membership-confirmation .page-entry-content{padding:30px 20px;border:1px solid #CCC;background-color:#FFF;width:100%;float:left}
