@@ -31,7 +31,6 @@ if($stickyPosts) {
 		if( $stickpost = get_post($stickyPostId) ) {
 			$stickyPostDate = $stickpost->post_date;
 		}
-		
 	}
 }
 
@@ -41,7 +40,7 @@ $not_in_categories = array('sponsored-post','commentaries');
 $big_post_args = array(
   'post_type' => 'post',
   'suppress_filters' => false, 
-  'posts_per_page' => 5,
+  'posts_per_page' => 4,
   'orderby' => 'date',
   'order' => 'DESC',
   'post_status' => 'publish',
@@ -168,45 +167,33 @@ if($stickyPostDate) {
 		<?php } ?>
 
 
-			<div id="emailBlockMobileView"></div>
-			<!--  MORE NEWS and COMMENTARY -->
-			<?php
-				$entries = getMoreNewsPosts();  
-				$commentaries = getCommentaryPosts();
-				$twoCol = ($entries && $commentaries) ? 'twocol':'onecol';
+		<div id="emailBlockMobileView"></div>
+
+		<!--  MORE NEWS and COMMENTARY -->
+		<?php
+			$entries = getMoreNewsPosts();  
+			$commentaries = getCommentaryPosts();
+			$twoCol = ($entries && $commentaries) ? 'twocol':'onecol';
+		?>
+		<?php if ($entries || $commentaries) { ?>
+		<div class="more-news-commentaries <?php echo $twoCol?>" style="margin-top:10px;">
+			<?php 
+				get_template_part( 'home-parts/more-news'); 
+				get_template_part( 'home-parts/commentary-posts');
 			?>
-			<?php if ($entries || $commentaries) { ?>
-			<div class="more-news-commentaries <?php echo $twoCol?>" style="margin-top:10px;">
-				<?php 
-					get_template_part( 'home-parts/more-news'); 
-					get_template_part( 'home-parts/commentary-posts');
-				?>
-			</div>	
-			<?php } ?>
+		</div>	
+		<?php } ?>
 	</div>
 
 
 
-	<?php /* RIGHT POSTS */ ?>
+	<!-- RIGHT POSTS -->
 	<div class="right stickRight">
-		<?php 
-			/* subscription form */
-			get_template_part( 'home-parts/subscribe-form');
-		?>
+
+		<?php  get_template_part( 'home-parts/subscribe-form'); ?>
 
 		<?php
 			$maxItems = 3;
-			$postWithVideos = (get_news_posts_with_videos()) ? get_news_posts_with_videos() : array();
-			if( isset($postWithVideos) && $postWithVideos ) {
-				if($rightPostItems) {
-					foreach($rightPostItems as $k=>$id) {
-						if(in_array($id,$postWithVideos)) {
-							unset($rightPostItems[$k]);
-						}
-					}
-				}
-			}
-
 			$right_posts = array();
 			if($rightPostItems) {
 				$right_post_count = count($rightPostItems);

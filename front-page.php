@@ -23,7 +23,6 @@ get_header(); ?>
 		$subscribe_button_name  = get_field('subscribe_button_name');
 		$show_instagram_feeds  = get_field('show_instagram_feeds','option');
 
-		//include( locate_template('home-parts/top.php') );
 		include( locate_template('home-parts/top-posts.php') );
 
 		if( $adsZone2 = get_ads_script('right-rail') ) { ?>
