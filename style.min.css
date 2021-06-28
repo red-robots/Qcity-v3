@@ -3203,7 +3203,8 @@ section.c-sponsor-block.sponsor-paid-wrapper .c-sponsor-image-link img.c-sponsor
 body.category.category-stories #content,body.single.single-story #content{margin-top:0;padding-top:104px}
 body.category.category-stories.logged-in.admin-bar #content,body.single.single-story.logged-in.admin-bar #content{padding-top:97px}
 body.category.category-stories .swp_floating_horizontal_wrapper.bottom,body.category.category-stories .ads_home_leaderboard,body.single.single-story .swp_floating_horizontal_wrapper.bottom,body.single.single-story .ads_home_leaderboard{display:none !important}
-.share-link{position:relative;visibility:hidden}
+@media screen and (max-width:782px){body.logged-in.admin-bar.page-template-page-newsletter #content{padding-top:20px}
+}.share-link{position:relative;visibility:hidden}
 @media(min-width:820px){.share-link{visibility:visible}
 }.share-link .share{display:none;position:absolute;top:32px;right:0;background:#e6e6e6;padding:0 15px}
 .share-link .share:before{content:"";display:block;width:0;height:0;border-bottom:10px solid #e6e6e6;border-left:10px solid transparent;border-right:10px solid transparent;position:absolute;top:-9px;right:15px}
@@ -4054,3 +4055,26 @@ body.page-template-page-membership-confirmation .donation-bottom-text p:last-chi
 .membership-confirmation #main div.logo a{display:inline-block;width:110px}
 .membership-confirmation #main div.logo a img{width:100%;height:auto}
 .membership-confirmation .page-entry-content{padding:20px 30px;border:1px solid #CCC;background-color:#FFF;width:100%;float:left;margin-bottom:70px}
+.newsletter-page-new{margin-top:60px;margin-bottom:60px}
+.newsletter-page-new #main{max-width:900px;width:100%;margin:0 auto}
+.newsletter-page-new .entry-content{max-width:500px;width:100%;margin:0 auto}
+.newsletter-page-new #mc_embed_signup form#mc-embedded-subscribe-form .indicates-required,.newsletter-page-new #mc_embed_signup form#mc-embedded-subscribe-form .asterisk,.newsletter-page-new #mc_embed_signup form#mc-embedded-subscribe-form label[for="mce-EMAIL"]{display:none}
+.newsletter-page-new #mc_embed_signup form#mc-embedded-subscribe-form .mc-field-group.email-field{max-width:500px;width:100%;margin:0 auto;position:relative}
+@media screen and (max-width:600px){.newsletter-page-new #mc_embed_signup form#mc-embedded-subscribe-form .mc-field-group.email-field{float:left;margin-bottom:30px}
+}.newsletter-page-new #mc_embed_signup form#mc-embedded-subscribe-form .mc-field-group.email-field input{-webkit-transition:all ease .3s;transition:all ease .3s}
+.newsletter-page-new #mc_embed_signup form#mc-embedded-subscribe-form .mc-field-group.email-field input[type="email"]{width:70%;float:left;padding:3px 5px;height:45px;line-height:45px;-webkit-appearance:none;-moz-appearance:none;appearance:none;border-radius:5px;border:1px solid #333;border:1px solid #afafaf;background:#FFF}
+.newsletter-page-new #mc_embed_signup form#mc-embedded-subscribe-form .mc-field-group.email-field input[type="email"]:focus{outline:0;border:1px solid #924020;box-shadow:0 0 10px rgba(0,0,0,0.1)}
+@media screen and (max-width:600px){.newsletter-page-new #mc_embed_signup form#mc-embedded-subscribe-form .mc-field-group.email-field input[type="email"]{width:100%}
+}.newsletter-page-new #mc_embed_signup form#mc-embedded-subscribe-form .mc-field-group.email-field input.button{width:26%;float:right;display:inline-block;position:relative;margin:0;padding:0;clear:none;height:45px;line-height:40px;border-radius:150px;background-color:#924020;color:#FFF}
+.newsletter-page-new #mc_embed_signup form#mc-embedded-subscribe-form .mc-field-group.email-field input.button:hover,.newsletter-page-new #mc_embed_signup form#mc-embedded-subscribe-form .mc-field-group.email-field input.button:focus{background-color:#c4a92f}
+@media screen and (max-width:600px){.newsletter-page-new #mc_embed_signup form#mc-embedded-subscribe-form .mc-field-group.email-field input.button{width:100%;float:left;margin-top:20px}
+}.newsletter-page-new #mc_embed_signup form#mc-embedded-subscribe-form .mc-field-group.input-group{margin-top:50px;padding:0;width:auto !important;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-justify-content:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+.newsletter-page-new #mc_embed_signup form#mc-embedded-subscribe-form .mc-field-group.input-group ul{margin:0;padding:0;list-style:none;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
+.newsletter-page-new #mc_embed_signup form#mc-embedded-subscribe-form .mc-field-group.input-group ul li{width:100%;margin:0;padding-bottom:20px;position:relative;overflow:hidden}
+@media(min-width:600px){.newsletter-page-new #mc_embed_signup form#mc-embedded-subscribe-form .mc-field-group.input-group ul li{width:50%}
+}.newsletter-page-new #mc_embed_signup form#mc-embedded-subscribe-form .mc-field-group.input-group ul li input[type="checkbox"]{visibility:hidden;position:absolute;top:0;left:0}
+.newsletter-page-new #mc_embed_signup form#mc-embedded-subscribe-form .mc-field-group.input-group ul li label{text-transform:uppercase;font-size:18px;font-weight:bold;line-height:1.2;position:relative;padding-left:35px;color:#000;display:none}
+.newsletter-page-new #mc_embed_signup form#mc-embedded-subscribe-form .mc-field-group.input-group ul li label:before{content:"";display:block;width:24px;height:24px;border-radius:100px;border:1px solid #777;position:absolute;top:0;left:0;background-color:#FFF}
+.newsletter-page-new #mc_embed_signup form#mc-embedded-subscribe-form .mc-field-group.input-group ul li input[type="checkbox"]:checked+label:before{background-color:#924020;border-color:#924020}
+.newsletter-page-new #mc_embed_signup form#mc-embedded-subscribe-form .mc-field-group.input-group ul li input[type="checkbox"]:checked+label:after{content:"";display:block;width:6px;height:10px;border-right:2px solid #FFF;border-bottom:2px solid #FFF;position:absolute;top:6px;left:9px;-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}
+.newsletter-page-new #mc_embed_signup form#mc-embedded-subscribe-form .mc-field-group.input-group ul li .option-description{padding-left:36px;padding-right:35px;margin-top:5px;margin-bottom:20px;font-size:15px;line-height:1.4}

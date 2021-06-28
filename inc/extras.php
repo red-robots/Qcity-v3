@@ -1560,6 +1560,7 @@ function no_top_ads($postid) {
     $templates[] = 'page-events-new.php';
     $templates[] = 'page-membership-new.php';
     $templates[] = 'page-membership-confirmation.php';
+    $templates[] = 'page-newsletter.php';
     $template_slug = get_page_template_slug($postid);
     $baseName = ($template_slug) ? basename($template_slug):'';
     $no_ads = array();
