@@ -241,7 +241,7 @@ if( $img ){
 			        <?php } ?>
 			        <?php if( $tickets != '' ) { ?>
 			        	<div class="fe-website btn event_website">
-			        		<a class="red btn-register" target="_blank" href="<?php echo $tickets; ?>">Tickets/Registration</a>
+			        		<a class="red" target="_blank" href="<?php echo $tickets; ?>">Tickets/Registration</a>
 			        	</div>
 			        <?php } ?>
 			        
@@ -251,9 +251,22 @@ if( $img ){
 			        	</div>
 			        <?php }   ?>
 
-		        	<div class="share mobile-version" style="margin-top:30px">
-						<?php get_template_part('template-parts/sharethis-socialmedia'); ?>
-					</div>
+			        	<div class="share mobile-version" style="margin-top:30px">
+								<?php get_template_part('template-parts/sharethis-socialmedia'); ?>
+								</div>
+
+							
+						<footer class="entry-footer mobile-version">
+							<?php 
+							$text = 'Have you signed up to receive our daily news and events listings?'; 
+							?>
+							<div class="side-offer">
+								<p><?php echo $text; ?></p>
+								<div class="btn">
+									<a class="white" href="<?php bloginfo('url'); ?>/email-signup">Subscribe</a>
+								</div>
+							</div>
+						</footer><!-- .entry-footer -->
 				</div>
 		    	
 			</div>
