@@ -29,19 +29,24 @@ get_header(); ?>
 	</div><!-- #primary -->
 </div>
 
-<?php $nDesc = get_field("newsletter_option_description"); ?>
+<?php if ( $nDesc = get_field("newsletter_option_description") ) { ?>
+<div id="newsletterTxtList" style="display:none">
+	<?php foreach ($nDesc as $nd) { 
+		if ($nd['text']) { echo '<div class="newsletter-desc option-description">'.$nd['text'].'</div>'; }
+	} ?>
+</div>	
+<?php } ?>
 <script>
 	jQuery(document).ready(function($){
-		<?php if($nDesc) { ?>
-			var newsletterText = JSON.parse('<?php echo json_encode($nDesc) ?>');
-			$("#newsletter-options li").each(function(k,v){
-				var target = $(this);
-				if( typeof $(newsletterText)[k] !='undefined' && $(newsletterText)[k]!=null ) {
-					target.append('<div class="option-description">'+$(newsletterText)[k].text+'</div>');
+		$("#newsletter-options li").each(function(k,v){
+			var target = $(this);
+			if ( $('div.newsletter-desc').length>0 ) {
+				if( typeof $('div.newsletter-desc').eq(k) !='undefined' && $('div.newsletter-desc').eq(k)!=null ) {
+					$('div.newsletter-desc').eq(k).appendTo(target);
 				}
-				target.find("label").show();
-			});
-		<?php } ?>
+			}
+			target.find("label").show();
+		});
 	});
 </script>
 <?php get_footer();
