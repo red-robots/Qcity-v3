@@ -32,7 +32,6 @@
       fetchMarginPercent: 0,  // Fetch slots as they come into view.
       renderMarginPercent: 0,  // Render slots as they come into view.
     }).enableSingleRequest();
-    //googletag.pubads().enableSingleRequest();
     googletag.enableServices();
   });
   
@@ -43,7 +42,6 @@
       fetchMarginPercent: 0,  // Fetch slots as they come into view.
       renderMarginPercent: 0,  // Render slots as they come into view.
     }).enableSingleRequest();
-    //googletag.pubads().enableSingleRequest();
     googletag.enableServices();
   });
 
@@ -54,7 +52,6 @@
       fetchMarginPercent: 0,  // Fetch slots as they come into view.
       renderMarginPercent: 0,  // Render slots as they come into view.
     }).enableSingleRequest();
-    //googletag.pubads().enableSingleRequest();
     googletag.pubads().collapseEmptyDivs();
     googletag.enableServices();
   });
@@ -66,25 +63,10 @@ window.googletag = window.googletag || {cmd: []};
       fetchMarginPercent: 0,  // Fetch slots as they come into view.
       renderMarginPercent: 0,  // Render slots as they come into view.
     }).enableSingleRequest();
-    //googletag.pubads().enableSingleRequest();
     googletag.enableServices();
   });
 </script>
-
-<!-- <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-<script>
-  window.googletag = window.googletag || {cmd: []};
-  googletag.cmd.push(function() {
-    googletag.defineSlot('/1009068/In-Story_Gutenbers', [[300, 250], [600, 200], [728, 90]], 'div-gpt-ad-1565127901858-0').addService(googletag.pubads());
-    googletag.pubads().enableSingleRequest();
-    googletag.enableServices();
-  });
-</script> -->
-<?php if( $ads_scripts = getHeaderScripts() ) {
-  foreach($ads_scripts as $js) {
-    echo $js;
-  }
-} ?>
+<?php if( $ads_scripts = getHeaderScripts() ) { foreach($ads_scripts as $js) { echo $js; } } ?>
 <script>
 var ajaxURL = "<?php echo admin_url('admin-ajax.php'); ?>";
 var assetsDIR = "<?php echo get_bloginfo("template_url") ?>/images/";
