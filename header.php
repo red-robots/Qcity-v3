@@ -28,21 +28,33 @@
   window.googletag = window.googletag || {cmd: []};
     googletag.cmd.push(function() {
     googletag.defineSlot('/1009068/In-Story_Gutenbers', [300, 250], 'div-gpt-ad-1563273598512-0').addService(googletag.pubads());
-    googletag.pubads().enableSingleRequest();
+    googletag.pubads().enableLazyLoad({
+      fetchMarginPercent: 0,  // Fetch slots as they come into view.
+      renderMarginPercent: 0,  // Render slots as they come into view.
+    }).enableSingleRequest();
+    //googletag.pubads().enableSingleRequest();
     googletag.enableServices();
   });
   
  window.googletag = window.googletag || {cmd: []};
     googletag.cmd.push(function() {
     googletag.defineSlot('/1009068/Gutenburg_720x90', [728, 90], 'div-gpt-ad-1563293411913-0').addService(googletag.pubads());
-    googletag.pubads().enableSingleRequest();
+    googletag.pubads().enableLazyLoad({
+      fetchMarginPercent: 0,  // Fetch slots as they come into view.
+      renderMarginPercent: 0,  // Render slots as they come into view.
+    }).enableSingleRequest();
+    //googletag.pubads().enableSingleRequest();
     googletag.enableServices();
   });
 
   window.googletag = window.googletag || {cmd: []};
     googletag.cmd.push(function() {
     googletag.defineSlot('/1009068/600x200', [600, 200], 'div-gpt-ad-1563224728772-0').addService(googletag.pubads());
-    googletag.pubads().enableSingleRequest();
+    googletag.pubads().enableLazyLoad({
+      fetchMarginPercent: 0,  // Fetch slots as they come into view.
+      renderMarginPercent: 0,  // Render slots as they come into view.
+    }).enableSingleRequest();
+    //googletag.pubads().enableSingleRequest();
     googletag.pubads().collapseEmptyDivs();
     googletag.enableServices();
   });
@@ -50,7 +62,11 @@
 window.googletag = window.googletag || {cmd: []};
   googletag.cmd.push(function() {
     googletag.defineSlot('/1009068/Trending', [300, 250], 'div-gpt-ad-1620161049302-0').addService(googletag.pubads());
-    googletag.pubads().enableSingleRequest();
+    googletag.pubads().enableLazyLoad({
+      fetchMarginPercent: 0,  // Fetch slots as they come into view.
+      renderMarginPercent: 0,  // Render slots as they come into view.
+    }).enableSingleRequest();
+    //googletag.pubads().enableSingleRequest();
     googletag.enableServices();
   });
 </script>
@@ -64,13 +80,11 @@ window.googletag = window.googletag || {cmd: []};
     googletag.enableServices();
   });
 </script> -->
-<?php 
-if( $ads_scripts = getHeaderScripts() ) {
+<?php if( $ads_scripts = getHeaderScripts() ) {
   foreach($ads_scripts as $js) {
     echo $js;
   }
-}
-?>
+} ?>
 <script>
 var ajaxURL = "<?php echo admin_url('admin-ajax.php'); ?>";
 var assetsDIR = "<?php echo get_bloginfo("template_url") ?>/images/";

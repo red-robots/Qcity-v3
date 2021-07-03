@@ -1389,4 +1389,19 @@ jQuery(document).ready(function ($) {
     }
 
 
+    // Sticky Ad Bottom Page
+    $("#stickyBottomAdClose").on("click",function(e){
+        e.preventDefault();
+        // $(this).toggleClass('active');
+        // $("#stickyBottomAd").toggleClass("show-ad");
+        $(this).hide();
+        $("#stickyBottomAdContent").slideToggle();
+        if( $("#stickyBottomAd").hasClass("show-ad") ) {
+            $(this).text("Hide Ad");
+        } else {
+            $(this).text("Show Ad");
+        }
+    });
+
+
 });// END #####################################    END
