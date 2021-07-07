@@ -77,17 +77,6 @@ $twitter = get_field('twitter_link', 'option');
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
-<?php 
-$stickyAdCode = get_field("stickyAdCode","option");
-$stickyAdEnable = get_field("stickyAdEnable","option");
-$is_sticky_on = ( isset($stickyAdEnable) && $stickyAdEnable=='on' ) ? true : false;
-?>
-<?php if ($is_sticky_on && $stickyAdCode) { ?>
-<div id="stickyBottomAd" class="show-ad">
-	<a id="stickyBottomAdClose"><span>Hide Ad</span></a>
-	<div id="stickyBottomAdContent" style="display:block"><?php echo $stickyAdCode ?></div>
-</div>
-<?php } ?>
 
 <?php
 get_template_part('template-parts/popups');

@@ -117,6 +117,14 @@ body.single-post .oakland-background.oakland-optin-visible.oakland-lightbox{disp
 if( $customHeadScripts = get_field("custom_scripts_inside_head","option") ) { 
   echo $customHeadScripts;
 } ?>
+
+<?php 
+$stickyHeaderCode = get_field("stickyHeaderCode","option"); 
+$stickyAdCode = get_field("stickyAdCode","option");
+$stickyAdEnable = get_field("stickyAdEnable","option");
+$is_sticky_on = ( isset($stickyAdEnable) && $stickyAdEnable=='on' ) ? true : false;
+if ($stickyHeaderCode) { echo $stickyHeaderCode; }
+?>
 </head>
 <?php
 $dd = date('d') - 1;
@@ -143,6 +151,14 @@ if( is_page() ) {
 
 ?>
 <body <?php body_class($bodyClass); ?> data-today="<?php echo date('Ymd') ?>" data-dates="<?php echo $start_end ?>" data-range="<?php echo $dateRange ?>">
+
+<?php if ( $is_sticky_on && ($stickyHeaderCode && $stickyAdCode) ) { ?>
+<div id="stickyBottomAd" class="show-ad">
+  <a id="stickyBottomAdClose"><span>Hide Ad</span></a>
+  <div id="stickyBottomAdContent" style="display:block"><?php echo $stickyAdCode ?></div>
+</div>
+<?php } ?>
+
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'acstarter' ); ?></a>
 
