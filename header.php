@@ -226,5 +226,5 @@ if( is_page() ) {
 
 	<div id="content" class="site-content mobile-body">
 
-  <?php get_template_part('template-parts/top-page-ads-backup'); ?>
+  <?php get_template_part('template-parts/top-page-ads'); ?>
    

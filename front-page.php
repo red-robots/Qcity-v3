@@ -30,7 +30,9 @@ get_header(); ?>
       <!--- AD ZONE 2 -->
       <div id="ads-zone-2" class="home-block-AD1 home-ad-fullwidth">
       	<div class="wrapper" style="max-width:1270px;width:100%;">
-      		<?php echo $adsZone2['ad_script'] ?>
+      		<?php //echo $adsZone2['ad_script'] ?>
+      		<!-- /1009068/inline_1  hard coded --> 
+      		<div id='div-gpt-ad-inline_1'> <script> googletag.cmd.push(function() { googletag.display('div-gpt-ad-inline_1'); }); </script> </div>
 				</div>
 			</div>
       <?php } ?>
@@ -46,7 +48,9 @@ get_header(); ?>
       <?php if ( isset($adsZone3['ad_script']) && $adsZone3['ad_script'] ) { ?>
       <!--- AD ZONE 3 -->
       <div id="ads-zone-3" class="home-block-AD3 home-ad-fullwidth">
-        <?php echo $adsZone3['ad_script'] ?>
+        <?php //echo $adsZone3['ad_script'] ?>
+        <!-- /1009068/inline_2 hard coded -->
+        <div id='div-gpt-ad-inline_2'> <script> googletag.cmd.push(function() { googletag.display('div-gpt-ad-inline_2'); }); </script> </div>
       </div>
       <?php } ?>
     <?php } ?>
@@ -61,7 +65,9 @@ get_header(); ?>
       <?php if ( isset($adsZone4['ad_script']) && $adsZone4['ad_script'] ) { ?>
       <!--- AD ZONE 4 -->
       <div id="ads-zone-4" class="home-block-AD4 home-ad-fullwidth">
-        <?php echo $adsZone4['ad_script'] ?>
+        <?php //echo $adsZone4['ad_script'] ?>
+        <!-- /1009068/inline_3 hard coded-->
+        <div id='div-gpt-ad-inline_3'> <script> googletag.cmd.push(function() { googletag.display('div-gpt-ad-inline_3'); }); </script> </div>
       </div>
       <?php } ?>
     <?php } ?>

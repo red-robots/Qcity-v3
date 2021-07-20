@@ -58,20 +58,29 @@
 	    <div class="desktop-version align-center">
 	    	<!-- Business Directory Home -->
 	        <?php $ads_bottom = get_ads_script('business-directory-home'); 
-	            echo $ads_bottom['ad_script'];
-	        ?>                
+	            //echo $ads_bottom['ad_script'];
+	        ?>   
+	        <!-- /1009068/inline_3 hard coded--> <div id='div-gpt-ad-inline_3'> <script> googletag.cmd.push(function() { googletag.display('div-gpt-ad-inline_3'); }); </script> </div>              
 	    </div>
 	    <!-- Business Directory Home -->
 		</div>
 
     <div class="mobile-version hearken" style="display:none!important">
     	<?php if( $right_rail = get_ads_script('right-rail') ) {  ?>
-			<div class="mobile-bottom-ads"><?php echo $right_rail['ad_script']; ?></div>
+			<div class="mobile-bottom-ads">
+				<?php //echo $right_rail['ad_script']; ?>
+					<!-- /1009068/inline_1 hard coded -->
+					<div id='div-gpt-ad-inline_1'> <script> googletag.cmd.push(function() { googletag.display('div-gpt-ad-inline_1'); }); </script> </div></div>
+    	    </div>
+
+				</div>
     	<?php } ?>
     </div>
 
     <div class="mobile-version" style="margin-top: 20px; text-align: center"> <!-- Business Directory Home -->
-    	<?php $biz_dir =  get_ads_script('business-directory-home'); echo $biz_dir['ad_script']  ?>                
+    	<?php $biz_dir =  get_ads_script('business-directory-home'); //echo $biz_dir['ad_script']  ?>    
+    	<!-- /1009068/inline_3 hard coded -->
+    	<div id='div-gpt-ad-inline_3'> <script> googletag.cmd.push(function() { googletag.display('div-gpt-ad-inline_3'); }); </script> </div>            
     </div> <!-- Business Directory Home -->
 
 
