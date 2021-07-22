@@ -309,20 +309,24 @@ add_filter('the_content', 'qcity_add_incontent_ad');
 function qcity_add_incontent_ad( $content )
 {   
     $hide_ads = (defined('HIDE_ADS') && HIDE_ADS ) ? true : false;
+
     if( is_single() && ( get_post_type() === 'post' ) && !$hide_ads ){
         $content_block  = explode('<p>',$content);
-        $ads_6th        = get_ads_script('single-article-after-6th-paragraph');
-        $ads_12th       = get_ads_script('single-article-after-12th-paragraph');
+        // changed after renaming the ads...
+        $ads_6th        = get_ads_script('event-zone-1');
+        $ads_12th       = get_ads_script('health-zone-1');
+        // $ads_6th        = get_ads_script('single-article-after-6th-paragraph');
+        // $ads_12th       = get_ads_script('single-article-after-12th-paragraph');
         if( !empty($content_block[7]) && $ads_6th)
         {               
             $content_block[7] .= '</div>
-                            <div class="brown-bar"><div class="qcity-ads-label">'. $ads_6th['ads_label'] .' <a href="'. $ads_6th['ads_link_url'] .'">'. $ads_6th['ads_link_text'] .'</a> </div>'. $ads_6th['ad_script'] .'</div>
+                            <div class="brown-bar b7"><div class="qcity-ads-label '.$hide_ads.'">'. $ads_6th['ads_label'] .' <a href="'. $ads_6th['ads_link_url'] .'">'. $ads_6th['ads_link_text'] .'</a> </div>'. $ads_6th['ad_script'] .'</div>
                             <div class="content-single-page">';
         }
         if( !empty($content_block[13]) && $ads_12th)
         {               
             $content_block[13] .= '</div>
-                            <div class="brown-bar"><div class="qcity-ads-label">'. $ads_12th['ads_label'] .' <a href="'. $ads_12th['ads_link_url'] .'">'. $ads_12th['ads_link_text'] .'</a> </div>'. $ads_12th['ad_script'] .'</div>
+                            <div class="brown-bar b13"><div class="qcity-ads-label '.$hide_ads.'">'. $ads_12th['ads_label'] .' <a href="'. $ads_12th['ads_link_url'] .'">'. $ads_12th['ads_link_text'] .'</a> </div>'. $ads_12th['ad_script'] .'</div>
                             <div class="content-single-page">';
         }
         for($i=1; $i<count($content_block); $i++)

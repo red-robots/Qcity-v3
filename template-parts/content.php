@@ -70,7 +70,9 @@ if( !defined('HIDE_ADS') ){
 	define('HIDE_ADS', $hide_ads);
 }
 
-
+// echo '<pre>';
+// print_r($hide_ads);
+// echo '</pre>';
 ?>
 
 
