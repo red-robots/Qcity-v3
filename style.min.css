@@ -4118,3 +4118,4 @@ body.page-template-page-membership-confirmation .donation-bottom-text p:last-chi
 #primary.single-post-newlayout .post-bottom-widgets .trending-widget-bottom a.wpp-post-title:hover{color:#c4a92f}
 #primary.single-post-newlayout .post-bottom-widgets .trending-widget-bottom a.wpp-post-title:hover:before{color:#924020}
 #primary.single-post-newlayout .content-single-page .wp-block-image{display:block}
+#primary.single-post-newlayout #main{overflow:hidden}
