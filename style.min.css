@@ -4111,7 +4111,7 @@ body.page-template-page-membership-confirmation .donation-bottom-text p:last-chi
 #primary.single-post-newlayout .post-bottom-widgets .trending-widget-bottom img{width:100%;height:auto}
 #primary.single-post-newlayout .post-bottom-widgets .trending-widget-bottom .wpp-list{margin:0;padding:0;list-style:none;counter-reset:listCounter}
 #primary.single-post-newlayout .post-bottom-widgets .trending-widget-bottom .wpp-list li{position:relative;padding-bottom:20px;margin-bottom:30px;border-bottom:1px solid #dedede}
-#primary.single-post-newlayout .post-bottom-widgets .trending-widget-bottom .wpp-list li a{display:block}
+#primary.single-post-newlayout .post-bottom-widgets .trending-widget-bottom .wpp-list li a{display:block;width:100%;float:left}
 #primary.single-post-newlayout .post-bottom-widgets .trending-widget-bottom .wpp-list li:last-child{border-bottom:0;padding-bottom:0;margin-bottom:0}
 #primary.single-post-newlayout .post-bottom-widgets .trending-widget-bottom a.wpp-post-title{margin-top:10px;counter-increment:listCounter;position:relative;padding-left:16px}
 #primary.single-post-newlayout .post-bottom-widgets .trending-widget-bottom a.wpp-post-title:before{content:counter(listCounter);display:inline-block;position:absolute;top:-3px;left:0;font-size:18px;font-weight:600}
