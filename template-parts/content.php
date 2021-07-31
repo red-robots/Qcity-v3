@@ -234,13 +234,20 @@ if( !defined('HIDE_ADS') ){
 			}
 			?>
 
-			<?php if ( function_exists('rp4wp_children') ) { ?>
-				<?php rp4wp_children(); ?>
-			<?php } ?>
+			<div class="post-bottom-widgets">
+				<div class="flexwrap">
+					<?php get_template_part( 'template-parts/trending-posts-widget-bottom');	?>
+
+					<?php if ( function_exists('rp4wp_children') ) { ?>
+						<?php rp4wp_children(); ?>
+					<?php } ?>
+				</div>
+			</div>
 
 			<?php //get_template_part( 'template-parts/sponsored-paid');
 				get_template_part( 'template-parts/sponsored-content-widget');
 			?>
+
 		</footer><!-- .entry-footer -->
 	</div>
 

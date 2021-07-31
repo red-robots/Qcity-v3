@@ -25,7 +25,7 @@ if($terms) {
 }
 $content_class = ($is_sponsored_post) ? 'is-sponsored-post':'normal-post';
 ?>
-<div id="primary" class="content-area-full single-post-newlayout <?php echo $content_class ?>">
+<div id="primary" class="content-area-full <?php echo $content_class ?>">
 	<main id="main" class="site-main" role="main">
 		<?php while ( have_posts() ) : the_post(); ?>
 		<div class="single-page">
@@ -87,8 +87,57 @@ $content_class = ($is_sponsored_post) ? 'is-sponsored-post':'normal-post';
 		</div>
 		<?php endwhile; ?>
 		
+
+		<?php if (!$is_sponsored_post) { ?>
+		<div id="singleSidebar" class="singleSidebar stickySidebar">
+			<?php 
+				$adList = array();
+				$ads = get_field("trending_ads","option");  
+				if($ads) {
+		  		foreach($ads as $ad_id) {
+		  			$adScript = get_field('ad_script',$ad_id);
+		  			if($adScript) {
+		  				$adList[] = $adScript;
+		  			}
+		  		}
+		  	}
+			?>
+
+			<?php if ($adList) { ?>
+	  	<div class="sideBarAds">
+	  		<?php foreach ($adList as $ad) { ?>
+	  			<div class="adBox"><?php echo $ad ?></div>
+	  		<?php } ?>
+	  	</div>
+	  	<?php } ?>
+
+			<?php get_template_part( 'template-parts/trending-posts-widget');	?>
+		</div>
+		<?php } ?>
+
+		<?php //get_sidebar('single-post'); ?>
 	</main>
 </div>
+<!-- 
+	#################################################
 
+			Hiding this for now. 
+
+			get_trending_articles() was causing too 
+			loaded of a query and causing the 
+			site to crash. 
+
+			Function is called in 'template-parts/single-footer-bottom-west-connect'
+			to exclude posts. Function has been commented out in 'inc/extras'
+
+
+#####################################################
+-->
+<!-- <div id="beforeFooter" class="items-before-footer">
+	<div class="content-area-full">			
+		<?php //get_template_part( 'template-parts/single-footer-bottom');	?>
+	</div>
+	<div class="clear"></div>
+</div> -->
 <?php 
 get_footer();

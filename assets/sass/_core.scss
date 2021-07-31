@@ -13140,4 +13140,137 @@ body.logged-in.admin-bar {
 	}
 }
 
+#primary.single-post-newlayout {
+	.single-page {
+		max-width: 100%!important;
+		width: 100%!important;
+		margin: 0 auto;
+		.wp-block-embed__wrapper {
+			margin-top: 30px;
+			margin-bottom: 30px;
+		}
+		.wp-block-embed .wp-block-embed__wrapper > div {
+			margin: 0 auto;
+		}
+		.brown-bar {
+			background: #f1f1f1;
+			padding: 20px 20px;
+			width: 100%;
+			position: relative;
+			overflow: visible;
+			&:before, &:after {
+				content:"";
+				display: block;
+				background: #f1f1f1;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+			}
+			&:before {
+				left: -50%;
+			}
+			&:after {
+				right: -50%;
+			}
+			div {
+				position: relative;
+				z-index: 5;
+			}
+			div[data-google-query-id] {
+				overflow: hidden;
+			}
+			.qcity-ads-label {
+				margin:0 auto;
+			}
+		}
+	}
+
+	.post-bottom-widgets {
+		width: 100%;
+		float: left;
+		.flexwrap {
+			@include flexgroup();
+			margin: 0 -20px;
+			@include mid {
+				@include flexbox-direction(row-reverse)
+			}
+		}
+		.rp4wp-related-post,.rp4wp-related-posts {
+			display: block!important;
+			width: 100%;
+			padding: 0 20px;
+			margin-bottom: 20px;
+			@include mid {
+				width: 60%;
+				margin-bottom: 0;
+			}
+		}
+		.trending-widget-bottom  {
+			width: 100%;
+			padding: 0 20px;
+			@include mid {
+				width: 40%;
+			}
+		}
+		.trending-widget-bottom {
+			margin-top: 20px;
+			margin-bottom: 50px;
+			.sbTitle {
+				margin-bottom: 20px;
+			}
+			img {
+				width: 100%;
+				height: auto;
+			}
+			.wpp-list {
+				margin: 0 0;
+				padding: 0 0;
+				list-style: none;
+				counter-reset: listCounter;
+				li {
+					position: relative;
+					a {
+						display: block;
+					}
+					padding-bottom: 20px;
+					margin-bottom: 30px;
+					border-bottom: 1px solid #dedede;
+				}
+				li:last-child {
+					border-bottom: none;
+					padding-bottom: 0;
+					margin-bottom: 0;
+				}
+			}
+			a.wpp-post-title {
+				margin-top: 10px;
+				counter-increment: listCounter;
+				position: relative;
+				padding-left: 16px;
+				&:before {
+					content: counter(listCounter);
+					display: inline-block;
+					position: absolute;
+					top: -3px;
+					left: 0;
+					font-size: 18px;
+					font-weight: 600;
+				}
+				&:hover {
+					color: $color-yellow;
+					&:before {
+						color: $color-red;
+					}
+				}
+			}
+
+		}
+		
+	}
+}
+
+
+
+
 
