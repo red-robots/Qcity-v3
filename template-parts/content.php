@@ -104,7 +104,7 @@ if( !defined('HIDE_ADS') ){
 		</div>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content">
+	<div class="entry-content entry-content-v2">
 		<div class="content-single-page">
 		<?php
 			the_content( sprintf(
