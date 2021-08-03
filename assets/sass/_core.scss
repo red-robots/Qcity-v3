@@ -13139,6 +13139,7 @@ body.logged-in.admin-bar {
 	}
 }
 
+body.single-post,
 #primary.single-post-newlayout {
 	.single-page {
 		max-width: 100%!important;
@@ -13366,7 +13367,11 @@ body.logged-in.admin-bar {
 			}
 		}
 	}
-
+	.content-single-page .gform_footer input.gform_button {
+		height: 35px;
+		top: 0;
+		padding: 11px 15px 10px !important;
+	}
 	@media screen and (max-width: 820px) {
 		.rp4wp-related-posts {
 			margin-top: 0!important;
