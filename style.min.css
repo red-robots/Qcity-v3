@@ -4095,8 +4095,8 @@ body.single-post .single-page .wp-block-embed__wrapper,#primary.single-post-newl
 body.single-post .single-page .wp-block-embed .wp-block-embed__wrapper>div,#primary.single-post-newlayout .single-page .wp-block-embed .wp-block-embed__wrapper>div{margin:0 auto}
 body.single-post .single-page .brown-bar,#primary.single-post-newlayout .single-page .brown-bar{background:#f1f1f1;padding:20px 20px;width:100%;position:relative;overflow:visible}
 body.single-post .single-page .brown-bar:before,body.single-post .single-page .brown-bar:after,#primary.single-post-newlayout .single-page .brown-bar:before,#primary.single-post-newlayout .single-page .brown-bar:after{content:"";display:block;background:#f1f1f1;width:100%;height:100%;position:absolute;top:0}
-body.single-post .single-page .brown-bar:before,#primary.single-post-newlayout .single-page .brown-bar:before{left:-50%}
-body.single-post .single-page .brown-bar:after,#primary.single-post-newlayout .single-page .brown-bar:after{right:-50%}
+body.single-post .single-page .brown-bar:before,#primary.single-post-newlayout .single-page .brown-bar:before{left:-45vw}
+body.single-post .single-page .brown-bar:after,#primary.single-post-newlayout .single-page .brown-bar:after{right:-45vw}
 body.single-post .single-page .brown-bar div,#primary.single-post-newlayout .single-page .brown-bar div{position:relative;z-index:5}
 body.single-post .single-page .brown-bar div[data-google-query-id],#primary.single-post-newlayout .single-page .brown-bar div[data-google-query-id]{overflow:hidden}
 body.single-post .single-page .brown-bar .qcity-ads-label,#primary.single-post-newlayout .single-page .brown-bar .qcity-ads-label{margin:0 auto}
