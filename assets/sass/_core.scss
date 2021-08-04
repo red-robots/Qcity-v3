@@ -61,7 +61,7 @@ header.entry-header {
 .fw-left {width:100%;float:left;}
 
 .entry-content {
-	font-size: 1.1rem;
+	font-size: 1.2rem;
 	line-height: 1.6;
 	&.contact {
 		font-size: 1.5rem;
@@ -13290,7 +13290,28 @@ body.single-post,
 
 		}
 		
-	
+		.rp4wp-related-post,
+		.rp4wp-related-posts {
+			ul {
+				li {
+					div.rp4wp_component_wrapper_right {
+						display: block;
+					}
+					div.rp4wp_component_title {
+						margin-bottom: 10px;
+					}
+					.rp4wp_component_5 {
+						height: auto!important;
+					}
+					div.rp4wp_component {
+						margin: 0 0 10px;
+						p {
+							margin: 0 0;
+						}
+					}
+				}
+			}
+		} 
 	}
 	.content-single-page {
 		.wp-block-image {
