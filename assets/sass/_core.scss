@@ -13172,10 +13172,10 @@ body.single-post,
 				top: 0;
 			}
 			&:before {
-				left: -50%;
+				left: -45vw;
 			}
 			&:after {
-				right: -50%;
+				right: -45vw;
 			}
 			div {
 				position: relative;
@@ -13361,7 +13361,7 @@ body.single-post,
 
 	.entry-content.entry-content-v2 {
 		div[data-google-query-id] {
-			background: #ececec;
+			background: #f1f1f1;
 			padding: 15px 15px;
 			position: relative;
 			margin-top: 30px;
@@ -13372,7 +13372,7 @@ body.single-post,
 				display: block;
 				width: 50vw;
 				height: 100%;
-				background: #ececec;
+				background: #f1f1f1;
 				position: absolute;
 				top: 0;
 			}
